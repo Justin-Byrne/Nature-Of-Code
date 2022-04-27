@@ -1,0 +1,9 @@
+### Xcode ###
+# Template for Xcode projects
+
+## Derived Bullshit
+**/DerivedData
+*.noindex/
+
+## User Settgins
+xcuserdata/
