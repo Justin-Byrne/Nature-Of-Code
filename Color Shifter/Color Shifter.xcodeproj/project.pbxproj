@@ -7,15 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F078F1F9281B11A100664DD6 /* colors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F078F1F7281B11A100664DD6 /* colors.cpp */; };
-		F078F214282055A900664DD6 /* helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F078F212282055A900664DD6 /* helpers.cpp */; };
-		F078F215282073C200664DD6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F06583162819AF68007312F9 /* main.cpp */; };
-		F078F2172821E09500664DD6 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F078F2162821E09500664DD6 /* libSDL2-2.0.0.dylib */; };
-		F078F2182821E09500664DD6 /* libSDL2-2.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = F078F2162821E09500664DD6 /* libSDL2-2.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		F078F207281C4FA500664DD6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F078F206281C4FA500664DD6 /* main.cpp */; };
+		F078F20F281C4FE200664DD6 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F078F20E281C4FE200664DD6 /* libSDL2-2.0.0.dylib */; };
+		F078F210281C4FE200664DD6 /* libSDL2-2.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = F078F20E281C4FE200664DD6 /* libSDL2-2.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		F06583112819AF68007312F9 /* CopyFiles */ = {
+		F078F201281C4FA500664DD6 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -24,13 +22,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		F078F2192821E09500664DD6 /* Embed Libraries */ = {
+		F078F211281C4FE200664DD6 /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F078F2182821E09500664DD6 /* libSDL2-2.0.0.dylib in Embed Libraries */,
+				F078F210281C4FE200664DD6 /* libSDL2-2.0.0.dylib in Embed Libraries */,
 			);
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,126 +36,92 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F06583132819AF68007312F9 /* Random Walker */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Random Walker"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F06583162819AF68007312F9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		F06583222819DE31007312F9 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../usr/local/Cellar/sdl2/2.0.20/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
-		F078F1F7281B11A100664DD6 /* colors.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = colors.cpp; sourceTree = "<group>"; };
-		F078F1F8281B11A100664DD6 /* colors.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = colors.hpp; sourceTree = "<group>"; };
-		F078F212282055A900664DD6 /* helpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = helpers.cpp; sourceTree = "<group>"; };
-		F078F213282055A900664DD6 /* helpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = helpers.hpp; sourceTree = "<group>"; };
-		F078F2162821E09500664DD6 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../usr/local/Cellar/sdl2/2.0.22/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
+		F078F203281C4FA500664DD6 /* Color Shifter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Color Shifter"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F078F206281C4FA500664DD6 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		F078F20E281C4FE200664DD6 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../usr/local/Cellar/sdl2/2.0.20/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F06583102819AF68007312F9 /* Frameworks */ = {
+		F078F200281C4FA500664DD6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F078F2172821E09500664DD6 /* libSDL2-2.0.0.dylib in Frameworks */,
+				F078F20F281C4FE200664DD6 /* libSDL2-2.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F065830A2819AF68007312F9 = {
+		F078F1FA281C4FA500664DD6 = {
 			isa = PBXGroup;
 			children = (
-				F06583152819AF68007312F9 /* Random Walker */,
-				F06583142819AF68007312F9 /* Products */,
-				F065831D2819B0D0007312F9 /* Frameworks */,
+				F078F205281C4FA500664DD6 /* Color Shifter */,
+				F078F204281C4FA500664DD6 /* Products */,
+				F078F20D281C4FE200664DD6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		F06583142819AF68007312F9 /* Products */ = {
+		F078F204281C4FA500664DD6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F06583132819AF68007312F9 /* Random Walker */,
+				F078F203281C4FA500664DD6 /* Color Shifter */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F06583152819AF68007312F9 /* Random Walker */ = {
+		F078F205281C4FA500664DD6 /* Color Shifter */ = {
 			isa = PBXGroup;
 			children = (
-				F078F1F4281B113300664DD6 /* include */,
-				F078F1F6281B116500664DD6 /* spice */,
-				F078F1F5281B115A00664DD6 /* source */,
-				F06583162819AF68007312F9 /* main.cpp */,
+				F078F206281C4FA500664DD6 /* main.cpp */,
 			);
-			path = "Random Walker";
+			path = "Color Shifter";
 			sourceTree = "<group>";
 		};
-		F065831D2819B0D0007312F9 /* Frameworks */ = {
+		F078F20D281C4FE200664DD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F078F2162821E09500664DD6 /* libSDL2-2.0.0.dylib */,
-				F06583222819DE31007312F9 /* libSDL2-2.0.0.dylib */,
+				F078F20E281C4FE200664DD6 /* libSDL2-2.0.0.dylib */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F078F1F4281B113300664DD6 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				F078F1F8281B11A100664DD6 /* colors.hpp */,
-				F078F213282055A900664DD6 /* helpers.hpp */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		F078F1F5281B115A00664DD6 /* source */ = {
-			isa = PBXGroup;
-			children = (
-				F078F212282055A900664DD6 /* helpers.cpp */,
-				F078F1F7281B11A100664DD6 /* colors.cpp */,
-			);
-			path = source;
-			sourceTree = "<group>";
-		};
-		F078F1F6281B116500664DD6 /* spice */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = spice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F06583122819AF68007312F9 /* Random Walker */ = {
+		F078F202281C4FA500664DD6 /* Color Shifter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F065831A2819AF68007312F9 /* Build configuration list for PBXNativeTarget "Random Walker" */;
+			buildConfigurationList = F078F20A281C4FA500664DD6 /* Build configuration list for PBXNativeTarget "Color Shifter" */;
 			buildPhases = (
-				F065830F2819AF68007312F9 /* Sources */,
-				F06583102819AF68007312F9 /* Frameworks */,
-				F06583112819AF68007312F9 /* CopyFiles */,
-				F078F2192821E09500664DD6 /* Embed Libraries */,
+				F078F1FF281C4FA500664DD6 /* Sources */,
+				F078F200281C4FA500664DD6 /* Frameworks */,
+				F078F201281C4FA500664DD6 /* CopyFiles */,
+				F078F211281C4FE200664DD6 /* Embed Libraries */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Random Walker";
-			productName = "Random Walker";
-			productReference = F06583132819AF68007312F9 /* Random Walker */;
+			name = "Color Shifter";
+			productName = "Color Shifter";
+			productReference = F078F203281C4FA500664DD6 /* Color Shifter */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F065830B2819AF68007312F9 /* Project object */ = {
+		F078F1FB281C4FA500664DD6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
-					F06583122819AF68007312F9 = {
+					F078F202281C4FA500664DD6 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
 			};
-			buildConfigurationList = F065830E2819AF68007312F9 /* Build configuration list for PBXProject "Random Walker" */;
+			buildConfigurationList = F078F1FE281C4FA500664DD6 /* Build configuration list for PBXProject "Color Shifter" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -165,31 +129,29 @@
 				en,
 				Base,
 			);
-			mainGroup = F065830A2819AF68007312F9;
-			productRefGroup = F06583142819AF68007312F9 /* Products */;
+			mainGroup = F078F1FA281C4FA500664DD6;
+			productRefGroup = F078F204281C4FA500664DD6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F06583122819AF68007312F9 /* Random Walker */,
+				F078F202281C4FA500664DD6 /* Color Shifter */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F065830F2819AF68007312F9 /* Sources */ = {
+		F078F1FF281C4FA500664DD6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F078F214282055A900664DD6 /* helpers.cpp in Sources */,
-				F078F1F9281B11A100664DD6 /* colors.cpp in Sources */,
-				F078F215282073C200664DD6 /* main.cpp in Sources */,
+				F078F207281C4FA500664DD6 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		F06583182819AF68007312F9 /* Debug */ = {
+		F078F208281C4FA500664DD6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -248,7 +210,7 @@
 			};
 			name = Debug;
 		};
-		F06583192819AF68007312F9 /* Release */ = {
+		F078F209281C4FA500664DD6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -300,27 +262,27 @@
 			};
 			name = Release;
 		};
-		F065831B2819AF68007312F9 /* Debug */ = {
+		F078F20B281C4FA500664DD6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/usr/local/Cellar/sdl2/2.0.22/lib,
+					/usr/local/Cellar/sdl2/2.0.20/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		F065831C2819AF68007312F9 /* Release */ = {
+		F078F20C281C4FA500664DD6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/usr/local/Cellar/sdl2/2.0.22/lib,
+					/usr/local/Cellar/sdl2/2.0.20/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -329,25 +291,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F065830E2819AF68007312F9 /* Build configuration list for PBXProject "Random Walker" */ = {
+		F078F1FE281C4FA500664DD6 /* Build configuration list for PBXProject "Color Shifter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F06583182819AF68007312F9 /* Debug */,
-				F06583192819AF68007312F9 /* Release */,
+				F078F208281C4FA500664DD6 /* Debug */,
+				F078F209281C4FA500664DD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F065831A2819AF68007312F9 /* Build configuration list for PBXNativeTarget "Random Walker" */ = {
+		F078F20A281C4FA500664DD6 /* Build configuration list for PBXNativeTarget "Color Shifter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F065831B2819AF68007312F9 /* Debug */,
-				F065831C2819AF68007312F9 /* Release */,
+				F078F20B281C4FA500664DD6 /* Debug */,
+				F078F20C281C4FA500664DD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F065830B2819AF68007312F9 /* Project object */;
+	rootObject = F078F1FB281C4FA500664DD6 /* Project object */;
 }

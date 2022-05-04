@@ -8,42 +8,51 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <vector>
+#include "include/colors.hpp"
+#include "include/helpers.hpp"
+
+#define MAX_DEPTH 10
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
 SDL_Window   *window    = NULL;
 SDL_Renderer *renderer  = NULL;
 
-int window_width        = 450;
-int window_height       = 450;
-bool run_loop           = true;
+int window_width  = 450;
+int window_height = 450;
+bool run_loop     = true;
+
+int colors[MAX_DEPTH][3] = { { 0 } };
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
-int setup_window( const char* title, int x_pos, int y_pos, int width, int height );
-int generate_random( int lower, int upper );
-void poll_events( );
+int setup_window ( const char* title, int x_pos, int y_pos, int width, int height );
+void generate_colors ( int start, int end );
+void main_loop ( );
+
+int walker_steps[MAX_DEPTH][2] = { { 0 } };
 
 #pragma mark - DATA STRUCTURES
 
-struct walker
+struct WALKER
 {
     int x = 0;
     int y = 0;
     
     time_t time_seed;
     
-    walker( int x, int y )
+    WALKER ( int x, int y )
     {
         this->x = x;
         this->y = y;
     }
     
-    void next_step( )
+    ~WALKER() { };
+    
+    void next_step ( )
     {
-        int rand_number = generate_random( 0, 7 );
-        
-        switch ( rand_number )
+        switch ( generate_random ( 0, 7 ) )
         {
             case 0:  this->y++;             break;  // up
             case 1:  this->y++; this->x++;  break;  // up right
@@ -59,18 +68,18 @@ struct walker
 
 #pragma mark - MAIN
 
-int main( int argc, char * arg[] )
+int main ( int argc, char * arg[] )
 {
-    setup_window( "Walker", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window_width, window_height );
+    setup_window ( "Walker", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window_width, window_height );
     
-    srand( (unsigned) time(0) );        // seed randomizer
+    srand ( (unsigned) time (0) );  // seed randomizer
     
-    poll_events( );
+    main_loop ( );
     
     /* - - - - - - clean up - - - - - - */
-    SDL_DestroyRenderer( renderer );
-    SDL_DestroyWindow( window );
-    SDL_Quit( );
+    SDL_DestroyRenderer ( renderer );
+    SDL_DestroyWindow ( window );
+    SDL_Quit ( );
     /* - - - - - - clean up - - - - - - */
 
     return 0;
@@ -79,18 +88,18 @@ int main( int argc, char * arg[] )
 #pragma mark - GLOBAL FUNCTIONS
 
 /*!
-    @brief                              Setup window
-    @param          title                                 Window title
-    @param          x_pos                                 Window's x position
-    @param          y_pos                                 Window's y position
-    @param          width                                 Window's width
-    @param          height                               Window's height
+    @brief                                  Setup window
+    @param          title                   Window title
+    @param          x_pos                   Window's x position
+    @param          y_pos                   Window's y position
+    @param          width                   Window's width
+    @param          height                  Window's height
  */
-int setup_window( const char* title, int x_pos, int y_pos, int width, int height )
+int setup_window ( const char* title, int x_pos, int y_pos, int width, int height )
 {
-    if ( SDL_Init(SDL_INIT_EVERYTHING) != 0 ) {  SDL_Log( "ERROR SDL_Init" );  return -1;  }
+    if ( SDL_Init (SDL_INIT_EVERYTHING) != 0 ) {  SDL_Log ( "ERROR SDL_Init" );  return -1;  }
     
-    window = SDL_CreateWindow(
+    window = SDL_CreateWindow (
         title,                          // window title
         x_pos,                          // x position, centered
         y_pos,                          // y position, centered
@@ -99,17 +108,17 @@ int setup_window( const char* title, int x_pos, int y_pos, int width, int height
         SDL_WINDOW_OPENGL               // flags
     );
     
-    if ( !window ) {  SDL_Log( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );  return -1; }
+    if ( !window ) {  SDL_Log ( "Window could not be created! SDL_Error: %s\n", SDL_GetError () );  return -1; }
 
-    renderer = SDL_CreateRenderer(
+    renderer = SDL_CreateRenderer (
         window,                         // window when rendering
         -1,                             // index of the rendering driver
         SDL_RENDERER_SOFTWARE           // rendering flags
     );
     
-    if ( !renderer ) {  SDL_Log( "Failed to load renderer! SDL_Error: %s\n", SDL_GetError() );  return -1; }
+    if ( !renderer ) {  SDL_Log ( "Failed to load renderer! SDL_Error: %s\n", SDL_GetError () );  return -1; }
     
-    SDL_SetRenderDrawColor(             // background color
+    SDL_SetRenderDrawColor (             // background color
         renderer,                       // rendering context
         255,                            // red value
         255,                            // green value
@@ -117,9 +126,9 @@ int setup_window( const char* title, int x_pos, int y_pos, int width, int height
         SDL_ALPHA_OPAQUE                // alpha value
     );
 
-    SDL_RenderClear( renderer );
+    SDL_RenderClear ( renderer );
     
-    SDL_SetRenderDrawColor(             // foreground color
+    SDL_SetRenderDrawColor (             // foreground color
         renderer,                       // rendering context
         0,                              // red value
         0,                              // green value
@@ -131,35 +140,75 @@ int setup_window( const char* title, int x_pos, int y_pos, int width, int height
 }
 
 /*!
-    @brief                              Generates a random number in the range passed
-    @param          lower                                 Lower bounds value
-    @param          upper                                 Upper bounds value
+    @brief                                  Generates a series of gray colors
+    @param          start                   Lowest number; preferable black... RGB values
+    @param          end                     Highest number, preferable white... RGB values
  */
-int generate_random( int lower, int upper )
+void generate_colors ( int start, int end )
 {
-    return ( rand() % (upper - lower + 1) ) + lower;
+    int i, j;
+    int difference = end / MAX_DEPTH;
+    
+    for ( i = 0; i < 3; i++ )
+        colors[0][i] = start;
+    
+    for ( i = 1; i < ( MAX_DEPTH - 1 ); i++ )
+        for ( j = 0; j < 3; j++ )
+            colors[i][j] = { i * difference };
+    
+    for ( i = 0; i < 3; i++ )
+        colors[MAX_DEPTH - 2][i] = end;
 }
 
 /*!
-    @brief                              Initiate poll events
+    @brief                                  Initiate poll events
  */
-void poll_events( )
+void main_loop ( )
 {
-    walker walker( window_width / 2, window_height / 2 );
+    WALKER walker ( window_width / 2, window_height / 2 );
     
-    while( run_loop )
+    generate_colors ( 0, 255 );
+    
+    while ( run_loop )
     {
         SDL_Event sdl_event;
         
-        SDL_RenderDrawPoint( renderer, walker.x, walker.y );
-
-        SDL_RenderPresent( renderer );
+        walker_steps[0][0] = walker.x;
+        walker_steps[0][1] = walker.y;
         
-        walker.next_step();
+        int i = 0;
         
-        while( SDL_PollEvent( &sdl_event )  )
+        while ( i < MAX_DEPTH)
         {
-            switch( sdl_event.type )
+            if ( walker_steps[i][0] > 0 && walker_steps[i][1] > 0 )
+            {
+                SDL_RenderDrawPoint ( renderer, walker_steps[i][0], walker_steps[i][1] );
+                
+                SDL_SetRenderDrawColor (    // foreground color
+                    renderer,               // rendering context
+                    colors[i][0],           // red value
+                    colors[i][1],           // green value
+                    colors[i][2],           // blue value
+                    SDL_ALPHA_OPAQUE        // alpha value
+                );
+                
+                SDL_RenderPresent ( renderer );
+            }
+            else
+            {
+                break;
+            }
+            
+            i++;
+        }
+        
+        array_shift ( walker_steps, MAX_DEPTH, 2, false, 1 );
+        
+        walker.next_step ();
+        
+        while ( SDL_PollEvent ( &sdl_event )  )
+        {
+            switch ( sdl_event.type )
             {
                 case SDL_QUIT:
                     run_loop = false;
