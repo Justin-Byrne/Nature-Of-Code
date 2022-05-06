@@ -12,9 +12,9 @@
 
 int generate_random ( int lower, int upper );
 
-//void array_shift ( int * array, int SIZE_1D, bool shift_left, int positions_to_shift );
+void array_shift ( int * array, int SIZE_1D, bool shift_left, int positions_to_shift );
 
-//void array_shift ( int ** array, int SIZE_1D, int SIZE_2D, bool shift_left, int positions_to_shift );
+void array_shift ( int ** array, int SIZE_1D, int SIZE_2D, bool shift_left, int positions_to_shift );
 
 void array_shift ( int array[][2], int SIZE_1D, int SIZE_2D, bool shift_left, int positions_to_shift );
 

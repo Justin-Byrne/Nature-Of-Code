@@ -26,39 +26,39 @@ int generate_random ( int lower, int upper )
     @param          shift_left              Shift left: true | false
     @param          positions_to_shift      Amount of positions to shift
  */
-//void array_shift ( int * array, int SIZE_1D, bool shift_left, int positions_to_shift )
-//{
-//    int i = 0;
-//    int temp;
-//    
-//    while ( positions_to_shift )
-//    {
-//        if ( shift_left )                                   // - - - - - < SHIFT LEFT - - - - -  
-//        {
-//            temp = array[0];                                // Copy beginning of array
-//            
-//            for ( i = 0; i < SIZE_1D; i++ )                 // SHIFT
-//            {
-//                array[i] = array[i + 1];
-//            }
-//            
-//            array[SIZE_1D - 1] = temp;                      // Replace end of array
-//        }
-//        else                                                // - - - - - > SHIFT RIGHT - - - - -  
-//        {
-//            temp = array[SIZE_1D - 1];                      // Copy end of array
-//            
-//            for ( i = SIZE_1D - 1; i > 0; i-- )             // SHIFT
-//            {
-//                array[i] = array[i - 1];
-//            }
-//            
-//            array[0] = temp;                                // Replace beginning of array
-//        }
-//        
-//        positions_to_shift--;
-//    }
-//}
+void array_shift ( int * array, int SIZE_1D, bool shift_left, int positions_to_shift )
+{
+    int i = 0;
+    int temp;
+    
+    while ( positions_to_shift )
+    {
+        if ( shift_left )                                   // - - - - - < SHIFT LEFT - - - - -
+        {
+            temp = array[0];                                // Copy beginning of array
+            
+            for ( i = 0; i < SIZE_1D; i++ )                 // SHIFT
+            {
+                array[i] = array[i + 1];
+            }
+            
+            array[SIZE_1D - 1] = temp;                      // Replace end of array
+        }
+        else                                                // - - - - - > SHIFT RIGHT - - - - -
+        {
+            temp = array[SIZE_1D - 1];                      // Copy end of array
+            
+            for ( i = SIZE_1D - 1; i > 0; i-- )             // SHIFT
+            {
+                array[i] = array[i - 1];
+            }
+            
+            array[0] = temp;                                // Replace beginning of array
+        }
+        
+        positions_to_shift--;
+    }
+}
 
 /*!
     @brief                                  Shifts an array by the supplied value(s)
