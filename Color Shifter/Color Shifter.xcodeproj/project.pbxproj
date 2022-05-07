@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F078F207281C4FA500664DD6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F078F206281C4FA500664DD6 /* main.cpp */; };
-		F078F20F281C4FE200664DD6 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F078F20E281C4FE200664DD6 /* libSDL2-2.0.0.dylib */; };
-		F078F210281C4FE200664DD6 /* libSDL2-2.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = F078F20E281C4FE200664DD6 /* libSDL2-2.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		F078F21C2825BC9900664DD6 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F078F21B2825BC9900664DD6 /* libSDL2-2.0.0.dylib */; };
+		F078F2222825C1D400664DD6 /* colors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F078F2202825C1D400664DD6 /* colors.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,7 +28,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F078F210281C4FE200664DD6 /* libSDL2-2.0.0.dylib in Embed Libraries */,
 			);
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,7 +37,9 @@
 /* Begin PBXFileReference section */
 		F078F203281C4FA500664DD6 /* Color Shifter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Color Shifter"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F078F206281C4FA500664DD6 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		F078F20E281C4FE200664DD6 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../usr/local/Cellar/sdl2/2.0.20/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
+		F078F21B2825BC9900664DD6 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../usr/local/Cellar/sdl2/2.0.22/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
+		F078F2202825C1D400664DD6 /* colors.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = colors.cpp; sourceTree = "<group>"; };
+		F078F2212825C1D400664DD6 /* colors.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = colors.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F078F20F281C4FE200664DD6 /* libSDL2-2.0.0.dylib in Frameworks */,
+				F078F21C2825BC9900664DD6 /* libSDL2-2.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +74,9 @@
 		F078F205281C4FA500664DD6 /* Color Shifter */ = {
 			isa = PBXGroup;
 			children = (
+				F078F21D2825C15B00664DD6 /* include */,
+				F078F21E2825C17100664DD6 /* spice */,
+				F078F21F2825C18900664DD6 /* source */,
 				F078F206281C4FA500664DD6 /* main.cpp */,
 			);
 			path = "Color Shifter";
@@ -81,9 +85,32 @@
 		F078F20D281C4FE200664DD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F078F20E281C4FE200664DD6 /* libSDL2-2.0.0.dylib */,
+				F078F21B2825BC9900664DD6 /* libSDL2-2.0.0.dylib */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F078F21D2825C15B00664DD6 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				F078F2212825C1D400664DD6 /* colors.hpp */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		F078F21E2825C17100664DD6 /* spice */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = spice;
+			sourceTree = "<group>";
+		};
+		F078F21F2825C18900664DD6 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				F078F2202825C1D400664DD6 /* colors.cpp */,
+			);
+			path = source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F078F207281C4FA500664DD6 /* main.cpp in Sources */,
+				F078F2222825C1D400664DD6 /* colors.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,8 +296,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/sdl2/2.0.22/lib,
 					"$(inherited)",
-					/usr/local/Cellar/sdl2/2.0.20/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -281,8 +309,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/sdl2/2.0.22/lib,
 					"$(inherited)",
-					/usr/local/Cellar/sdl2/2.0.20/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

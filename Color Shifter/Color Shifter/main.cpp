@@ -8,38 +8,23 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "include/colors.hpp"
 #include <math.h>
 
-#define PI 3.141592653589793
-#define FREQUENCY 0.15
-#define AMPLITUDE 255 / 2
-#define CENTER    255 / 2
-
-#define RANGE_OLD_MIN  -1
-#define RANGE_OLD_MAX   1
-#define RANGE_NEW_MIN   0
-#define RANGE_NEW_MAX 255
-
-#define PHASE_1 0
-#define PHASE_2 2
-#define PHASE_3 4
-
-double range_old = RANGE_OLD_MAX - RANGE_OLD_MIN;
-double range_new = RANGE_NEW_MAX - RANGE_NEW_MIN;
+#define RECTANGLE_SIZE 16
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
-SDL_Window   *window    = NULL;
-SDL_Renderer *renderer  = NULL;
+SDL_Window   * window   = NULL;
+SDL_Renderer * renderer = NULL;
 
-int window_width        = 450;
-int window_height       = 450;
+int window_width        = 464;
+int window_height       = 464;
 bool run_loop           = true;
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
 int setup_window( const char* title, int x_pos, int y_pos, int width, int height );
-int get_color_value( );
 void poll_events( );
 
 #pragma mark - MAIN
@@ -95,72 +80,78 @@ int setup_window( const char* title, int x_pos, int y_pos, int width, int height
     return 0;
 }
 
-int i     = 0;
-int calls = 0;      // tracks amount of times 'get_color_value()' is called to identify when to shift 'i'
-
-int get_color_value( int phase )
-{
-    double sin_value = sin( ( FREQUENCY * i + phase ) * AMPLITUDE + CENTER );
-    double new_value = ( ( ( sin_value - RANGE_OLD_MIN ) * range_new ) / range_old ) + RANGE_NEW_MIN;
-    
-    switch ( calls )
-    {
-        case 2:  calls = 0; i++;  break;
-        default: calls++;         break;
-    }
-    
-    return int ( (int) round( new_value ) );
-}
-
-int * get_color_values ( )
-{
-    return new int[3] { get_color_value( PHASE_1 ), get_color_value( PHASE_2 ), get_color_value( PHASE_3 ) };
-}
-
-int * get_gray_values ( )
-{
-    return new int[3] { get_color_value( PHASE_1 ), get_color_value( PHASE_1 ), get_color_value( PHASE_1 ) };
-}
-
 /*!
     @brief                              Initiate poll events
  */
 void poll_events( )
 {
+    int i = 0;
+    
+    int horz_align = 0;
+    int vert_align = 0;
+    
+    int screen_dimensions = ( ( window_width / RECTANGLE_SIZE ) * ( window_height / RECTANGLE_SIZE ) );
+    
+    SDL_Rect rectangles[screen_dimensions];
+    
     while( run_loop )
     {
         SDL_Event sdl_event;
+
+        int x_coord = RECTANGLE_SIZE * horz_align;
+        int y_coord = RECTANGLE_SIZE * vert_align;
         
-//        int RED   = get_color_value( PHASE_1 );
-//        int GREEN = get_color_value( PHASE_2 );
-//        int BLUE  = get_color_value( PHASE_3 );
+        if ( ( x_coord + y_coord ) >= screen_dimensions )
+        {
+            run_loop = false;
+            SDL_Delay(50000);
+            
+            continue;
+        }
+        
+        if ( x_coord >= ( window_width ) )
+        {
+            horz_align = 0;
+            vert_align++;
+
+            continue;
+        }
+        
+        rectangles[i] = { x_coord, y_coord, RECTANGLE_SIZE, RECTANGLE_SIZE };
         
         int * colors = { get_gray_values( ) };
         
         SDL_SetRenderDrawColor(         // background color
+            renderer,                   // rendering context
+            255,                        // red value
+            255,                        // green value
+            255,                        // blue value
+            SDL_ALPHA_OPAQUE            // alpha value
+        );
+        
+        SDL_SetRenderDrawColor(         // foreground color
             renderer,                   // rendering context
             colors[0],                  // red value
             colors[1],                  // green value
             colors[2],                  // blue value
             SDL_ALPHA_OPAQUE            // alpha value
         );
+
+        SDL_RenderFillRect ( renderer, &rectangles[i] );
+        
+        SDL_RenderPresent( renderer );
         
         delete colors;
         
-        SDL_RenderClear( renderer );
+        i++;
+        horz_align++;
         
-        SDL_RenderPresent( renderer );
-
-        SDL_Delay( 100 );
-        
-        while( SDL_PollEvent( &sdl_event )  )
+        while ( SDL_PollEvent ( &sdl_event )  )
         {
-            switch( sdl_event.type )
-            {
-                case SDL_QUIT:
-                    run_loop = false;
-                    break;
-            }
+            if ( sdl_event.type == SDL_QUIT )
+                run_loop = false;
+            else
+                break;
         }
     }
 }

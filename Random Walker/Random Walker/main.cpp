@@ -37,8 +37,8 @@ int walker_steps[WALKER_MAX][MAX_DEPTH][2] = { { 0 } };
 
 struct WALKER
 {
-    int x     = 0;
-    int y     = 0;
+    int x = 0;
+    int y = 0;
     
     time_t time_seed;
     
@@ -65,6 +65,11 @@ struct WALKER
             case 6:  this->x--;             break;  // left
             case 7:  this->y++; this->x--;  break;  // up left
         }
+        
+        if ( x <= 0 ) x++;              // Basic collision code
+        if ( y <= 0 ) y++;
+        if ( x >= window_width  ) x--;
+        if ( y >= window_height ) y--;
     }
 };
 
@@ -120,7 +125,7 @@ int setup_window ( const char* title, int x_pos, int y_pos, int width, int heigh
     
     if ( !renderer ) {  SDL_Log ( "Failed to load renderer! SDL_Error: %s\n", SDL_GetError () );  return -1; }
     
-    SDL_SetRenderDrawColor (             // background color
+    SDL_SetRenderDrawColor (            // background color
         renderer,                       // rendering context
         255,                            // red value
         255,                            // green value
@@ -130,13 +135,14 @@ int setup_window ( const char* title, int x_pos, int y_pos, int width, int heigh
 
     SDL_RenderClear ( renderer );
     
-    SDL_SetRenderDrawColor (             // foreground color
-        renderer,                       // rendering context
-        0,                              // red value
-        0,                              // green value
-        0,                              // blue value
-        SDL_ALPHA_OPAQUE                // alpha value
-    );
+//
+//    SDL_SetRenderDrawColor (            // foreground color
+//        renderer,                       // rendering context
+//        0,                              // red value
+//        0,                              // green value
+//        0,                              // blue value
+//        SDL_ALPHA_OPAQUE                // alpha value
+//    );
     
     return 0;
 }
@@ -169,12 +175,10 @@ void main_loop ( )
 {
     WALKER walker[WALKER_MAX];
 
-    int iter;
+    int i, j;
     
-    for ( iter = 0; iter < WALKER_MAX; iter++ )
-    {
-        walker[iter] = { generate_random ( 0, window_width ), generate_random ( 0, window_height ) };
-    }
+    for ( i = 0; i < WALKER_MAX; i++ )
+        walker[i] = { generate_random ( 0, window_width ), generate_random ( 0, window_height ) };
     
     generate_colors ( 0, 255 );
     
@@ -182,8 +186,6 @@ void main_loop ( )
     
     while ( run_loop )
     {
-        int i, j;
-        
         for ( i = 0; i < WALKER_MAX; i++ ) {  walker_steps[i][0][0] = walker[i].x;  walker_steps[i][0][1] = walker[i].y;  }
         
         i = 0;
