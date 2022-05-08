@@ -12,7 +12,7 @@
 #include "include/helpers.hpp"
 
 #define WALKER_MAX 500
-#define MAX_DEPTH  10
+#define MAX_DEPTH   10
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -23,15 +23,14 @@ int window_width  = 450;
 int window_height = 450;
 bool run_loop     = true;
 
-int colors[MAX_DEPTH][3] = { { 0 } };
+int colors[MAX_DEPTH][3]                   = { { 0 } };
+int walker_steps[WALKER_MAX][MAX_DEPTH][2] = { { 0 } };
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
 int setup_window ( const char* title, int x_pos, int y_pos, int width, int height );
 void generate_colors ( int start, int end );
 void main_loop ( );
-
-int walker_steps[WALKER_MAX][MAX_DEPTH][2] = { { 0 } };
 
 #pragma mark - DATA STRUCTURES
 
@@ -48,9 +47,9 @@ struct WALKER
         this->y = y;
     }
     
-    WALKER() { };
+    WALKER ( ) { };
     
-    ~WALKER() { };
+    ~WALKER ( ) { };
     
     void next_step ( )
     {
@@ -66,7 +65,7 @@ struct WALKER
             case 7:  this->y++; this->x--;  break;  // up left
         }
         
-        if ( x <= 0 ) x++;              // Basic collision code
+        if ( x <= 0 ) x++;              // Basic collision code for bounds of window
         if ( y <= 0 ) y++;
         if ( x >= window_width  ) x--;
         if ( y >= window_height ) y--;
@@ -79,7 +78,7 @@ int main ( int argc, char * arg[] )
 {
     setup_window ( "Walker", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window_width, window_height );
     
-    srand ( (unsigned) time (0) );  // seed randomizer
+    srand ( (unsigned) time (0) );      // seed randomizer
     
     main_loop ( );
     
@@ -154,16 +153,21 @@ int setup_window ( const char* title, int x_pos, int y_pos, int width, int heigh
  */
 void generate_colors ( int start, int end )
 {
-    int i, j;
+    if ( MAX_DEPTH > 255 || end > 255 )
+    {
+        printf ( "Maximum values for 'MAX_DEPTH' and 'end' variables are 255! " );
+        run_loop = false;
+    }
+    
     int difference = end / MAX_DEPTH;
     
     for ( i = 0; i < 3; i++ )
         colors[0][i] = start;
     
     for ( i = 1; i < ( MAX_DEPTH - 1 ); i++ )
-        for ( j = 0; j < 3; j++ )
+        for ( int j = 0; j < 3; j++ )
             colors[i][j] = { i * difference };
-    
+
     for ( i = 0; i < 3; i++ )
         colors[MAX_DEPTH - 2][i] = end;
 }
@@ -173,53 +177,46 @@ void generate_colors ( int start, int end )
  */
 void main_loop ( )
 {
+    SDL_Event sdl_event;
+    
     WALKER walker[WALKER_MAX];
-
-    int i, j;
     
     for ( i = 0; i < WALKER_MAX; i++ )
         walker[i] = { generate_random ( 0, window_width ), generate_random ( 0, window_height ) };
     
     generate_colors ( 0, 255 );
     
-    SDL_Event sdl_event;
-    
     while ( run_loop )
     {
-        for ( i = 0; i < WALKER_MAX; i++ ) {  walker_steps[i][0][0] = walker[i].x;  walker_steps[i][0][1] = walker[i].y;  }
-        
-        i = 0;
-        
-        while ( i < MAX_DEPTH )
+        for ( i = 0; i < WALKER_MAX; i++ )                  // Init: first element for 'walker_steps' for each 'walker' set by WALKER_MAX
         {
-            if ( walker_steps[0][i][0] > 0 && walker_steps[0][i][1] > 0 )
-            {
-                for ( j = 0; j < WALKER_MAX; j++ )
-                    SDL_RenderDrawPoint ( renderer, walker_steps[j][i][0], walker_steps[j][i][1] );
-                
-                SDL_SetRenderDrawColor (    // foreground color
-                    renderer,               // rendering context
-                    colors[i][0],           // red value
-                    colors[i][1],           // green value
-                    colors[i][2],           // blue value
-                    SDL_ALPHA_OPAQUE        // alpha value
-                );
-                
-                SDL_RenderPresent ( renderer );
-            }
-            else
-            {
-                break;
-            }
+            walker_steps[i][0][0] = walker[i].x;
+            walker_steps[i][0][1] = walker[i].y;
+        }
+  
+        for ( i = 0; i < MAX_DEPTH; i++ )                   // Render: 'walker_steps'
+        {
+            for ( int j = 0; j < WALKER_MAX; j++ )
+                SDL_RenderDrawPoint ( renderer, walker_steps[j][i][0], walker_steps[j][i][1] );
             
-            i++;
+            SDL_SetRenderDrawColor (    // foreground color
+                renderer,               // rendering context
+                colors[i][0],           // red value
+                colors[i][1],           // green value
+                colors[i][2],           // blue value
+                SDL_ALPHA_OPAQUE        // alpha value
+            );
         }
         
-        for ( i = 0; i < WALKER_MAX; i++ )
+        SDL_RenderPresent ( renderer );                     // Update: renderer
+        
+        for ( i = 0; i < WALKER_MAX; i++ )                  // Array shift all 'walker_steps'
             array_shift ( walker_steps[i], MAX_DEPTH, 2, false, 1 );
         
-        for ( i = 0; i < WALKER_MAX; i++ )
-            walker[i].next_step ();
+        for ( i = 0; i < WALKER_MAX; i++ )                  // Init: next 'walker' step
+            walker[i].next_step ( );
+        
+        SDL_Delay ( 50 );
         
         while ( SDL_PollEvent ( &sdl_event )  )
         {
