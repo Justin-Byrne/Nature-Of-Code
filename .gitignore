@@ -2,7 +2,10 @@
 # Template for Xcode projects
 
 ## Derived Bullshit
-**/DerivedData
+!DerivedData/
+
+DerivedData/*
+# **/DerivedData
 *.noindex/
 
 ## User Settgins

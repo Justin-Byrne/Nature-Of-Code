@@ -1,0 +1,3173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>00AC25AC-89E6-4B02-B35B-F14EBF7A5978</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>00AC25AC-89E6-4B02-B35B-F14EBF7A5978.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674354449.01248395</real>
+			<key>timeStoppedRecording</key>
+			<real>674354473.47737205</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>00AC25AC-89E6-4B02-B35B-F14EBF7A5978</string>
+		</dict>
+		<key>02817AFA-AB5A-4F71-B61E-4A620DDD74C2</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>02817AFA-AB5A-4F71-B61E-4A620DDD74C2.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674414499.41348696</real>
+			<key>timeStoppedRecording</key>
+			<real>674414523.52734196</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>02817AFA-AB5A-4F71-B61E-4A620DDD74C2</string>
+		</dict>
+		<key>0329B1DB-1459-43C6-BF2E-CFDFA8F3D395</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>0329B1DB-1459-43C6-BF2E-CFDFA8F3D395.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674341365.84364498</real>
+			<key>timeStoppedRecording</key>
+			<real>674341411.04770601</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>0329B1DB-1459-43C6-BF2E-CFDFA8F3D395</string>
+		</dict>
+		<key>047DA478-BDD4-4923-B70C-911ABE220AD0</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>047DA478-BDD4-4923-B70C-911ABE220AD0.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674346893.47338295</real>
+			<key>timeStoppedRecording</key>
+			<real>674346899.77793705</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>047DA478-BDD4-4923-B70C-911ABE220AD0</string>
+		</dict>
+		<key>04D9494B-E4A3-46F5-8E8C-A5A5E3DFDA58</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>04D9494B-E4A3-46F5-8E8C-A5A5E3DFDA58.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674345386.26222003</real>
+			<key>timeStoppedRecording</key>
+			<real>674345429.77811897</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>04D9494B-E4A3-46F5-8E8C-A5A5E3DFDA58</string>
+		</dict>
+		<key>04D96666-210C-4BD8-9A93-37BE2B169B17</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>04D96666-210C-4BD8-9A93-37BE2B169B17.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674343353.82199597</real>
+			<key>timeStoppedRecording</key>
+			<real>674343367.71042299</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>04D96666-210C-4BD8-9A93-37BE2B169B17</string>
+		</dict>
+		<key>0DEA450B-BBFD-4E4A-988A-78919CF4DB33</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>0DEA450B-BBFD-4E4A-988A-78919CF4DB33.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674355312.08678699</real>
+			<key>timeStoppedRecording</key>
+			<real>674355318.86307096</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>0DEA450B-BBFD-4E4A-988A-78919CF4DB33</string>
+		</dict>
+		<key>14E76922-9E92-4E3A-96E4-6FB49D895FA8</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>14E76922-9E92-4E3A-96E4-6FB49D895FA8.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674345435.99718797</real>
+			<key>timeStoppedRecording</key>
+			<real>674345449.08742404</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>14E76922-9E92-4E3A-96E4-6FB49D895FA8</string>
+		</dict>
+		<key>185FD809-01DA-4CC0-9E06-51C935944E94</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>185FD809-01DA-4CC0-9E06-51C935944E94.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674355539.41475904</real>
+			<key>timeStoppedRecording</key>
+			<real>674355560.26473904</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>185FD809-01DA-4CC0-9E06-51C935944E94</string>
+		</dict>
+		<key>1D8B7AD3-4F64-4B5B-9ED8-CBAEC4BB5A18</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>1D8B7AD3-4F64-4B5B-9ED8-CBAEC4BB5A18.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674355746.57122397</real>
+			<key>timeStoppedRecording</key>
+			<real>674355757.88428497</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>1D8B7AD3-4F64-4B5B-9ED8-CBAEC4BB5A18</string>
+		</dict>
+		<key>1E1196D0-E405-47B9-A271-1F9FF8FFE015</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>1E1196D0-E405-47B9-A271-1F9FF8FFE015.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674347506.86587298</real>
+			<key>timeStoppedRecording</key>
+			<real>674347514.19895399</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>1E1196D0-E405-47B9-A271-1F9FF8FFE015</string>
+		</dict>
+		<key>245D2BEF-D076-46C3-ADC4-EC3046EC52CD</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>245D2BEF-D076-46C3-ADC4-EC3046EC52CD.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674274924.75215697</real>
+			<key>timeStoppedRecording</key>
+			<real>674274953.18925202</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>245D2BEF-D076-46C3-ADC4-EC3046EC52CD</string>
+		</dict>
+		<key>272FFCC3-084E-467B-871C-1CE0E5A19BD7</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>272FFCC3-084E-467B-871C-1CE0E5A19BD7.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674342905.25069499</real>
+			<key>timeStoppedRecording</key>
+			<real>674342923.55454695</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>272FFCC3-084E-467B-871C-1CE0E5A19BD7</string>
+		</dict>
+		<key>2A485FFE-E5ED-41F2-B317-DA73917C6C6B</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>2A485FFE-E5ED-41F2-B317-DA73917C6C6B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674355669.93796694</real>
+			<key>timeStoppedRecording</key>
+			<real>674355733.30065703</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>2A485FFE-E5ED-41F2-B317-DA73917C6C6B</string>
+		</dict>
+		<key>2E5C2274-C531-4AEC-80F0-7824D40F5EF2</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>2E5C2274-C531-4AEC-80F0-7824D40F5EF2.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674414718.89906204</real>
+			<key>timeStoppedRecording</key>
+			<real>674414734.682971</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>2E5C2274-C531-4AEC-80F0-7824D40F5EF2</string>
+		</dict>
+		<key>30BAEE8C-257E-434E-8485-D851FA208E66</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>30BAEE8C-257E-434E-8485-D851FA208E66.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674275028.38255596</real>
+			<key>timeStoppedRecording</key>
+			<real>674275035.02033901</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>30BAEE8C-257E-434E-8485-D851FA208E66</string>
+		</dict>
+		<key>31C3C777-FB3E-4160-9FA0-04BEDE4B17AF</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>31C3C777-FB3E-4160-9FA0-04BEDE4B17AF.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674343283.471035</real>
+			<key>timeStoppedRecording</key>
+			<real>674343299.65242302</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>31C3C777-FB3E-4160-9FA0-04BEDE4B17AF</string>
+		</dict>
+		<key>324210D7-BB2F-4B05-9C1F-9C3BE8B7E42A</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>324210D7-BB2F-4B05-9C1F-9C3BE8B7E42A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674341333.33351505</real>
+			<key>timeStoppedRecording</key>
+			<real>674341344.70945597</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>324210D7-BB2F-4B05-9C1F-9C3BE8B7E42A</string>
+		</dict>
+		<key>330A6A0D-B74E-44B7-A023-E080E585897A</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>330A6A0D-B74E-44B7-A023-E080E585897A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674355191.551718</real>
+			<key>timeStoppedRecording</key>
+			<real>674355200.01926804</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>330A6A0D-B74E-44B7-A023-E080E585897A</string>
+		</dict>
+		<key>39BB2AF1-F92F-4FE5-948F-67E1D56D8031</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>39BB2AF1-F92F-4FE5-948F-67E1D56D8031.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674275182.82757497</real>
+			<key>timeStoppedRecording</key>
+			<real>674275205.82697797</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>39BB2AF1-F92F-4FE5-948F-67E1D56D8031</string>
+		</dict>
+		<key>3B4AC8D2-EC4C-4E07-8311-853DC2A057CF</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>3B4AC8D2-EC4C-4E07-8311-853DC2A057CF.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674274319.34092402</real>
+			<key>timeStoppedRecording</key>
+			<real>674274329.07664204</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>3B4AC8D2-EC4C-4E07-8311-853DC2A057CF</string>
+		</dict>
+		<key>3B8D686F-B0F6-481E-971E-B493C6B1DEDC</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>3B8D686F-B0F6-481E-971E-B493C6B1DEDC.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674274974.18314099</real>
+			<key>timeStoppedRecording</key>
+			<real>674274982.27698398</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>3B8D686F-B0F6-481E-971E-B493C6B1DEDC</string>
+		</dict>
+		<key>3BBBBFFB-E4E4-4212-96B4-C9D836560B43</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>3BBBBFFB-E4E4-4212-96B4-C9D836560B43.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674345049.30489099</real>
+			<key>timeStoppedRecording</key>
+			<real>674345284.98055995</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>3BBBBFFB-E4E4-4212-96B4-C9D836560B43</string>
+		</dict>
+		<key>425F1178-F6C2-49E5-902E-37E06506A5E4</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>425F1178-F6C2-49E5-902E-37E06506A5E4.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674343622.44930398</real>
+			<key>timeStoppedRecording</key>
+			<real>674344032.75289297</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>425F1178-F6C2-49E5-902E-37E06506A5E4</string>
+		</dict>
+		<key>45A45929-4AF0-4FD8-AE5E-F80B25D8D1D3</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>45A45929-4AF0-4FD8-AE5E-F80B25D8D1D3.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674355223.35332894</real>
+			<key>timeStoppedRecording</key>
+			<real>674355229.190207</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>45A45929-4AF0-4FD8-AE5E-F80B25D8D1D3</string>
+		</dict>
+		<key>47C71DF5-D781-4AC0-A335-F96E5D52E605</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>47C71DF5-D781-4AC0-A335-F96E5D52E605.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674411823.15204501</real>
+			<key>timeStoppedRecording</key>
+			<real>674411879.31365597</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>47C71DF5-D781-4AC0-A335-F96E5D52E605</string>
+		</dict>
+		<key>4953B665-418B-4201-AAA7-0F21E302F667</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>4953B665-418B-4201-AAA7-0F21E302F667.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674274182.56894696</real>
+			<key>timeStoppedRecording</key>
+			<real>674274196.04765105</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>4953B665-418B-4201-AAA7-0F21E302F667</string>
+		</dict>
+		<key>4BD4E19B-5D98-4769-AFBE-87879C774D22</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>4BD4E19B-5D98-4769-AFBE-87879C774D22.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674346731.22338104</real>
+			<key>timeStoppedRecording</key>
+			<real>674346737.23761904</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>4BD4E19B-5D98-4769-AFBE-87879C774D22</string>
+		</dict>
+		<key>4E7CEDB1-08C8-4871-AE68-AFF1650ED38B</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>4E7CEDB1-08C8-4871-AE68-AFF1650ED38B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674342940.917665</real>
+			<key>timeStoppedRecording</key>
+			<real>674343117.02709103</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>4E7CEDB1-08C8-4871-AE68-AFF1650ED38B</string>
+		</dict>
+		<key>4F12228D-94B4-47F5-8C9D-812ACDD27ADF</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>4F12228D-94B4-47F5-8C9D-812ACDD27ADF.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674346905.30462503</real>
+			<key>timeStoppedRecording</key>
+			<real>674346911.25347102</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>4F12228D-94B4-47F5-8C9D-812ACDD27ADF</string>
+		</dict>
+		<key>5116F129-9C6C-418F-A84E-29F8956CA371</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>5116F129-9C6C-418F-A84E-29F8956CA371.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674355164.12084401</real>
+			<key>timeStoppedRecording</key>
+			<real>674355170.70966399</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>5116F129-9C6C-418F-A84E-29F8956CA371</string>
+		</dict>
+		<key>53401EDC-D1CD-4654-8A05-AEBC5B9A3477</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>53401EDC-D1CD-4654-8A05-AEBC5B9A3477.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674274031.27843797</real>
+			<key>timeStoppedRecording</key>
+			<real>674274062.01393497</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>53401EDC-D1CD-4654-8A05-AEBC5B9A3477</string>
+		</dict>
+		<key>57E05CD1-C36A-47BD-B021-F92E22899585</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>57E05CD1-C36A-47BD-B021-F92E22899585.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674340835.89815199</real>
+			<key>timeStoppedRecording</key>
+			<real>674341083.834741</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>57E05CD1-C36A-47BD-B021-F92E22899585</string>
+		</dict>
+		<key>5C6EBA71-1273-4B63-B48D-3E7D58BE6BC2</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>5C6EBA71-1273-4B63-B48D-3E7D58BE6BC2.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674344174.86572504</real>
+			<key>timeStoppedRecording</key>
+			<real>674344200.29502404</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>5C6EBA71-1273-4B63-B48D-3E7D58BE6BC2</string>
+		</dict>
+		<key>61FA8FC8-9D08-4F43-AA7B-03DBBA51A1A2</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>61FA8FC8-9D08-4F43-AA7B-03DBBA51A1A2.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674342875.31906104</real>
+			<key>timeStoppedRecording</key>
+			<real>674342881.15022695</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>61FA8FC8-9D08-4F43-AA7B-03DBBA51A1A2</string>
+		</dict>
+		<key>6416977E-E996-489A-AE9F-A82F6128DC43</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>6416977E-E996-489A-AE9F-A82F6128DC43.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674342315.862257</real>
+			<key>timeStoppedRecording</key>
+			<real>674342322.88147795</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>6416977E-E996-489A-AE9F-A82F6128DC43</string>
+		</dict>
+		<key>64B57AD6-5FA4-43E2-855B-0F4C2CBE117F</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>64B57AD6-5FA4-43E2-855B-0F4C2CBE117F.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674355138.21948802</real>
+			<key>timeStoppedRecording</key>
+			<real>674355149.84667504</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>64B57AD6-5FA4-43E2-855B-0F4C2CBE117F</string>
+		</dict>
+		<key>6618F8C3-10C2-4356-9345-672B49499BA9</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>6618F8C3-10C2-4356-9345-672B49499BA9.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674342593.23249304</real>
+			<key>timeStoppedRecording</key>
+			<real>674342622.12003195</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>6618F8C3-10C2-4356-9345-672B49499BA9</string>
+		</dict>
+		<key>675DD989-79C3-4149-8749-E9F81BCE8046</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>675DD989-79C3-4149-8749-E9F81BCE8046.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674414886.18489802</real>
+			<key>timeStoppedRecording</key>
+			<real>674414892.06492198</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>675DD989-79C3-4149-8749-E9F81BCE8046</string>
+		</dict>
+		<key>6815D98C-EE81-4473-AF72-FB1F9E63A0C4</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>6815D98C-EE81-4473-AF72-FB1F9E63A0C4.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674340558.81654203</real>
+			<key>timeStoppedRecording</key>
+			<real>674340822.49464703</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>6815D98C-EE81-4473-AF72-FB1F9E63A0C4</string>
+		</dict>
+		<key>6F21271D-7142-49A4-87B6-B15DBBDBA86D</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>6F21271D-7142-49A4-87B6-B15DBBDBA86D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674342293.36645401</real>
+			<key>timeStoppedRecording</key>
+			<real>674342297.59351099</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>6F21271D-7142-49A4-87B6-B15DBBDBA86D</string>
+		</dict>
+		<key>724BED76-AF2B-4968-B0C0-0A67B5B3749D</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>724BED76-AF2B-4968-B0C0-0A67B5B3749D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674355424.51937306</real>
+			<key>timeStoppedRecording</key>
+			<real>674355454.04467404</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>724BED76-AF2B-4968-B0C0-0A67B5B3749D</string>
+		</dict>
+		<key>783C5F2C-67AD-4934-BD3A-A656207DE839</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>783C5F2C-67AD-4934-BD3A-A656207DE839.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674415010.88792896</real>
+			<key>timeStoppedRecording</key>
+			<real>674415029.973436</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>783C5F2C-67AD-4934-BD3A-A656207DE839</string>
+		</dict>
+		<key>7852B5C1-0F9A-4005-829C-95FCB824C9A9</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>7852B5C1-0F9A-4005-829C-95FCB824C9A9.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674418449.04768097</real>
+			<key>timeStoppedRecording</key>
+			<real>674418457.23492205</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>7852B5C1-0F9A-4005-829C-95FCB824C9A9</string>
+		</dict>
+		<key>7D96E212-72CE-4468-9503-0C89B6811EC0</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>7D96E212-72CE-4468-9503-0C89B6811EC0.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674355506.33259296</real>
+			<key>timeStoppedRecording</key>
+			<real>674355535.26064503</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>7D96E212-72CE-4468-9503-0C89B6811EC0</string>
+		</dict>
+		<key>811A1FB8-2ACC-46F6-B339-3A0D5513202A</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>811A1FB8-2ACC-46F6-B339-3A0D5513202A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674346556.23013103</real>
+			<key>timeStoppedRecording</key>
+			<real>674346573.71928895</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>811A1FB8-2ACC-46F6-B339-3A0D5513202A</string>
+		</dict>
+		<key>83EF4A37-B154-44AE-A3A3-9A5AF51C9F1C</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>83EF4A37-B154-44AE-A3A3-9A5AF51C9F1C.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674340530.82415497</real>
+			<key>timeStoppedRecording</key>
+			<real>674340548.82269096</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>83EF4A37-B154-44AE-A3A3-9A5AF51C9F1C</string>
+		</dict>
+		<key>8E0B9807-37EB-4623-AFBD-EE21F45A54AC</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>8E0B9807-37EB-4623-AFBD-EE21F45A54AC.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674343258.02218401</real>
+			<key>timeStoppedRecording</key>
+			<real>674343264.16737998</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>8E0B9807-37EB-4623-AFBD-EE21F45A54AC</string>
+		</dict>
+		<key>8F872260-7357-41E8-8AA9-5437F88FE968</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>8F872260-7357-41E8-8AA9-5437F88FE968.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674342111.14743602</real>
+			<key>timeStoppedRecording</key>
+			<real>674342116.88349199</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>8F872260-7357-41E8-8AA9-5437F88FE968</string>
+		</dict>
+		<key>924D89D7-EE1F-48AE-9F8A-6C47E9EBE47A</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>924D89D7-EE1F-48AE-9F8A-6C47E9EBE47A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674343535.00434196</real>
+			<key>timeStoppedRecording</key>
+			<real>674343620.791888</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>924D89D7-EE1F-48AE-9F8A-6C47E9EBE47A</string>
+		</dict>
+		<key>988EE809-1829-4993-9770-DBBE674DF138</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>988EE809-1829-4993-9770-DBBE674DF138.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674355386.76023495</real>
+			<key>timeStoppedRecording</key>
+			<real>674355395.83625603</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>988EE809-1829-4993-9770-DBBE674DF138</string>
+		</dict>
+		<key>9E3E6E84-0FDB-48B4-B99A-56F056D1FDC1</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>9E3E6E84-0FDB-48B4-B99A-56F056D1FDC1.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674414764.30186999</real>
+			<key>timeStoppedRecording</key>
+			<real>674414777.23738694</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>9E3E6E84-0FDB-48B4-B99A-56F056D1FDC1</string>
+		</dict>
+		<key>A1378C17-8387-480B-BAFB-8C2E54224495</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A1378C17-8387-480B-BAFB-8C2E54224495.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674343162.22419906</real>
+			<key>timeStoppedRecording</key>
+			<real>674343171.87167299</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>A1378C17-8387-480B-BAFB-8C2E54224495</string>
+		</dict>
+		<key>A295057A-2700-4ED7-8019-9862C1C7DE55</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A295057A-2700-4ED7-8019-9862C1C7DE55.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674341301.64962006</real>
+			<key>timeStoppedRecording</key>
+			<real>674341329.48727298</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>A295057A-2700-4ED7-8019-9862C1C7DE55</string>
+		</dict>
+		<key>A3ABA769-D6F3-4D00-A643-7CCC8B49D3C1</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A3ABA769-D6F3-4D00-A643-7CCC8B49D3C1.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674355417.08156598</real>
+			<key>timeStoppedRecording</key>
+			<real>674355420.74271703</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>A3ABA769-D6F3-4D00-A643-7CCC8B49D3C1</string>
+		</dict>
+		<key>A6E5CD9E-E6E3-49D0-BAF4-52FFED0238A3</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A6E5CD9E-E6E3-49D0-BAF4-52FFED0238A3.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674345287.65052605</real>
+			<key>timeStoppedRecording</key>
+			<real>674345384.98132503</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>A6E5CD9E-E6E3-49D0-BAF4-52FFED0238A3</string>
+		</dict>
+		<key>A791239C-E40B-46C2-A671-431DBB455DAE</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A791239C-E40B-46C2-A671-431DBB455DAE.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674342359.86100698</real>
+			<key>timeStoppedRecording</key>
+			<real>674342372.27965701</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>A791239C-E40B-46C2-A671-431DBB455DAE</string>
+		</dict>
+		<key>ABC53150-4A1B-4EB0-8CF4-B0259B266B80</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>ABC53150-4A1B-4EB0-8CF4-B0259B266B80.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674346583.32203996</real>
+			<key>timeStoppedRecording</key>
+			<real>674346588.69377005</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>ABC53150-4A1B-4EB0-8CF4-B0259B266B80</string>
+		</dict>
+		<key>AD8708EF-BA16-45E1-A705-B7C3A21A703F</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>AD8708EF-BA16-45E1-A705-B7C3A21A703F.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674341609.88951802</real>
+			<key>timeStoppedRecording</key>
+			<real>674341841.971277</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>AD8708EF-BA16-45E1-A705-B7C3A21A703F</string>
+		</dict>
+		<key>B170484C-0E3F-4B00-B65D-F00CA5F63B12</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>B170484C-0E3F-4B00-B65D-F00CA5F63B12.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674355648.57045901</real>
+			<key>timeStoppedRecording</key>
+			<real>674355663.19522405</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>B170484C-0E3F-4B00-B65D-F00CA5F63B12</string>
+		</dict>
+		<key>B437E602-3E23-4094-BF74-4ABF88C928F1</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>B437E602-3E23-4094-BF74-4ABF88C928F1.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674418083.76336706</real>
+			<key>timeStoppedRecording</key>
+			<real>674418101.57150102</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>B437E602-3E23-4094-BF74-4ABF88C928F1</string>
+		</dict>
+		<key>B7FB07F8-A263-4249-A2F5-86F8AC30C61C</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>B7FB07F8-A263-4249-A2F5-86F8AC30C61C.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674275206.35117805</real>
+			<key>timeStoppedRecording</key>
+			<real>674275213.83026803</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>B7FB07F8-A263-4249-A2F5-86F8AC30C61C</string>
+		</dict>
+		<key>B92AA2B4-1458-44F9-8731-93C5D5025251</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>B92AA2B4-1458-44F9-8731-93C5D5025251.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674346631.62773705</real>
+			<key>timeStoppedRecording</key>
+			<real>674346641.30903006</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>B92AA2B4-1458-44F9-8731-93C5D5025251</string>
+		</dict>
+		<key>BAED5435-FC05-492B-8B85-A49E69588663</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>BAED5435-FC05-492B-8B85-A49E69588663.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674340327.74318302</real>
+			<key>timeStoppedRecording</key>
+			<real>674340519.98043597</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>BAED5435-FC05-492B-8B85-A49E69588663</string>
+		</dict>
+		<key>BD09C8D5-423E-436F-AAB7-CB0810620771</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>BD09C8D5-423E-436F-AAB7-CB0810620771.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674274297.90266895</real>
+			<key>timeStoppedRecording</key>
+			<real>674274316.32753599</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>BD09C8D5-423E-436F-AAB7-CB0810620771</string>
+		</dict>
+		<key>C04690A9-775F-4357-A0ED-CC16AAC8F132</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>C04690A9-775F-4357-A0ED-CC16AAC8F132.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674341532.57992101</real>
+			<key>timeStoppedRecording</key>
+			<real>674341553.73664403</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>C04690A9-775F-4357-A0ED-CC16AAC8F132</string>
+		</dict>
+		<key>C39CFBFD-6E7E-4C93-817E-910CC6D4EB2C</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>C39CFBFD-6E7E-4C93-817E-910CC6D4EB2C.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674347440.01591694</real>
+			<key>timeStoppedRecording</key>
+			<real>674347445.046579</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>C39CFBFD-6E7E-4C93-817E-910CC6D4EB2C</string>
+		</dict>
+		<key>C4037669-711D-44E7-B85C-A4148939923F</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>C4037669-711D-44E7-B85C-A4148939923F.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674341226.75222003</real>
+			<key>timeStoppedRecording</key>
+			<real>674341293.54167199</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>C4037669-711D-44E7-B85C-A4148939923F</string>
+		</dict>
+		<key>CABE64E6-9F5B-4D2C-B95B-B609C9983DF5</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>CABE64E6-9F5B-4D2C-B95B-B609C9983DF5.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674342173.57689798</real>
+			<key>timeStoppedRecording</key>
+			<real>674342180.756235</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>CABE64E6-9F5B-4D2C-B95B-B609C9983DF5</string>
+		</dict>
+		<key>CADF350B-2C82-4684-A52A-51037ACC037A</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>CADF350B-2C82-4684-A52A-51037ACC037A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674341429.84662294</real>
+			<key>timeStoppedRecording</key>
+			<real>674341464.21690595</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>CADF350B-2C82-4684-A52A-51037ACC037A</string>
+		</dict>
+		<key>CD39881B-D806-444F-9E9D-AA1AD08105B9</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>CD39881B-D806-444F-9E9D-AA1AD08105B9.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674344201.31477201</real>
+			<key>timeStoppedRecording</key>
+			<real>674345048.82263196</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>CD39881B-D806-444F-9E9D-AA1AD08105B9</string>
+		</dict>
+		<key>CEE874AE-4BA6-4A9D-9B99-70F864314EF9</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>CEE874AE-4BA6-4A9D-9B99-70F864314EF9.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674411799.13721204</real>
+			<key>timeStoppedRecording</key>
+			<real>674411822.15157402</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>CEE874AE-4BA6-4A9D-9B99-70F864314EF9</string>
+		</dict>
+		<key>CFA41FE7-B169-4788-A4C2-484B8B58EDC3</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>CFA41FE7-B169-4788-A4C2-484B8B58EDC3.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674346617.42454803</real>
+			<key>timeStoppedRecording</key>
+			<real>674346629.99357903</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>CFA41FE7-B169-4788-A4C2-484B8B58EDC3</string>
+		</dict>
+		<key>CFCA5BF4-725E-46F5-8BDB-EA30F674ABA2</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>CFCA5BF4-725E-46F5-8BDB-EA30F674ABA2.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674274469.18394995</real>
+			<key>timeStoppedRecording</key>
+			<real>674274530.32555497</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>CFCA5BF4-725E-46F5-8BDB-EA30F674ABA2</string>
+		</dict>
+		<key>D1F4E1CC-A031-4185-B094-AD32C0BA6D29</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>D1F4E1CC-A031-4185-B094-AD32C0BA6D29.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674342053.64881396</real>
+			<key>timeStoppedRecording</key>
+			<real>674342062.17051303</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>D1F4E1CC-A031-4185-B094-AD32C0BA6D29</string>
+		</dict>
+		<key>D241D180-E3D1-42B9-89E4-61D2F718756C</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>D241D180-E3D1-42B9-89E4-61D2F718756C.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674346495.42832601</real>
+			<key>timeStoppedRecording</key>
+			<real>674346504.66320801</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>D241D180-E3D1-42B9-89E4-61D2F718756C</string>
+		</dict>
+		<key>D65AD4D3-4207-4D18-8A0C-E323769FC28B</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>D65AD4D3-4207-4D18-8A0C-E323769FC28B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674344152.30473697</real>
+			<key>timeStoppedRecording</key>
+			<real>674344173.20139205</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>D65AD4D3-4207-4D18-8A0C-E323769FC28B</string>
+		</dict>
+		<key>D8D5862F-486F-4112-9AB9-19C4775B47D7</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>D8D5862F-486F-4112-9AB9-19C4775B47D7.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674341344.52953696</real>
+			<key>timeStoppedRecording</key>
+			<real>674341365.16647804</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>D8D5862F-486F-4112-9AB9-19C4775B47D7</string>
+		</dict>
+		<key>D8E17737-4423-4645-BAAD-A35FEF46B63C</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>D8E17737-4423-4645-BAAD-A35FEF46B63C.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>673756102.96566403</real>
+			<key>timeStoppedRecording</key>
+			<real>673756117.05975497</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>D8E17737-4423-4645-BAAD-A35FEF46B63C</string>
+		</dict>
+		<key>D9A6A790-DF2A-4DD4-9DF7-255BD42E6F37</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>D9A6A790-DF2A-4DD4-9DF7-255BD42E6F37.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674414531.40930903</real>
+			<key>timeStoppedRecording</key>
+			<real>674414538.74071002</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>D9A6A790-DF2A-4DD4-9DF7-255BD42E6F37</string>
+		</dict>
+		<key>DB3831C0-CCF5-435D-9C04-164C414DEB9E</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>DB3831C0-CCF5-435D-9C04-164C414DEB9E.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674346742.54269099</real>
+			<key>timeStoppedRecording</key>
+			<real>674346748.44941604</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>DB3831C0-CCF5-435D-9C04-164C414DEB9E</string>
+		</dict>
+		<key>E865A79D-2660-419A-968B-8C73126DA098</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>E865A79D-2660-419A-968B-8C73126DA098.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674354533.44980299</real>
+			<key>timeStoppedRecording</key>
+			<real>674354554.78651202</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>E865A79D-2660-419A-968B-8C73126DA098</string>
+		</dict>
+		<key>EA3A4E6A-4AE8-4984-B923-C210E4C9C9C1</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>EA3A4E6A-4AE8-4984-B923-C210E4C9C9C1.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674342144.636572</real>
+			<key>timeStoppedRecording</key>
+			<real>674342158.01181102</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>EA3A4E6A-4AE8-4984-B923-C210E4C9C9C1</string>
+		</dict>
+		<key>EB2B837E-D9FF-4A66-AB00-7461417071CE</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>EB2B837E-D9FF-4A66-AB00-7461417071CE.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674347451.71343601</real>
+			<key>timeStoppedRecording</key>
+			<real>674347456.92708004</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>EB2B837E-D9FF-4A66-AB00-7461417071CE</string>
+		</dict>
+		<key>EB3A4BE2-52DE-4208-84E9-E7187C3AA4CC</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>EB3A4BE2-52DE-4208-84E9-E7187C3AA4CC.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674342378.27028298</real>
+			<key>timeStoppedRecording</key>
+			<real>674342382.38053095</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>EB3A4BE2-52DE-4208-84E9-E7187C3AA4CC</string>
+		</dict>
+		<key>EC4BF1A8-31D3-4DEA-96C6-E4D2F3FD430B</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>EC4BF1A8-31D3-4DEA-96C6-E4D2F3FD430B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674355246.70062399</real>
+			<key>timeStoppedRecording</key>
+			<real>674355265.92111599</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>EC4BF1A8-31D3-4DEA-96C6-E4D2F3FD430B</string>
+		</dict>
+		<key>F11E1402-2144-4100-9B1C-7BD3271495B2</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>F11E1402-2144-4100-9B1C-7BD3271495B2.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674355294.49847102</real>
+			<key>timeStoppedRecording</key>
+			<real>674355310.89019203</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>F11E1402-2144-4100-9B1C-7BD3271495B2</string>
+		</dict>
+		<key>FAD2F499-E5BB-40B3-B130-AD3DB5CC6A4F</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>FAD2F499-E5BB-40B3-B130-AD3DB5CC6A4F.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674342191.77761602</real>
+			<key>timeStoppedRecording</key>
+			<real>674342198.340101</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>FAD2F499-E5BB-40B3-B130-AD3DB5CC6A4F</string>
+		</dict>
+		<key>FB599EF5-FAE4-4D91-8887-F438148FF94E</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>FB599EF5-FAE4-4D91-8887-F438148FF94E.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674349413.55690706</real>
+			<key>timeStoppedRecording</key>
+			<real>674349418.92053604</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>FB599EF5-FAE4-4D91-8887-F438148FF94E</string>
+		</dict>
+		<key>FBFFA520-E52C-4BD4-9963-D4FA2A0B227A</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>FBFFA520-E52C-4BD4-9963-D4FA2A0B227A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674354575.31936002</real>
+			<key>timeStoppedRecording</key>
+			<real>674354583.02056301</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>FBFFA520-E52C-4BD4-9963-D4FA2A0B227A</string>
+		</dict>
+		<key>FC538998-49F7-4548-9E7C-6D816B7DFDE6</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>FC538998-49F7-4548-9E7C-6D816B7DFDE6.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674274427.13163197</real>
+			<key>timeStoppedRecording</key>
+			<real>674274432.06297302</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>FC538998-49F7-4548-9E7C-6D816B7DFDE6</string>
+		</dict>
+		<key>FC90353D-D18E-4F69-9A57-C5B6B5AFAFDE</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>FC90353D-D18E-4F69-9A57-C5B6B5AFAFDE.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674354486.76234603</real>
+			<key>timeStoppedRecording</key>
+			<real>674354515.13132095</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>FC90353D-D18E-4F69-9A57-C5B6B5AFAFDE</string>
+		</dict>
+		<key>FF0D74C8-F456-45C6-A020-CCCDFB316FD8</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>FF0D74C8-F456-45C6-A020-CCCDFB316FD8.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Random Walker project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Random Walker</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Random Walker</string>
+			<key>timeStartedRecording</key>
+			<real>674275287.08818996</real>
+			<key>timeStoppedRecording</key>
+			<real>674275294.19495595</real>
+			<key>title</key>
+			<string>Run Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>FF0D74C8-F456-45C6-A020-CCCDFB316FD8</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
