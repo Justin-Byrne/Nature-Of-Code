@@ -8,7 +8,7 @@
 #ifndef colors_hpp
 #define colors_hpp
 
-#define FREQUENCY 0.15
+#define FREQUENCY     0.1
 #define AMPLITUDE 255 / 2
 #define CENTER    255 / 2
 

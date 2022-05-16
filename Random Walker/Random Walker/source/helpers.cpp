@@ -75,7 +75,7 @@ void array_shift ( int array[][2], int SIZE_1D, int SIZE_2D, bool shift_left, in
     
     while ( positions_to_shift )
     {
-        if ( shift_left )                                   // - - - - - < SHIFT LEFT - - - - - 
+        if ( shift_left )                                   // - - - - - < SHIFT LEFT - - - - -
         {
             for ( j = 0; j < SIZE_2D; j++ )                 // Copy beginning of array
             {
@@ -93,7 +93,7 @@ void array_shift ( int array[][2], int SIZE_1D, int SIZE_2D, bool shift_left, in
                 array[SIZE_1D - 1][j] = temp[j];
             }
         }
-        else                                                // - - - - -  > SHIFT RIGHT - - - - - 
+        else                                                // - - - - -  > SHIFT RIGHT - - - - -
         {
             for ( j = 0; j < SIZE_2D; j++ )                 // Copy end of array
             {

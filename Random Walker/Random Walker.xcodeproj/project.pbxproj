@@ -81,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				F078F1F4281B113300664DD6 /* include */,
-				F078F1F6281B116500664DD6 /* spice */,
 				F078F1F5281B115A00664DD6 /* source */,
 				F06583162819AF68007312F9 /* main.cpp */,
 			);
@@ -109,17 +108,10 @@
 		F078F1F5281B115A00664DD6 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				F078F212282055A900664DD6 /* helpers.cpp */,
 				F078F1F7281B11A100664DD6 /* colors.cpp */,
+				F078F212282055A900664DD6 /* helpers.cpp */,
 			);
 			path = source;
-			sourceTree = "<group>";
-		};
-		F078F1F6281B116500664DD6 /* spice */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = spice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

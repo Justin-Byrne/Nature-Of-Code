@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>E7BE446F-62A7-4A7F-A6D5-D39B2E5D4AE3</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogMajorGroupSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.target.product-type.tool</string>
+			<key>fileName</key>
+			<string>E7BE446F-62A7-4A7F-A6D5-D39B2E5D4AE3.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>Random_Walker-auedskvprsoivycwchnabrzygiar</string>
+			<key>timeStartedRecording</key>
+			<real>674419176.25742495</real>
+			<key>timeStoppedRecording</key>
+			<real>674419176.92700803</real>
+			<key>title</key>
+			<string>Build target Random Walker</string>
+			<key>uniqueIdentifier</key>
+			<string>E7BE446F-62A7-4A7F-A6D5-D39B2E5D4AE3</string>
+		</dict>
+	</dict>
+	<key>preserveOldLogs</key>
+	<true/>
+</dict>
+</plist>

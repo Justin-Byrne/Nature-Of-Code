@@ -8,30 +8,32 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "include/colors.hpp"
 #include <math.h>
 
-#define RECTANGLE_SIZE 16
+#include "include/colors.hpp"
+
+#define WINDOW_WIDTH   464
+#define WINDOW_HEIGHT  464
+#define RECTANGLE_SIZE  16
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
 SDL_Window   * window   = NULL;
 SDL_Renderer * renderer = NULL;
 
-int window_width        = 464;
-int window_height       = 464;
 bool run_loop           = true;
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
-int setup_window( const char* title, int x_pos, int y_pos, int width, int height );
-void poll_events( );
+int setup_window ( const char* title, int x_pos, int y_pos, int width, int height );
+void exit ( );
+void poll_events ( );
 
 #pragma mark - MAIN
 
 int main( int argc, char * arg[] )
 {
-    setup_window( "Color", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window_width, window_height );
+    setup_window( "Color Shifter", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT );
     
     poll_events( );
     
@@ -81,6 +83,18 @@ int setup_window( const char* title, int x_pos, int y_pos, int width, int height
 }
 
 /*!
+    @brief                                  Initiates exit
+ */
+void exit ( )
+{
+    run_loop = false;
+    
+    printf ( "Done !" );
+    
+    SDL_Delay ( 5000 );
+}
+
+/*!
     @brief                              Initiate poll events
  */
 void poll_events( )
@@ -90,7 +104,7 @@ void poll_events( )
     int horz_align = 0;
     int vert_align = 0;
     
-    int screen_dimensions = ( ( window_width / RECTANGLE_SIZE ) * ( window_height / RECTANGLE_SIZE ) );
+    int screen_dimensions = WINDOW_WIDTH + WINDOW_HEIGHT;
     
     SDL_Rect rectangles[screen_dimensions];
     
@@ -101,15 +115,14 @@ void poll_events( )
         int x_coord = RECTANGLE_SIZE * horz_align;
         int y_coord = RECTANGLE_SIZE * vert_align;
         
-        if ( ( x_coord + y_coord ) >= screen_dimensions )
+        if ( x_coord + y_coord >= screen_dimensions )
         {
-            run_loop = false;
-            SDL_Delay(50000);
+            exit ( );
             
             continue;
         }
         
-        if ( x_coord >= ( window_width ) )
+        if ( x_coord >= ( WINDOW_WIDTH ) )
         {
             horz_align = 0;
             vert_align++;
@@ -119,7 +132,7 @@ void poll_events( )
         
         rectangles[i] = { x_coord, y_coord, RECTANGLE_SIZE, RECTANGLE_SIZE };
         
-        int * colors = { get_gray_values( ) };
+        int * colors = { get_gray_values ( ) };
         
         SDL_SetRenderDrawColor(         // background color
             renderer,                   // rendering context
@@ -138,11 +151,11 @@ void poll_events( )
         );
 
         SDL_RenderFillRect ( renderer, &rectangles[i] );
-        
+
         SDL_RenderPresent( renderer );
-        
+
         delete colors;
-        
+
         i++;
         horz_align++;
         

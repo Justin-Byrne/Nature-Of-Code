@@ -1,0 +1,1213 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"size_",
+				"SIZE_2D"
+			],
+			[
+				"shift_dir",
+				"shift_direction\tabc"
+			],
+			[
+				"getEl",
+				"getElementById"
+			],
+			[
+				"margin",
+				"margin-bottom\tabc"
+			],
+			[
+				"anim",
+				"animation-duration\tproperty"
+			],
+			[
+				"tra",
+				"transparent\t(main.js)"
+			],
+			[
+				"getele",
+				"getElementById"
+			],
+			[
+				"innr",
+				"innerHTML\t(main.js)"
+			],
+			[
+				"inner",
+				"innerHTML\t(main.js)"
+			],
+			[
+				"flyou",
+				"flyout-nav\t(index.html)"
+			],
+			[
+				"getEle",
+				"getElementsByClassName\t(main.js)"
+			],
+			[
+				"indexOf",
+				"indexOfArrayFlex\tabc"
+			],
+			[
+				"indexofa",
+				"indexOfArrayFlex\tabc"
+			],
+			[
+				"indexof",
+				"indexOfArray\tabc"
+			],
+			[
+				"getP",
+				"getPrototypeOf\tabc"
+			],
+			[
+				"exis",
+				"existingLineIndex\tabc"
+			],
+			[
+				"pa",
+				"param\t@param"
+			],
+			[
+				"elem",
+				"element\tabc"
+			],
+			[
+				"parent",
+				"parentNode\tabc"
+			],
+			[
+				"cli",
+				"clicked"
+			],
+			[
+				"objri",
+				"objRightClasses\tabc"
+			],
+			[
+				"obj",
+				"objLeft"
+			],
+			[
+				"objleft",
+				"objLeftClasses\tabc"
+			],
+			[
+				"click",
+				"clickCheckbox"
+			],
+			[
+				"TOGG",
+				"toggleCheckbox"
+			],
+			[
+				"objal",
+				"objAltClasses\tabc"
+			],
+			[
+				"elemental",
+				"elementAltClasses\tabc"
+			],
+			[
+				"un",
+				"undefined\tabc"
+			],
+			[
+				"paren",
+				"parentNode\tabc"
+			],
+			[
+				"elementtwo",
+				"elementTwoClasses\tabc"
+			],
+			[
+				"getelem",
+				"getElementById"
+			],
+			[
+				"toggle",
+				"toggleCheckbox\tabc"
+			],
+			[
+				"fillTyp",
+				"fillTypeArray\tabc"
+			],
+			[
+				"inde",
+				"indexOf"
+			],
+			[
+				"filltyp",
+				"fillTypeArray\tabc"
+			],
+			[
+				"defa",
+				"defaultToggles\tabc"
+			],
+			[
+				"eleme",
+				"elements\tabc"
+			],
+			[
+				"widthV",
+				"widthValues"
+			],
+			[
+				"width",
+				"widthValues\tabc"
+			],
+			[
+				"getElem",
+				"getElementsByClassName\tabc"
+			],
+			[
+				"index",
+				"indexOfArray"
+			],
+			[
+				"widthVa",
+				"widthValues\tabc"
+			],
+			[
+				"patterndrop",
+				"patternDropdownElements\tabc"
+			],
+			[
+				"patt",
+				"patternValue"
+			],
+			[
+				"simil",
+				"similarShape\tabc"
+			],
+			[
+				"CONFI",
+				"config"
+			],
+			[
+				"patter",
+				"patternOverlay\tabc"
+			],
+			[
+				"toggl",
+				"toggleCheckboxes\tabc"
+			],
+			[
+				"he",
+				"hexagon\tabc"
+			],
+			[
+				"hex",
+				"hexagon"
+			],
+			[
+				"querysele",
+				"querySelectorAll\tabc"
+			],
+			[
+				"se",
+				"sequenced"
+			],
+			[
+				"pattern",
+				"pattern-checkbox\t(index.html)"
+			],
+			[
+				"sac",
+				"sacredArrays\tabc"
+			],
+			[
+				"padd",
+				"padding-top\tproperty"
+			],
+			[
+				"bac",
+				"background-image\tproperty"
+			],
+			[
+				"parse",
+				"parseInt"
+			],
+			[
+				"dom",
+				"domWindow\tabc"
+			],
+			[
+				"idS",
+				"idString2\tabc"
+			],
+			[
+				"ids",
+				"idString"
+			],
+			[
+				"che",
+				"checkbox"
+			],
+			[
+				"check",
+				"checkbox\tabc"
+			],
+			[
+				"seq",
+				"sequenced-circle\tabc"
+			],
+			[
+				"exi",
+				"existingLineIndex\tabc"
+			],
+			[
+				"high",
+				"highlightLineSegment\tabc"
+			],
+			[
+				"hig",
+				"highlightLineSegment\tabc"
+			],
+			[
+				"inexo",
+				"indexOfArray\tabc"
+			],
+			[
+				"strin",
+				"stringify\tabc"
+			],
+			[
+				"pushp",
+				"pushPop\tabc"
+			],
+			[
+				"sa",
+				"sacredArrays"
+			],
+			[
+				"trans",
+				"transparent\tabc"
+			],
+			[
+				"ci",
+				"circle\tabc"
+			],
+			[
+				"zona",
+				"zonaPolusada\tabc"
+			],
+			[
+				"zon",
+				"zonaPolusada"
+			],
+			[
+				"z",
+				"zonaPolusada\tabc"
+			],
+			[
+				"indexo",
+				"indexOfArrayValues\tabc"
+			],
+			[
+				"push",
+				"pushPop\tabc"
+			],
+			[
+				"par",
+				"parseInt"
+			],
+			[
+				"draw",
+				"drawCircle\tabc"
+			],
+			[
+				"wi",
+				"width\tabc"
+			],
+			[
+				"spiri",
+				"spirit.radius\tabc"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"spir",
+				"spirit.radius\tabc"
+			],
+			[
+				"co",
+				"context\tabc"
+			],
+			[
+				"distan",
+				"distanceSquared\tabc"
+			],
+			[
+				"mouse",
+				"mouseY\tabc"
+			],
+			[
+				"clien",
+				"clientY\tabc"
+			],
+			[
+				"togg",
+				"toggleCheckbox\tabc"
+			],
+			[
+				"is",
+				"isSequenceEmpty\tabc"
+			],
+			[
+				"clcik",
+				"clickCheckbox\tabc"
+			],
+			[
+				"sequ",
+				"sequenced-circle-10-checkbox\t(index.html)"
+			],
+			[
+				"singl",
+				"singleCircleAct\tabc"
+			],
+			[
+				"id",
+				"idString2\tabc"
+			],
+			[
+				"chec",
+				"checkboxes\tabc"
+			],
+			[
+				"sacre",
+				"sacredArrays.circle"
+			],
+			[
+				"ch",
+				"checkbox\t(index.html)"
+			],
+			[
+				"inpu",
+				"inputs\tabc"
+			],
+			[
+				"sequen",
+				"sequenced\tabc"
+			],
+			[
+				"cycl",
+				"cycleSacredArray\tabc"
+			],
+			[
+				"cen",
+				"centerDot\tabc"
+			],
+			[
+				"dra",
+				"drawCircle\tabc"
+			],
+			[
+				"cyc",
+				"cycleSacredArray\tabc"
+			],
+			[
+				"single",
+				"single-circle-checkbox\tabc"
+			],
+			[
+				"cir",
+				"circle\tabc"
+			],
+			[
+				"valid",
+				"validateButtonArray\tabc"
+			],
+			[
+				"sing",
+				"single-circle-checkbox\tabc"
+			],
+			[
+				"val",
+				"value\tabc"
+			],
+			[
+				"initi",
+				"initialOccurance\tabc"
+			],
+			[
+				"circ",
+				"circle\tabc"
+			],
+			[
+				"pushpop",
+				"pushPopAdv\tabc"
+			],
+			[
+				"circl",
+				"circleArray\tabc"
+			],
+			[
+				"indexOfA",
+				"indexOfArrayValues\tabc"
+			],
+			[
+				"proto",
+				"prototype\tabc"
+			],
+			[
+				"cira",
+				"circleArray\tabc"
+			],
+			[
+				"fullCirc",
+				"fullCircleCycle\tabc"
+			],
+			[
+				"ind",
+				"indexOf"
+			],
+			[
+				"singleCircl",
+				"singleCircleValueCompare\tabc"
+			],
+			[
+				"singleCirc",
+				"singleCircleArray\tabc"
+			],
+			[
+				"colo",
+				"colorArray\tabc"
+			],
+			[
+				"const",
+				"constraints\tabc"
+			],
+			[
+				"clear",
+				"clearCanvas\tabc"
+			],
+			[
+				"sacr",
+				"sacredSketch\tabc"
+			],
+			[
+				"cons",
+				"constants\tabc"
+			],
+			[
+				"dr",
+				"drawLine\tabc"
+			],
+			[
+				"fun",
+				"function\tabc"
+			],
+			[
+				"styl",
+				"style\t(index.html)"
+			],
+			[
+				"inc",
+				"INC"
+			],
+			[
+				"incl",
+				"include/"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/justinbyrne/Programs/Xcode/Nature-of-Code/Randomizer/Randomizer/main.cpp",
+			"settings":
+			{
+				"buffer_size": 5738,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Package Control Messages\n========================\n\nSublimeAStyleFormatter\n----------------------\n\n  SublimeAStyleFormatter\n  ======================\n\n  SublimeAStyleFormatter is a simple code formatter plugin for Sublime Text 2.\n  It provides ability to format C, C++, C#, and Java files.\n\n  Usage\n  -----\n  ### Key Bindings\n  The default key bindings for this plugin:\n\n  **Windows, Linux:**\n  + `ctrl+alt+f`: Format current file\n  + `ctrl+k, ctrl+f`: Format current selection\n\n  **OSX:**\n  + `ctrl+alt+f`: Format current file\n  + `super+k,super+f`: Format current selection\n\n  ### Command Palette\n  Open the command palette, it apperas as `SublimeAStyleFormatter: Format Current File`\n  and `SublimeAStyleFormatter Format Current Selection`.",
+			"settings":
+			{
+				"buffer_size": 741,
+				"line_ending": "Unix",
+				"name": "Package Control Messages",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "while ( position_to_shift )\n{  \n\n    if ( shift_direction )  \n    {  \n        temp = array[0];\n\n        for(i = 0; i < ELEMENTS - 1; i++) \n        {\n            array[i] = array[i + 1];  \n        } \n\n        array[ELEMENTS - 1] = temp;  \n    }  \n    else  \n    {  \n        temp = array[ELEMENTS - 1];  \n\n        for (i = ELEMENTS - 1; i > 0; i--)  \n        {\n            array[i] = array[i - 1];  \n        }\n\n        array[0] = temp;  \n    }  \n\n    position_to_shift--;  \n}  ",
+			"settings":
+			{
+				"buffer_size": 475,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"color",
+				"UI: Select Color Scheme"
+			],
+			[
+				"m",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"mark",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"compa",
+				"Compare with..."
+			],
+			[
+				"REMOVE",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"INSTALL",
+				"Colorsublime: Install Theme"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 137.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/justinbyrne/Programs/Xcode/Nature-of-Code",
+		"/Users/justinbyrne/Programs/Xcode/Nature-of-Code/Color Shifter",
+		"/Users/justinbyrne/Programs/Xcode/Nature-of-Code/Randomizer",
+		"/Users/justinbyrne/Programs/Xcode/Nature-of-Code/Randomizer/Randomizer"
+	],
+	"file_history":
+	[
+		"/Users/justinbyrne/Programs/Xcode/Nature-of-Code/Random Walker/Random Walker/main.cpp",
+		"/Users/justinbyrne/Programs/Xcode/Nature-of-Code/Random Walker/Random Walker/include/colors.hpp",
+		"/Users/justinbyrne/Programs/Xcode/Nature-of-Code/Random Walker/Random Walker/source/helpers.cpp",
+		"/Users/justinbyrne/Programs/Xcode/Nature-of-Code/Random Walker/Random Walker/source/colors.cpp",
+		"/Users/justinbyrne/Programs/Xcode/Nature-of-Code/Random Walker/Random Walker/source/colors_sproc.cpp",
+		"/Users/justinbyrne/Programs/Xcode/Nature-of-Code/.gitignore",
+		"/Users/justinbyrne/Programs/Xcode/Nature-of-Code/Random Walker/Random Walker/include/color_generator.h",
+		"/Users/justinbyrne/Programs/SacredGeometry/.gitignore",
+		"/Users/justinbyrne/Documents/bloodpressure",
+		"/Users/justinbyrne/Programs/SacredGeometry/script/dropDown.js",
+		"/Users/justinbyrne/Programs/SacredGeometry/script/main.js",
+		"/Users/justinbyrne/Public/Dump/web.config",
+		"/Users/justinbyrne/Programs/SacredGeometry/LICENSE",
+		"/Users/justinbyrne/Documents/Blood Pressure",
+		"/Users/justinbyrne/Programs/SacredGeometry/README.md",
+		"/Users/justinbyrne/Programs/SacredGeometry/docs/callGraph.json",
+		"/opt/local/var/macports/logs/_opt_local_var_macports_sources_rsync.macports.org_macports_release_tarballs_ports_graphics_graphviz/graphviz/main.log",
+		"/Users/justinbyrne/Programs/SacredGeometry/style/main.scss",
+		"/Users/justinbyrne/Programs/SacredGeometry 9272021 - 1229PM/script/main.js",
+		"/Users/justinbyrne/Programs/SacredGeometry 10022021 - 500PM/script/main.js",
+		"/Users/justinbyrne/Programs/SacredGeometry/script/main.min.js",
+		"/Users/justinbyrne/Programs/SacredGeometry/script/callGraph.json",
+		"/Users/justinbyrne/.zshrc",
+		"/Users/justinbyrne/Programs/SacredGeometry 10022021 - 500PM/index.html",
+		"/Users/justinbyrne/Programs/Sacred Geometry/LICENSE",
+		"/Users/justinbyrne/Programs/Sacred Geometry/script/main.js",
+		"/Users/justinbyrne/Programs/Sacred Geometry/index.html",
+		"/Users/justinbyrne/Programs/Sacred Geometry/script/main - v0.1.js",
+		"/Users/justinbyrne/Programs/Canvas/script/main - 0.4.js",
+		"/Users/justinbyrne/Programs/Canvas/canvasLab/js/canvasLab.js",
+		"/Users/justinbyrne/Programs/Canvas/script/matrix - patterning.txt",
+		"/Users/justinbyrne/Programs/Canvas/script/main - 0.1.js",
+		"/Users/justinbyrne/Programs/Canvas/script/main - 0.2.js",
+		"/Users/justinbyrne/Programs/Canvas/script/Array.txt",
+		"/Users/justinbyrne/Programs/Canvas/script/matrix.js",
+		"/Users/justinbyrne/Programs/Canvas/canvasLab/canvasLab.html",
+		"/Users/justinbyrne/Programs/Canvas/canvasLab/js/canvasLab_functions.js",
+		"/Users/justinbyrne/Programs/portfolio/Portfolio/bin/Release/netcoreapp2.1/publish/wwwroot/lib/Trumbowyg/docs/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js",
+		"/Users/justinbyrne/Documents/Wireshark Dumps/Godot Tests/Godot Local Port 6007 Test 2.json",
+		"/Users/justinbyrne/Programs/Godot/Games/project.godot",
+		"/Users/justinbyrne/Programs/BatchOrderProccesor/bin/release/podump/BT_26185_102720_47755635.txt",
+		"/Users/justinbyrne/Programs/BatchOrderProccesor/include/dirent.h",
+		"/Users/justinbyrne/Downloads/dirent-master/include/dirent.h",
+		"/Users/justinbyrne/Programs/BatchOrderProccesor/Make.make",
+		"/Users/justinbyrne/Programs/Godot/Games/icon.png.import",
+		"/Users/justinbyrne/Library/Application Support/Übersicht/widgets/getting-started.coffee",
+		"/Users/justinbyrne/Downloads/foundation-sites-6.6.3/scss/components/_accordion-menu.scss"
+	],
+	"find":
+	{
+		"height": 41.0
+	},
+	"find_in_files":
+	{
+		"height": 102.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			",",
+			"    ",
+			"448",
+			"28",
+			"iter",
+			"colors",
+			"SIZE_2D",
+			"2] = { ",
+			"SIZE_2D",
+			"SIZE_1D",
+			"WALKER_DEPTH",
+			"200",
+			"100",
+			"50",
+			"40",
+			"30",
+			"20",
+			"10",
+			"175",
+			"150",
+			"125",
+			"100",
+			"75",
+			"50",
+			"25",
+			"i * 20",
+			"colors",
+			"[9][1]",
+			"back",
+			"walker_steps",
+			"array_length",
+			"a[",
+			"dir",
+			"N",
+			"pos",
+			"\\w\\(",
+			"(",
+			"[1]:",
+			"walker_steps[0][1]:",
+			"BLUE",
+			"wait",
+			"valueue",
+			"val",
+			"calculateVal",
+			"crossFade",
+			"stepB",
+			"stepG",
+			"stepR",
+			"endValue",
+			"prevValue",
+			"calculateStep",
+			"prevB",
+			"prevG",
+			"prevR",
+			"bluVal",
+			"grnVal",
+			"redVal",
+			"= {"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/justinbyrne/Programs/Xcode/Nature-of-Code/Randomizer/Randomizer/main.cpp",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 5738,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 741,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								741,
+								741
+							]
+						],
+						"settings":
+						{
+							"auto_indent": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"default_dir": "/Users/justinbyrne/Programs/Xcode/Nature-of-Code/Randomizer/Randomizer",
+							"git_gutter_is_enabled": false,
+							"incomplete_sync": null,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_width": 2,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 475,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								26
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										26,
+										27
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"region.yellowish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										6,
+										7
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"default_dir": "/Users/justinbyrne/Programs/Xcode/Nature-of-Code/Random Walker/Random Walker",
+							"git_gutter_is_enabled": false,
+							"incomplete_sync": null,
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 41.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.771265687023,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SFTP":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Randomizer.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 251.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
