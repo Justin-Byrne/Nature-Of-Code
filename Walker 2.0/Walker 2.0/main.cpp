@@ -14,8 +14,9 @@
 
 #define WINDOW_WIDTH  500
 #define WINDOW_HEIGHT 500
-#define WALKER_MAX     10
-#define MAX_DEPTH      25
+#define WALKER_MAX     50
+#define DEPTH_MAX      25
+#define SENSE_BUBBLE   50
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -24,13 +25,14 @@ SDL_Renderer * renderer = NULL;
 
 bool run_loop = true;
 
-int colors[MAX_DEPTH][3]                   = { { 0 } };
-int walker_steps[WALKER_MAX][MAX_DEPTH][2] = { { 0 } };
+int colors[DEPTH_MAX][3]                   = { { 0 } };
+int walker_steps[WALKER_MAX][DEPTH_MAX][2] = { { 0 } };
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
 int setup_window ( const char* title, int x_pos, int y_pos, int width, int height );
 void generate_colors ( int start, int end );
+void triggerSenseBubble ( int i, int max );
 void exit ( const char * message );
 void draw ( );
 
@@ -67,7 +69,7 @@ struct WALKER
             case 7:  this->y++; this->x--;  break;  // up left
         }
         
-        if ( x <= 0 ) x++;              // Basic collision code for bounds of window
+        if ( x <= 0 ) x++;                                                      // Basic collision code for bounds of window
         if ( y <= 0 ) y++;
         if ( x >= WINDOW_WIDTH  ) x--;
         if ( y >= WINDOW_HEIGHT ) y--;
@@ -132,14 +134,29 @@ int setup_window ( const char* title, int x_pos, int y_pos, int width, int heigh
 /// @param      end                 Highest number, preferable white... RGB values
 void generate_colors ( int start, int end )
 {
-    if ( MAX_DEPTH > 255 || end > 255 )
-        exit ( "Maximum values for 'MAX_DEPTH' and 'end' variables are 255!" );
+    if ( DEPTH_MAX > 255 || end > 255 )
+        exit ( "Maximum values for 'DEPTH_MAX' and 'end' variables are 255!" );
     
-    int difference = end / MAX_DEPTH;
+    int difference = end / DEPTH_MAX;
     
-    for ( i = 0; i < MAX_DEPTH; i++ )
+    for ( i = 0; i < DEPTH_MAX; i++ )
         for ( int j = 0; j < 3; j++ )
             colors[i][j] = { i * difference };
+}
+
+/// Trigger sense bubble for each entity that it's affiliate with
+/// @param      i                   Starting iterator
+/// @param      max                 Max amount of iterators
+void triggerSenseBubble ( int i, int max )
+{
+    for ( int j = i + 1; j < max; j++ )                                         // validate up
+        if ( isInsideCircle ( walker_steps[i][0][0], walker_steps[i][0][1], walker_steps[j][0][0], walker_steps[j][0][1], SENSE_BUBBLE ) )
+        {
+            SDL_RenderFillCircle ( renderer, walker_steps[i][0][0], walker_steps[i][0][1], SENSE_BUBBLE );
+            SDL_RenderFillCircle ( renderer, walker_steps[j][0][0], walker_steps[j][0][1], SENSE_BUBBLE );
+            
+            i++;
+        }
 }
 
 /// Exits program
@@ -187,12 +204,12 @@ void draw ( )
         
         for ( i = 0; i < WALKER_MAX; i++ )                                      // Draw: walkers
         {
-            for ( int j = 0; j < MAX_DEPTH; j++ )
+            for ( int j = 0; j < DEPTH_MAX; j++ )                               // Draw: shadows
             {
                 if ( walker_steps[i][j][0] <= 0 || walker_steps[i][j][1] <= 0 ) break;
-
-                SDL_RenderDrawCircle ( renderer, walker_steps[i][0][0], walker_steps[i][0][1], 50 );
-                SDL_RenderDrawPoint  ( renderer, walker_steps[i][j][0], walker_steps[i][j][1]     );
+                
+                SDL_RenderDrawCircle ( renderer, walker_steps[i][0][0], walker_steps[i][0][1], SENSE_BUBBLE );
+                SDL_RenderDrawPoint  ( renderer, walker_steps[i][j][0], walker_steps[i][j][1] );
 
                 SDL_SetRenderDrawColor (    // foreground color
                     renderer,               // rendering context
@@ -202,6 +219,8 @@ void draw ( )
                     SDL_ALPHA_OPAQUE        // alpha value
                 );
             }
+            
+            triggerSenseBubble ( i, WALKER_MAX );                               // Trigger: sense bubble
         }
         
         SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500
@@ -209,7 +228,7 @@ void draw ( )
         SDL_Delay ( 50 );
         
         for ( i = 0; i < WALKER_MAX; i++ )                                      // Array shift all 'walker_steps'
-            array_shift ( walker_steps[i], MAX_DEPTH, 2, false, 1 );
+            array_shift ( walker_steps[i], DEPTH_MAX, 2, false, 1 );
         
         for ( i = 0; i < WALKER_MAX; i++ )                                      // Init: next 'walker' step
             walker[i].next_step ( );
