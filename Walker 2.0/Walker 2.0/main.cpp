@@ -8,15 +8,19 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 #include "include/colors.hpp"
 #include "include/helpers.hpp"
 
 #define WINDOW_WIDTH  500
 #define WINDOW_HEIGHT 500
-#define WALKER_MAX     50
-#define DEPTH_MAX      25
+#define WALKER_MAX     10
+#define DEPTH_MAX      10
 #define SENSE_BUBBLE   50
+
+#define SIN(x) sin(x * 3.141592653589 / 180)
+#define COS(x) cos(x * 3.141592653589 / 180)
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -24,6 +28,7 @@ SDL_Window   * window   = NULL;
 SDL_Renderer * renderer = NULL;
 
 bool run_loop = true;
+bool debug    = false;
 
 int colors[DEPTH_MAX][3]                   = { { 0 } };
 int walker_steps[WALKER_MAX][DEPTH_MAX][2] = { { 0 } };
@@ -32,16 +37,28 @@ int walker_steps[WALKER_MAX][DEPTH_MAX][2] = { { 0 } };
 
 int setup_window ( const char* title, int x_pos, int y_pos, int width, int height );
 void generate_colors ( int start, int end );
-void triggerSenseBubble ( int i, int max );
 void exit ( const char * message );
 void draw ( );
 
 #pragma mark - DATA STRUCTURES
 
+enum DIRECTION
+{
+    UP,         // 0
+    UP_RIGHT,   // 1
+    RIGHT,      // 2
+    DOWN_RIGHT, // 3
+    DOWN,       // 4
+    DOWN_LEFT,  // 5
+    LEFT,       // 6
+    UP_LEFT     // 7
+};
+
 struct WALKER
 {
-    int x = 0;
-    int y = 0;
+    int x       = 0;
+    int y       = 0;
+    int radius  = 0;
     
     time_t time_seed;
     
@@ -51,13 +68,20 @@ struct WALKER
         this->y = y;
     }
     
-    WALKER ( ) { };
+    WALKER ( int x, int y, int radius )
+    {
+        this->x      = x;
+        this->y      = y;
+        this->radius = radius;
+    }
+    
+    WALKER ( )  { };
     
     ~WALKER ( ) { };
     
-    void next_step ( )
+    void next_step ( int direction )
     {
-        switch ( generate_random ( 0, 7 ) )
+        switch ( direction )
         {
             case 0:  this->y++;             break;  // up
             case 1:  this->y++; this->x++;  break;  // up right
@@ -69,11 +93,24 @@ struct WALKER
             case 7:  this->y++; this->x--;  break;  // up left
         }
         
-        if ( x <= 0 ) x++;                                                      // Basic collision code for bounds of window
+        check_boundary ( );
+    }
+    
+    void check_boundary ( )
+    {
+        if ( x <= 0 ) x++;
         if ( y <= 0 ) y++;
         if ( x >= WINDOW_WIDTH  ) x--;
         if ( y >= WINDOW_HEIGHT ) y--;
     }
+    
+    bool isInsideCircle ( int point_x, int point_y )
+    {
+        return ( ( point_x - this->x ) * ( point_x - this->x ) +
+                 ( point_y - this->y ) * ( point_y - this->y ) <= ( this->radius * this->radius ) ) ? true : false;
+    }
+    
+    void rotate ( int angle ) { }
 };
 
 #pragma mark - MAIN
@@ -144,21 +181,6 @@ void generate_colors ( int start, int end )
             colors[i][j] = { i * difference };
 }
 
-/// Trigger sense bubble for each entity that it's affiliate with
-/// @param      i                   Starting iterator
-/// @param      max                 Max amount of iterators
-void triggerSenseBubble ( int i, int max )
-{
-    for ( int j = i + 1; j < max; j++ )                                         // validate up
-        if ( isInsideCircle ( walker_steps[i][0][0], walker_steps[i][0][1], walker_steps[j][0][0], walker_steps[j][0][1], SENSE_BUBBLE ) )
-        {
-            SDL_RenderFillCircle ( renderer, walker_steps[i][0][0], walker_steps[i][0][1], SENSE_BUBBLE );
-            SDL_RenderFillCircle ( renderer, walker_steps[j][0][0], walker_steps[j][0][1], SENSE_BUBBLE );
-            
-            i++;
-        }
-}
-
 /// Exits program
 /// @param      message             Message to be left after deactivating program
 void exit ( const char * message )
@@ -178,7 +200,7 @@ void draw ( )
     WALKER walker[WALKER_MAX];
 
     for ( i = 0; i < WALKER_MAX; i++ )
-        walker[i] = { generate_random ( 0, WINDOW_WIDTH ), generate_random ( 0, WINDOW_HEIGHT ) };
+        walker[i] = { generate_random ( 0, WINDOW_WIDTH ), generate_random ( 0, WINDOW_HEIGHT ), SENSE_BUBBLE };
 
     generate_colors ( 0, 255 );
 
@@ -206,9 +228,9 @@ void draw ( )
         {
             for ( int j = 0; j < DEPTH_MAX; j++ )                               // Draw: shadows
             {
-                if ( walker_steps[i][j][0] <= 0 || walker_steps[i][j][1] <= 0 ) break;
-                
-                SDL_RenderDrawCircle ( renderer, walker_steps[i][0][0], walker_steps[i][0][1], SENSE_BUBBLE );
+                if ( debug )
+                    SDL_RenderDrawCircle ( renderer, walker[i].x, walker[i].y, SENSE_BUBBLE );
+
                 SDL_RenderDrawPoint  ( renderer, walker_steps[i][j][0], walker_steps[i][j][1] );
 
                 SDL_SetRenderDrawColor (    // foreground color
@@ -220,10 +242,20 @@ void draw ( )
                 );
             }
             
-            triggerSenseBubble ( i, WALKER_MAX );                               // Trigger: sense bubble
+            for ( int j = i + 1; j < WALKER_MAX; j++ )                          // Draw: sense bubble if triggered
+                if ( walker[i].isInsideCircle ( walker[j].x, walker[j].y ) )
+                {
+                    if ( debug )
+                    {
+                        SDL_RenderFillCircle ( renderer, walker[i].x, walker[i].y, SENSE_BUBBLE );
+                        SDL_RenderFillCircle ( renderer, walker[j].x, walker[j].y, SENSE_BUBBLE );
+                    }
+                    
+                    SDL_RenderDrawLine ( renderer, walker[i].x, walker[i].y, walker[j].x, walker[j].y );
+                }
         }
         
-        SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500
+        SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500 ms
         
         SDL_Delay ( 50 );
         
@@ -231,7 +263,7 @@ void draw ( )
             array_shift ( walker_steps[i], DEPTH_MAX, 2, false, 1 );
         
         for ( i = 0; i < WALKER_MAX; i++ )                                      // Init: next 'walker' step
-            walker[i].next_step ( );
+            walker[i].next_step ( generate_random ( 0, 7 ) );
 
         while ( SDL_PollEvent ( &sdl_event )  )
         {

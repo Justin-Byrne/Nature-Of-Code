@@ -1,7 +1,10 @@
 ### Xcode ###
 # Template for Xcode projects
 
-## Derived Bullshit
+## Profiling B.S.
+
+
+## Derived B.S.
 DerivedData
 !DerivedData/
 !DerivedData/**
