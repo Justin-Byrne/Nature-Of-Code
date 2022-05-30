@@ -7,7 +7,7 @@ Build/*
 
 ## Derived B.S.
 DerivedData
-!DerivedData/
+/DerivedData/
 !DerivedData/**
 *.noindex/
 
