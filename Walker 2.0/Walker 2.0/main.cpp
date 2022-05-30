@@ -19,8 +19,9 @@
 #define DEPTH_MAX      10
 #define SENSE_BUBBLE   50
 
-#define SIN(x) sin(x * 3.141592653589 / 180)
-#define COS(x) cos(x * 3.141592653589 / 180)
+#define PI 3.141592653589
+#define SIN(x) sin(x * PI / 180)
+#define COS(x) cos(x * PI / 180)
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -35,10 +36,10 @@ int walker_steps[WALKER_MAX][DEPTH_MAX][2] = { { 0 } };
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
-int setup_window ( const char* title, int x_pos, int y_pos, int width, int height );
+int  setup_window    ( const char* title, int x_pos, int y_pos, int width, int height );
 void generate_colors ( int start, int end );
-void exit ( const char * message );
-void draw ( );
+void exit            ( const char * message );
+void draw            ( );
 
 #pragma mark - DATA STRUCTURES
 
@@ -54,43 +55,75 @@ enum DIRECTION
     UP_LEFT     // 7
 };
 
-struct WALKER
+struct POINT
 {
-    int x       = 0;
-    int y       = 0;
-    int radius  = 0;
+    int x, y;
     
-    time_t time_seed;
-    
-    WALKER ( int x, int y )
+    POINT ( int x, int y )
     {
         this->x = x;
         this->y = y;
     }
     
-    WALKER ( int x, int y, int radius )
+    ~POINT ( ) { };
+};
+
+struct WALKER
+{
+    POINT origin     = { 0, 0 };
+    POINT point      = { 0, 0 };
+
+    int point_length = 35;
+    int radius       = 0;
+    
+    time_t time_seed;
+    
+    // Constructors ......................................................... //
+    
+    WALKER ( POINT origin )
     {
-        this->x      = x;
-        this->y      = y;
+        this->origin = origin;
+    }
+    
+    WALKER ( POINT origin, int radius )
+    {
+        this->origin = origin;
         this->radius = radius;
     }
     
-    WALKER ( )  { };
+    WALKER ( POINT origin, POINT point )
+    {
+        this->origin = origin;
+        this->point  = point;
+    }
     
+    WALKER ( POINT origin, POINT point, int radius )
+    {
+        this->origin = origin;
+        this->point  = point;
+        this->radius = radius;
+    }
+    
+    // Constructors (Generic) ... //
+    
+    WALKER ( )  { };
+
     ~WALKER ( ) { };
+
+    // Functions ............................................................ //
     
     void next_step ( int direction )
     {
         switch ( direction )
         {
-            case 0:  this->y++;             break;  // up
-            case 1:  this->y++; this->x++;  break;  // up right
-            case 2:  this->x++;             break;  // right
-            case 3:  this->y--; this->x++;  break;  // down right
-            case 4:  this->y--;             break;  // down
-            case 5:  this->y--; this->x--;  break;  // down left
-            case 6:  this->x--;             break;  // left
-            case 7:  this->y++; this->x--;  break;  // up left
+            case 0:  this->origin.y++;                    break;                // up
+            case 1:  this->origin.y++; this->origin.x++;  break;                // up right
+            case 2:  this->origin.x++;                    break;                // right
+            case 3:  this->origin.y--; this->origin.x++;  break;                // down right
+            case 4:  this->origin.y--;                    break;                // down
+            case 5:  this->origin.y--; this->origin.x--;  break;                // down left
+            case 6:  this->origin.x--;                    break;                // left
+            case 7:  this->origin.y++; this->origin.x--;  break;                // up left
         }
         
         check_boundary ( );
@@ -98,19 +131,48 @@ struct WALKER
     
     void check_boundary ( )
     {
-        if ( x <= 0 ) x++;
-        if ( y <= 0 ) y++;
-        if ( x >= WINDOW_WIDTH  ) x--;
-        if ( y >= WINDOW_HEIGHT ) y--;
+        if ( this->origin.x <= 0 )              this->origin.x++;               // right
+        if ( this->origin.y <= 0 )              this->origin.y++;               // top
+        if ( this->origin.x >= WINDOW_WIDTH  )  this->origin.x--;               // left
+        if ( this->origin.y >= WINDOW_HEIGHT )  this->origin.y--;               // bottom
     }
-    
-    bool isInsideCircle ( int point_x, int point_y )
+
+    bool isInsideCircle ( POINT circle )
     {
-        return ( ( point_x - this->x ) * ( point_x - this->x ) +
-                 ( point_y - this->y ) * ( point_y - this->y ) <= ( this->radius * this->radius ) ) ? true : false;
+        return ( ( circle.x - this->origin.x ) * ( circle.x - this->origin.x ) +
+                 ( circle.y - this->origin.y ) * ( circle.y - this->origin.y ) <= ( this->radius * this->radius ) ) ? true : false;
+    }
+
+    double convertToRadian ( int degree )
+    {
+        return ( degree * PI / 180 );
+    }
+
+    int convertToDegree ( float radian )
+    {
+        return ( radian * 180 ) / PI;
     }
     
-    void rotate ( int angle ) { }
+    POINT rotate ( int degree )
+    {
+        POINT point    = { this->origin.x + this->point_length, this->origin.y };
+        
+        double radians = convertToRadian ( degree );
+        
+        double sine    = sin ( radians );
+        double cosine  = cos ( radians );
+
+        point.x       -= this->origin.x;                                        // translate point back to origin
+        point.y       -= this->origin.y;
+
+        double x_new  = point.x * cosine - point.y * sine;                      // rotate point
+        double y_new  = point.x * sine   - point.y * cosine;
+        
+        point.x       = x_new + this->origin.x;                                 // translate point back
+        point.y       = y_new + this->origin.y;
+        
+        return point;
+    }
 };
 
 #pragma mark - MAIN
@@ -200,7 +262,7 @@ void draw ( )
     WALKER walker[WALKER_MAX];
 
     for ( i = 0; i < WALKER_MAX; i++ )
-        walker[i] = { generate_random ( 0, WINDOW_WIDTH ), generate_random ( 0, WINDOW_HEIGHT ), SENSE_BUBBLE };
+        walker[i] = { POINT { generate_random ( 0, WINDOW_WIDTH ), generate_random ( 0, WINDOW_HEIGHT ) }, SENSE_BUBBLE };
 
     generate_colors ( 0, 255 );
 
@@ -220,8 +282,8 @@ void draw ( )
         
         for ( i = 0; i < WALKER_MAX; i++ )                                      // Store: key 'walker' values within walker_steps
         {
-            walker_steps[i][0][0] = walker[i].x;
-            walker_steps[i][0][1] = walker[i].y;
+            walker_steps[i][0][0] = walker[i].origin.x;
+            walker_steps[i][0][1] = walker[i].origin.y;
         }
         
         for ( i = 0; i < WALKER_MAX; i++ )                                      // Draw: walkers
@@ -229,7 +291,7 @@ void draw ( )
             for ( int j = 0; j < DEPTH_MAX; j++ )                               // Draw: shadows
             {
                 if ( debug )
-                    SDL_RenderDrawCircle ( renderer, walker[i].x, walker[i].y, SENSE_BUBBLE );
+                    SDL_RenderDrawCircle ( renderer, walker[i].origin.x, walker[i].origin.y, SENSE_BUBBLE );
 
                 SDL_RenderDrawPoint  ( renderer, walker_steps[i][j][0], walker_steps[i][j][1] );
 
@@ -243,15 +305,15 @@ void draw ( )
             }
             
             for ( int j = i + 1; j < WALKER_MAX; j++ )                          // Draw: sense bubble if triggered
-                if ( walker[i].isInsideCircle ( walker[j].x, walker[j].y ) )
+                if ( walker[i].isInsideCircle ( POINT { walker[j].origin.x, walker[j].origin.y } ) )
                 {
                     if ( debug )
                     {
-                        SDL_RenderFillCircle ( renderer, walker[i].x, walker[i].y, SENSE_BUBBLE );
-                        SDL_RenderFillCircle ( renderer, walker[j].x, walker[j].y, SENSE_BUBBLE );
+                        SDL_RenderFillCircle ( renderer, walker[i].origin.x, walker[i].origin.y, SENSE_BUBBLE );
+                        SDL_RenderFillCircle ( renderer, walker[j].origin.x, walker[j].origin.y, SENSE_BUBBLE );
                     }
                     
-                    SDL_RenderDrawLine ( renderer, walker[i].x, walker[i].y, walker[j].x, walker[j].y );
+                    SDL_RenderDrawLine ( renderer, walker[i].origin.x, walker[i].origin.y, walker[j].origin.x, walker[j].origin.y );
                 }
         }
         

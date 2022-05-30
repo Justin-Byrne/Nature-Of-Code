@@ -2,7 +2,8 @@
 # Template for Xcode projects
 
 ## Profiling B.S.
-
+Build/*
+!Build/Products/*
 
 ## Derived B.S.
 DerivedData
