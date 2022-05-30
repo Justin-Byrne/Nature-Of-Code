@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>4DE5483C-013E-4B12-918C-467A66605C26</key>
+		<key>019E4320-F8EE-4C99-A4B8-A75719ABC66E</key>
 		<dict>
 			<key>className</key>
 			<string>DBGConsoleLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>4DE5483C-013E-4B12-918C-467A66605C26.xcactivitylog</string>
+			<string>019E4320-F8EE-4C99-A4B8-A75719ABC66E.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -32,13 +32,115 @@
 			<key>signature</key>
 			<string>Run Entity Rotation</string>
 			<key>timeStartedRecording</key>
-			<real>675625540.41389</real>
+			<real>675627358.015468</real>
 			<key>timeStoppedRecording</key>
-			<real>675625549.42391002</real>
+			<real>675627358.49515498</real>
 			<key>title</key>
 			<string>Run Entity Rotation</string>
 			<key>uniqueIdentifier</key>
-			<string>4DE5483C-013E-4B12-918C-467A66605C26</string>
+			<string>019E4320-F8EE-4C99-A4B8-A75719ABC66E</string>
+		</dict>
+		<key>7043C8B0-60D0-4FF6-BE04-5B13F2C1D9CD</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>7043C8B0-60D0-4FF6-BE04-5B13F2C1D9CD.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Entity Rotation project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Entity Rotation</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Entity Rotation</string>
+			<key>timeStartedRecording</key>
+			<real>675627354.47858405</real>
+			<key>timeStoppedRecording</key>
+			<real>675627354.93312204</real>
+			<key>title</key>
+			<string>Run Entity Rotation</string>
+			<key>uniqueIdentifier</key>
+			<string>7043C8B0-60D0-4FF6-BE04-5B13F2C1D9CD</string>
+		</dict>
+		<key>8689C518-E054-429A-8048-E6F91178A920</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>8689C518-E054-429A-8048-E6F91178A920.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Entity Rotation project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Entity Rotation</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Entity Rotation</string>
+			<key>timeStartedRecording</key>
+			<real>675627499.40543199</real>
+			<key>timeStoppedRecording</key>
+			<real>675627516.36193097</real>
+			<key>title</key>
+			<string>Run Entity Rotation</string>
+			<key>uniqueIdentifier</key>
+			<string>8689C518-E054-429A-8048-E6F91178A920</string>
+		</dict>
+		<key>B5BD541A-2E02-4396-84DF-EBA3508C66F0</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>B5BD541A-2E02-4396-84DF-EBA3508C66F0.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Entity Rotation project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Entity Rotation</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Entity Rotation</string>
+			<key>timeStartedRecording</key>
+			<real>675627124.86507499</real>
+			<key>timeStoppedRecording</key>
+			<real>675627125.34000301</real>
+			<key>title</key>
+			<string>Run Entity Rotation</string>
+			<key>uniqueIdentifier</key>
+			<string>B5BD541A-2E02-4396-84DF-EBA3508C66F0</string>
 		</dict>
 	</dict>
 </dict>

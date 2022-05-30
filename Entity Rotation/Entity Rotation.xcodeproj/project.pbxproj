@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		F0B9F3512844057C00D80E3C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F3502844057C00D80E3C /* main.cpp */; };
-		F0B9F359284405C700D80E3C /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B9F358284405C700D80E3C /* libSDL2-2.0.0.dylib */; };
-		F0B9F35A284405C700D80E3C /* libSDL2-2.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = F0B9F358284405C700D80E3C /* libSDL2-2.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		F0B9F3602844063A00D80E3C /* colors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F35E2844063A00D80E3C /* colors.cpp */; };
 		F0B9F3632844064B00D80E3C /* helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F3612844064B00D80E3C /* helpers.cpp */; };
+		F0B9F365284541CB00D80E3C /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B9F364284541CB00D80E3C /* libSDL2-2.0.0.dylib */; };
+		F0B9F366284541CB00D80E3C /* libSDL2-2.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = F0B9F364284541CB00D80E3C /* libSDL2-2.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,13 +24,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		F0B9F35B284405C700D80E3C /* Embed Libraries */ = {
+		F0B9F367284541CB00D80E3C /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F0B9F35A284405C700D80E3C /* libSDL2-2.0.0.dylib in Embed Libraries */,
+				F0B9F366284541CB00D80E3C /* libSDL2-2.0.0.dylib in Embed Libraries */,
 			);
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,6 +45,7 @@
 		F0B9F35F2844063A00D80E3C /* colors.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = colors.hpp; sourceTree = "<group>"; };
 		F0B9F3612844064B00D80E3C /* helpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = helpers.cpp; sourceTree = "<group>"; };
 		F0B9F3622844064B00D80E3C /* helpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = helpers.hpp; sourceTree = "<group>"; };
+		F0B9F364284541CB00D80E3C /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../usr/local/Cellar/sdl2/2.0.22/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0B9F359284405C700D80E3C /* libSDL2-2.0.0.dylib in Frameworks */,
+				F0B9F365284541CB00D80E3C /* libSDL2-2.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +90,7 @@
 		F0B9F357284405C700D80E3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F0B9F364284541CB00D80E3C /* libSDL2-2.0.0.dylib */,
 				F0B9F358284405C700D80E3C /* libSDL2-2.0.0.dylib */,
 			);
 			name = Frameworks;
@@ -122,7 +124,7 @@
 				F0B9F3492844057C00D80E3C /* Sources */,
 				F0B9F34A2844057C00D80E3C /* Frameworks */,
 				F0B9F34B2844057C00D80E3C /* CopyFiles */,
-				F0B9F35B284405C700D80E3C /* Embed Libraries */,
+				F0B9F367284541CB00D80E3C /* Embed Libraries */,
 			);
 			buildRules = (
 			);

@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>B4A71812-0E97-4307-B648-F07BB039B4F8</key>
+		<key>5995D805-7CCD-4D3D-97FC-DC7404894259</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -15,7 +15,143 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>B4A71812-0E97-4307-B648-F07BB039B4F8.xcactivitylog</string>
+			<string>5995D805-7CCD-4D3D-97FC-DC7404894259.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Entity Rotation project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Entity Rotation</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Entity Rotation</string>
+			<key>timeStartedRecording</key>
+			<real>675627420.77857196</real>
+			<key>timeStoppedRecording</key>
+			<real>675627421.56157696</real>
+			<key>title</key>
+			<string>Build Entity Rotation</string>
+			<key>uniqueIdentifier</key>
+			<string>5995D805-7CCD-4D3D-97FC-DC7404894259</string>
+		</dict>
+		<key>7EECC48B-ABCB-47FE-9E3A-5D8917134343</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>7EECC48B-ABCB-47FE-9E3A-5D8917134343.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Entity Rotation project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Entity Rotation</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Entity Rotation</string>
+			<key>timeStartedRecording</key>
+			<real>675627124.81136405</real>
+			<key>timeStoppedRecording</key>
+			<real>675627124.86338496</real>
+			<key>title</key>
+			<string>Build Entity Rotation</string>
+			<key>uniqueIdentifier</key>
+			<string>7EECC48B-ABCB-47FE-9E3A-5D8917134343</string>
+		</dict>
+		<key>A0698940-C4AD-4A1B-AC63-25EC79C069BE</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>A0698940-C4AD-4A1B-AC63-25EC79C069BE.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Entity Rotation project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Entity Rotation</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Entity Rotation</string>
+			<key>timeStartedRecording</key>
+			<real>675627354.40070999</real>
+			<key>timeStoppedRecording</key>
+			<real>675627354.47680402</real>
+			<key>title</key>
+			<string>Build Entity Rotation</string>
+			<key>uniqueIdentifier</key>
+			<string>A0698940-C4AD-4A1B-AC63-25EC79C069BE</string>
+		</dict>
+		<key>C7AD9F60-0396-4CAB-AA5B-27F5AB8819D7</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>C7AD9F60-0396-4CAB-AA5B-27F5AB8819D7.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Entity Rotation project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Entity Rotation</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Entity Rotation</string>
+			<key>timeStartedRecording</key>
+			<real>675627357.96730101</real>
+			<key>timeStoppedRecording</key>
+			<real>675627358.01373696</real>
+			<key>title</key>
+			<string>Build Entity Rotation</string>
+			<key>uniqueIdentifier</key>
+			<string>C7AD9F60-0396-4CAB-AA5B-27F5AB8819D7</string>
+		</dict>
+		<key>D61931A6-A6A9-4037-8951-08D7818F7572</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D61931A6-A6A9-4037-8951-08D7818F7572.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -32,13 +168,47 @@
 			<key>signature</key>
 			<string>Build Entity Rotation</string>
 			<key>timeStartedRecording</key>
-			<real>675625539.467031</real>
+			<real>675627499.23141801</real>
 			<key>timeStoppedRecording</key>
-			<real>675625540.41069198</real>
+			<real>675627499.40314603</real>
 			<key>title</key>
 			<string>Build Entity Rotation</string>
 			<key>uniqueIdentifier</key>
-			<string>B4A71812-0E97-4307-B648-F07BB039B4F8</string>
+			<string>D61931A6-A6A9-4037-8951-08D7818F7572</string>
+		</dict>
+		<key>EB5B79F1-74F3-4670-8214-0353492A50E9</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>EB5B79F1-74F3-4670-8214-0353492A50E9.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Entity Rotation project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Entity Rotation</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Clean Entity Rotation</string>
+			<key>timeStartedRecording</key>
+			<real>675627416.10317302</real>
+			<key>timeStoppedRecording</key>
+			<real>675627416.15714705</real>
+			<key>title</key>
+			<string>Clean Entity Rotation</string>
+			<key>uniqueIdentifier</key>
+			<string>EB5B79F1-74F3-4670-8214-0353492A50E9</string>
 		</dict>
 	</dict>
 </dict>
