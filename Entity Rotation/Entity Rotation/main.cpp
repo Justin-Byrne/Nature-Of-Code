@@ -12,6 +12,7 @@
 
 #include "include/colors.hpp"
 #include "include/helpers.hpp"
+#include "include/structs.hpp"
 
 #define WINDOW_WIDTH  100
 #define WINDOW_HEIGHT 100
@@ -54,31 +55,13 @@ enum DIRECTION
     UP_LEFT     // 7
 };
 
-struct POINT
-{
-    int x, y;
-    int radius = 0;
-    
-    POINT ( int x, int y )
-    {
-        this->x = x;
-        this->y = y;
-    }
-    
-    POINT ( int x, int y, int radius )
-    {
-        this->x = x;
-        this->y = y;
-    }
-    
-    ~POINT ( ) { };
-};
-
 struct WALKER
 {
     POINT origin     = { 0, 0 };
     POINT point      = { 0, 0 };
 
+    ROTATION rotation;
+    
     int point_length = 35;
     int radius       = 0;
     
@@ -159,6 +142,25 @@ struct WALKER
         return ( radian * 180 ) / PI;
     }
     
+    int isClockwise ( int distance )
+    {
+//        if (degree == 0) std::cout << "Zero"; else (num > 0) ? std::cout << "Positive": std::cout << "Negative";
+        
+        return ( distance == 0 ) ? 0 : ( distance > 0 ) ? 1 : -1;
+    }
+    
+    int get_rotation_distance ( int origin, int destination )
+    {
+        int result = destination % 360 - origin % 360;       // Use a modulo to handle angles that go around the circle multiple times.
+
+        if ( result >   180 ) result -= 360;
+        if ( result <= -180 ) result += 360;
+        
+    //    result = ( result <= -180 ) ? 360 : -360;
+        
+        return result;
+    }
+    
     POINT rotate ( int degree )
     {
         POINT point    = { this->origin.x + this->point_length, this->origin.y };
@@ -234,6 +236,30 @@ int setup_window ( const char* title, int x_pos, int y_pos, int width, int heigh
     return 0;
 }
 
+/// Sets background and foreground of the renderer
+/// @param      background              RGB values for background
+/// @param      foreground              RGB values for foreground
+void set_render_draw_colors ( RGB background = { 255, 255, 255 }, RGB foreground = { 0, 0, 0 } )
+{
+    SDL_SetRenderDrawColor (    // background color
+        renderer,               // rendering context
+        background.red,         // red value
+        background.green,       // green value
+        background.blue,        // blue value
+        SDL_ALPHA_OPAQUE        // alpha value
+    );
+
+    SDL_RenderClear ( renderer );
+    
+    SDL_SetRenderDrawColor (    // background color
+        renderer,               // rendering context
+        foreground.red,         // red value
+        foreground.green,       // green value
+        foreground.blue,        // blue value
+        SDL_ALPHA_OPAQUE        // alpha value
+    );
+}
+
 /// Generates a series of gray colors
 /// @param      start               Lowest number; preferable black... RGB values
 /// @param      end                 Highest number, preferable white... RGB values
@@ -275,40 +301,33 @@ void draw ( )
     
     int degree = 0;
     
+//    walker.rotation.set ( degree, generate_random ( 0, 360 ) );
+    
+    walker.rotation.set ( degree, 90 );
+    
     while ( run_loop )                                                          // DRAW
     {
-        SDL_SetRenderDrawColor (    // background color
-            renderer,               // rendering context
-            255,                    // red value
-            255,                    // green value
-            255,                    // blue value
-            SDL_ALPHA_OPAQUE        // alpha value
-        );
+        set_render_draw_colors ( );
+        
+        SDL_RenderDrawPoint ( renderer, walker.origin.x, walker.origin.y );                     // Draw: entity dot
 
-        SDL_RenderClear ( renderer );
-        
-        SDL_SetRenderDrawColor (    // background color
-            renderer,               // rendering context
-            0,                      // red value
-            0,                      // green value
-            0,                      // blue value
-            SDL_ALPHA_OPAQUE        // alpha value
-        );
-        
-        SDL_RenderDrawPoint ( renderer, walker.origin.x, walker.origin.y );
-        
-        POINT point = { walker.origin.x, walker.origin.y };
-        
-        point = walker.rotate( degree ); degree++;                              // Pivote point and advance
-        
-        if ( degree > 359 ) degree = 0;                                         // Check: Cycle through all avaliable points
-        
-        SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, point.x, point.y );    // Render Site Line
+        POINT point = walker.rotate ( degree );                                                 // Create: pivote point & rotate per degree
 
-        SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500 ms
+        SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, point.x, point.y );    // Draw: sightline with acquired orientation
 
-        SDL_Delay ( 10 );
+        SDL_RenderPresent ( renderer );                                                         // Update: renderer... polls for ~500 ms
 
+        SDL_Delay ( 100 );
+
+        degree++;
+
+        degree = ( degree > 359 ) ? 0 : degree;
+        
+        printf ( "\n] > Degree\n > walker.rotation.origin: %d\n > walker.rotation.destination: %d\n > degree: %d\n", walker.rotation.origin, walker.rotation.destination, degree );
+
+        if ( degree == walker.rotation.destination )
+            walker.rotation.set( walker.rotation.destination, generate_random ( 0, 360 ) );
+        
         while ( SDL_PollEvent ( &sdl_event )  )
         {
             if ( sdl_event.type == SDL_QUIT )

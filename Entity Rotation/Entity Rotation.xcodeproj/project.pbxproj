@@ -38,6 +38,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F08E19762846877300C1BFAE /* structs.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = structs.hpp; sourceTree = "<group>"; };
 		F0B9F34D2844057C00D80E3C /* Entity Rotation */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Entity Rotation"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0B9F3502844057C00D80E3C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		F0B9F358284405C700D80E3C /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../usr/local/Cellar/sdl2/2.0.22/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
@@ -101,6 +102,7 @@
 			children = (
 				F0B9F35F2844063A00D80E3C /* colors.hpp */,
 				F0B9F3622844064B00D80E3C /* helpers.hpp */,
+				F08E19762846877300C1BFAE /* structs.hpp */,
 			);
 			path = include;
 			sourceTree = "<group>";
