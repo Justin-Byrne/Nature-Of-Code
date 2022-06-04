@@ -12,12 +12,14 @@
 
 #include <algorithm>
 
-#include "include/colors.hpp"
+#include "include/structs.hpp"
 #include "include/helpers.hpp"
+#include "include/colors.hpp"
 
+#define WINDOW_TITLE  "Walker 2.0"
 #define WINDOW_WIDTH  500
 #define WINDOW_HEIGHT 500
-#define WALKER_MAX     10
+#define WALKER_MAX    100
 #define DEPTH_MAX      10
 #define SENSE_BUBBLE   50
 
@@ -38,10 +40,12 @@ int walker_steps[WALKER_MAX][DEPTH_MAX][2] = { { 0 } };
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
-int  setup_window    ( const char* title, int x_pos, int y_pos, int width, int height );
-void generate_colors ( int start, int end );
-void exit            ( const char * message );
-void draw            ( );
+int  setup_window           ( const char * title, int x_pos, int y_pos, int width, int height );
+void set_render_draw_color  ( RGB color = { 0, 0, 0 } );
+void set_render_draw_colors ( RGB background = { 255, 255, 255 }, RGB foreground = { 0, 0, 0 } );
+void generate_colors        ( int start, int end );
+void exit                   ( const char * message );
+void draw                   ( );
 
 #pragma mark - DATA STRUCTURES
 
@@ -57,52 +61,22 @@ enum DIRECTION
     UP_LEFT     // 7
 };
 
-struct POINT
-{
-    int x, y;
-    
-    POINT ( int x, int y )
-    {
-        this->x = x;
-        this->y = y;
-    }
-    
-    ~POINT ( ) { };
-};
-
 struct WALKER
 {
-    POINT origin     = { 0, 0 };
-    POINT point      = { 0, 0 };
-
-    int point_length = 35;
-    int radius       = 0;
+    COORDINATE origin = { 0, 0 };
     
-    time_t time_seed;
+    int radius = 0;
     
     // Constructors ......................................................... //
     
-    WALKER ( POINT origin )
+    WALKER ( COORDINATE origin )
     {
         this->origin = origin;
     }
     
-    WALKER ( POINT origin, int radius )
+    WALKER ( COORDINATE origin, int radius )
     {
         this->origin = origin;
-        this->radius = radius;
-    }
-    
-    WALKER ( POINT origin, POINT point )
-    {
-        this->origin = origin;
-        this->point  = point;
-    }
-    
-    WALKER ( POINT origin, POINT point, int radius )
-    {
-        this->origin = origin;
-        this->point  = point;
         this->radius = radius;
     }
     
@@ -139,41 +113,15 @@ struct WALKER
         if ( this->origin.y >= WINDOW_HEIGHT )  this->origin.y--;               // bottom
     }
 
-    bool isInsideCircle ( POINT circle )
+    bool isInsideCircle ( COORDINATE circle )
     {
         return ( ( circle.x - this->origin.x ) * ( circle.x - this->origin.x ) +
                  ( circle.y - this->origin.y ) * ( circle.y - this->origin.y ) <= ( this->radius * this->radius ) ) ? true : false;
     }
-
-    double convertToRadian ( int degree )
-    {
-        return ( degree * PI / 180 );
-    }
-
-    int convertToDegree ( float radian )
-    {
-        return ( radian * 180 ) / PI;
-    }
     
-    POINT rotate ( int degree )
+    COORDINATE rotate ( int degree )
     {
-        POINT point    = { this->origin.x + this->point_length, this->origin.y };
-        
-        double radians = convertToRadian ( degree );
-        
-        double sine    = sin ( radians );
-        double cosine  = cos ( radians );
-
-        point.x       -= this->origin.x;                                        // translate point back to origin
-        point.y       -= this->origin.y;
-
-        double x_new  = point.x * cosine - point.y * sine;                      // rotate point
-        double y_new  = point.x * sine   - point.y * cosine;
-        
-        point.x       = x_new + this->origin.x;                                 // translate point back
-        point.y       = y_new + this->origin.y;
-        
-        return point;
+        return DEGREE().rotate ( this->origin, degree );
     }
 };
 
@@ -181,7 +129,7 @@ struct WALKER
 
 int main ( int argc, char * arg[] )
 {
-    setup_window ( "Walker", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT );
+    setup_window ( WINDOW_TITLE, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT );
     
     srand ( (unsigned) time (0) );      // seed randomizer
     
@@ -230,6 +178,43 @@ int setup_window ( const char * title, int x_pos, int y_pos, int width, int heig
     return 0;
 }
 
+/// Sets  foreground of the renderer
+/// @param      color               RGB values for foreground
+void set_render_draw_color ( RGB color )
+{
+    SDL_SetRenderDrawColor (        // background color
+        renderer,                   // rendering context
+        color.red,                  // red value
+        color.green,                // green value
+        color.blue,                 // blue value
+        SDL_ALPHA_OPAQUE            // alpha value
+    );
+}
+
+/// Sets background and foreground of the renderer
+/// @param      background          RGB values for background
+/// @param      foreground          RGB values for foreground
+void set_render_draw_colors ( RGB background, RGB foreground )
+{
+    SDL_SetRenderDrawColor (        // background color
+        renderer,                   // rendering context
+        background.red,             // red value
+        background.green,           // green value
+        background.blue,            // blue value
+        SDL_ALPHA_OPAQUE            // alpha value
+    );
+
+    SDL_RenderClear ( renderer );
+    
+    SDL_SetRenderDrawColor (        // background color
+        renderer,                   // rendering context
+        foreground.red,             // red value
+        foreground.green,           // green value
+        foreground.blue,            // blue value
+        SDL_ALPHA_OPAQUE            // alpha value
+    );
+}
+
 /// Generates a series of gray colors
 /// @param      start               Lowest number; preferable black... RGB values
 /// @param      end                 Highest number, preferable white... RGB values
@@ -264,7 +249,7 @@ void draw ( )
     WALKER walker[WALKER_MAX];
 
     for ( i = 0; i < WALKER_MAX; i++ )
-        walker[i] = { POINT { generate_random ( 0, WINDOW_WIDTH ), generate_random ( 0, WINDOW_HEIGHT ) }, SENSE_BUBBLE };
+        walker[i] = { COORDINATE { generate_random ( 0, WINDOW_WIDTH ), generate_random ( 0, WINDOW_HEIGHT ) }, SENSE_BUBBLE };
 
     generate_colors ( 0, 255 );
 
@@ -307,7 +292,7 @@ void draw ( )
             }
             
             for ( int j = i + 1; j < WALKER_MAX; j++ )                          // Draw: sense bubble if triggered
-                if ( walker[i].isInsideCircle ( POINT { walker[j].origin.x, walker[j].origin.y } ) )
+                if ( walker[i].isInsideCircle ( COORDINATE { walker[j].origin.x, walker[j].origin.y } ) )
                 {
                     if ( debug )
                     {

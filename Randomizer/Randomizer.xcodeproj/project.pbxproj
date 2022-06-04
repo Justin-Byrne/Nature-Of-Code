@@ -10,7 +10,6 @@
 		F0AE49BA28285EF100F91ACC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0AE49B928285EF100F91ACC /* main.cpp */; };
 		F0AE49C22828600200F91ACC /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AE49C12828600200F91ACC /* libSDL2-2.0.0.dylib */; };
 		F0AE49C32828600200F91ACC /* libSDL2-2.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = F0AE49C12828600200F91ACC /* libSDL2-2.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		F0AE49CA282865A000F91ACC /* colors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0AE49C8282865A000F91ACC /* colors.cpp */; };
 		F0AE49CD282865AB00F91ACC /* helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F0AE49CB282865AB00F91ACC /* helpers.cpp */; };
 /* End PBXBuildFile section */
 
@@ -41,8 +40,6 @@
 		F0AE49B628285EF100F91ACC /* Randomizer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Randomizer; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0AE49B928285EF100F91ACC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		F0AE49C12828600200F91ACC /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../usr/local/Cellar/sdl2/2.0.22/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
-		F0AE49C8282865A000F91ACC /* colors.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = colors.cpp; sourceTree = "<group>"; };
-		F0AE49C9282865A000F91ACC /* colors.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = colors.hpp; sourceTree = "<group>"; };
 		F0AE49CB282865AB00F91ACC /* helpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = helpers.cpp; sourceTree = "<group>"; };
 		F0AE49CC282865AB00F91ACC /* helpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = helpers.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,7 +94,6 @@
 		F0AE49C52828606C00F91ACC /* include */ = {
 			isa = PBXGroup;
 			children = (
-				F0AE49C9282865A000F91ACC /* colors.hpp */,
 				F0AE49CC282865AB00F91ACC /* helpers.hpp */,
 			);
 			path = include;
@@ -106,7 +102,6 @@
 		F0AE49C72828608100F91ACC /* source */ = {
 			isa = PBXGroup;
 			children = (
-				F0AE49C8282865A000F91ACC /* colors.cpp */,
 				F0AE49CB282865AB00F91ACC /* helpers.cpp */,
 			);
 			path = source;
@@ -172,7 +167,6 @@
 			files = (
 				F0AE49BA28285EF100F91ACC /* main.cpp in Sources */,
 				F0AE49CD282865AB00F91ACC /* helpers.cpp in Sources */,
-				F0AE49CA282865A000F91ACC /* colors.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

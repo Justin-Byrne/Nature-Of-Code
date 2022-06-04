@@ -8,9 +8,11 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "include/colors.hpp"
 #include "include/helpers.hpp"
 
+#define WINDOW_TITLE  "Random Walker"
 #define WINDOW_WIDTH  500
 #define WINDOW_HEIGHT 500
 #define WALKER_MAX    500
@@ -28,10 +30,10 @@ int walker_steps[WALKER_MAX][MAX_DEPTH][2] = { { 0 } };
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
-int setup_window ( const char * title, int x_pos, int y_pos, int width, int height );
-void generate_colors ( int start, int end );
-void exit ( const char * message );
-void draw ( );
+int setup_window            ( const char * title, int x_pos, int y_pos, int width, int height );
+void generate_colors        ( int start, int end );
+void exit                   ( const char * message );
+void draw                   ( );
 
 #pragma mark - DATA STRUCTURES
 
@@ -77,7 +79,7 @@ struct WALKER
 
 int main ( int argc, char * arg[] )
 {
-    setup_window ( "Walker", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT );
+    setup_window ( WINDOW_TITLE, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT );
     
     srand ( (unsigned) time (0) );      // seed randomizer
     
@@ -100,7 +102,7 @@ int main ( int argc, char * arg[] )
 /// @param      y_pos               Window's y position
 /// @param      width               Window's width
 /// @param      height              Window's height
-int setup_window ( const char* title, int x_pos, int y_pos, int width, int height )
+int setup_window ( const char * title, int x_pos, int y_pos, int width, int height )
 {
     if ( SDL_Init (SDL_INIT_EVERYTHING) != 0 ) {  SDL_Log ( "ERROR SDL_Init" );  return -1;  }
     

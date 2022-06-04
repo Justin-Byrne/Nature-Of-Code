@@ -45,6 +45,7 @@
 		F0B9F31D2832B75300D80E3C /* colors.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = colors.hpp; sourceTree = "<group>"; };
 		F0B9F31F2832B75F00D80E3C /* helpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = helpers.cpp; sourceTree = "<group>"; };
 		F0B9F3202832B75F00D80E3C /* helpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = helpers.hpp; sourceTree = "<group>"; };
+		F0B9F369284BD88300D80E3C /* structs.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = structs.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +109,7 @@
 			children = (
 				F0B9F31D2832B75300D80E3C /* colors.hpp */,
 				F0B9F3202832B75F00D80E3C /* helpers.hpp */,
+				F0B9F369284BD88300D80E3C /* structs.hpp */,
 			);
 			path = include;
 			sourceTree = "<group>";

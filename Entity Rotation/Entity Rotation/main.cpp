@@ -12,9 +12,9 @@
 
 #include <algorithm>
 
-#include "include/colors.hpp"
-#include "include/helpers.hpp"
 #include "include/structs.hpp"
+#include "include/helpers.hpp"
+#include "include/colors.hpp"
 
 #define WINDOW_TITLE  "Entity Rotation"
 #define WINDOW_WIDTH  100
@@ -35,12 +35,12 @@ int walker_steps[DEPTH_MAX][2] = { { 0 } };
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
-int setup_window ( const char* title, int x_pos, int y_pos, int width, int height );
-void set_render_draw_color ( RGB color = { 0, 0, 0 } );
+int setup_window            ( const char * title, int x_pos, int y_pos, int width, int height );
+void set_render_draw_color  ( RGB color = { 0, 0, 0 } );
 void set_render_draw_colors ( RGB background = { 255, 255, 255 }, RGB foreground = { 0, 0, 0 } );
-void generate_colors ( int start, int end );
-void exit ( const char * message );
-void draw ( );
+void generate_colors        ( int start, int end );
+void exit                   ( const char * message );
+void draw                   ( );
 
 #pragma mark - DATA STRUCTURES
 
@@ -173,7 +173,7 @@ int setup_window ( const char * title, int x_pos, int y_pos, int width, int heig
     return 0;
 }
 
-/// Sets background and foreground of the renderer
+/// Sets  foreground of the renderer
 /// @param      color               RGB values for foreground
 void set_render_draw_color ( RGB color )
 {

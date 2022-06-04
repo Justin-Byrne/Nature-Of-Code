@@ -9,8 +9,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+
 #include "include/helpers.hpp"
 
+#define WINDOW_TITLE  "Randomizer"
 #define WINDOW_WIDTH  500
 #define WINDOW_HEIGHT 500
 
@@ -23,11 +25,12 @@ bool run_loop = true;
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
-int setup_window ( const char* title, int x_pos, int y_pos, int width, int height );
-void exit ( );
-void main_loop ( );
+int setup_window ( const char * title, int x_pos, int y_pos, int width, int height );
+void exit        ( const char * message );
+void draw        ( );
 
 #pragma mark - DATA STRUCTURES
+
 enum TYPE
 {
     POINTS_Y = 0,
@@ -40,11 +43,11 @@ enum TYPE
 
 int main ( int argc, char * arg[] )
 {
-    setup_window ( "Randomizer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT );
+    setup_window ( WINDOW_TITLE, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT );
     
-    srand ( (unsigned) time (0) );      // seed randomizer
+    srand ( (unsigned) time (0) );  // seed randomizer
     
-    main_loop ( );
+    draw ( );
     
     /* - - - - - - clean up - - - - - - */
     SDL_DestroyRenderer ( renderer );
@@ -57,74 +60,67 @@ int main ( int argc, char * arg[] )
 
 #pragma mark - GLOBAL FUNCTIONS
 
-/*!
-    @brief                                  Setup window
-    @param          title                   Window title
-    @param          x_pos                   Window's x position
-    @param          y_pos                   Window's y position
-    @param          width                   Window's width
-    @param          height                  Window's height
- */
+/// Setup window
+/// @param      title               Window title
+/// @param      x_pos               Window's x position
+/// @param      y_pos               Window's y position
+/// @param      width               Window's width
+/// @param      height              Window's height
 int setup_window ( const char * title, int x_pos, int y_pos, int width, int height )
 {
     if ( SDL_Init (SDL_INIT_EVERYTHING) != 0 ) {  SDL_Log ( "ERROR SDL_Init" );  return -1;  }
     
     window = SDL_CreateWindow (
-        title,                          // window title
-        x_pos,                          // x position, centered
-        y_pos,                          // y position, centered
-        width,                          // width, in pixels
-        height,                         // height, in pixels
-        SDL_WINDOW_OPENGL               // flags
+        title,                      // window title
+        x_pos,                      // x position, centered
+        y_pos,                      // y position, centered
+        width,                      // width, in pixels
+        height,                     // height, in pixels
+        SDL_WINDOW_OPENGL           // flags
     );
     
     if ( !window ) {  SDL_Log ( "Window could not be created! SDL_Error: %s\n", SDL_GetError () );  return -1; }
 
     renderer = SDL_CreateRenderer (
-        window,                         // window when rendering
-        -1,                             // index of the rendering driver
-        SDL_RENDERER_SOFTWARE           // rendering flags
+        window,                     // window when rendering
+        -1,                         // index of the rendering driver
+        SDL_RENDERER_SOFTWARE       // rendering flags
     );
     
     if ( !renderer ) {  SDL_Log ( "Failed to load renderer! SDL_Error: %s\n", SDL_GetError () );  return -1; }
     
-    SDL_SetRenderDrawColor (            // background color
-        renderer,                       // rendering context
-        255,                            // red value
-        255,                            // green value
-        255,                            // blue value
-        SDL_ALPHA_OPAQUE                // alpha value
+    SDL_SetRenderDrawColor (        // background color
+        renderer,                   // rendering context
+        255,                        // red value
+        255,                        // green value
+        255,                        // blue value
+        SDL_ALPHA_OPAQUE            // alpha value
     );
 
     SDL_RenderClear ( renderer );
 
-    SDL_SetRenderDrawColor (            // foreground color
-        renderer,                       // rendering context
-        0,                              // red value
-        0,                              // green value
-        0,                              // blue value
-        SDL_ALPHA_OPAQUE                // alpha value
+    SDL_SetRenderDrawColor (        // foreground color
+        renderer,                   // rendering context
+        0,                          // red value
+        0,                          // green value
+        0,                          // blue value
+        SDL_ALPHA_OPAQUE            // alpha value
     );
     
     return 0;
 }
 
-/*!
-    @brief                                  Initiates exit
- */
-void exit ( )
+/// Exits program
+/// @param      message             Message to be left after deactivating program
+void exit ( const char * message )
 {
     run_loop = false;
     
-    printf ( "Done !" );
-    
-    SDL_Delay ( 5000 );
+    printf ( "[EXIT] By program !\n%s\n", message );
 }
 
-/*!
-    @brief                                  Initiate poll events
- */
-void main_loop ( )
+/// Initiate poll events
+void draw ( )
 {
     SDL_Event sdl_event;
     
@@ -147,7 +143,7 @@ void main_loop ( )
                 i++;
                 
                 if ( i >= WINDOW_WIDTH )
-                    exit();
+                    exit ( "Done !" );
                 
                 break;
                 
@@ -161,7 +157,7 @@ void main_loop ( )
                 last_y = random_y;
                 
                 if ( i >= WINDOW_WIDTH )
-                    exit();
+                    exit ( "Done !" );
                 
                 break;
                 

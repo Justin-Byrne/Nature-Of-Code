@@ -1,8 +1,8 @@
 //
-//  structs.hpp
-//  Entity Rotation
+//  struct.hpp
+//  Walker 2.0
 //
-//  Created by Justin Byrne on 5/31/22.
+//  Created by Justin Byrne on 6/4/22.
 //
 
 #ifndef structs_hpp
