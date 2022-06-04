@@ -10,18 +10,17 @@
 #include <stdlib.h>
 #include <math.h>
 
+#include <algorithm>
+
 #include "include/colors.hpp"
 #include "include/helpers.hpp"
 #include "include/structs.hpp"
 
+#define WINDOW_TITLE  "Entity Rotation"
 #define WINDOW_WIDTH  100
 #define WINDOW_HEIGHT 100
 #define DEPTH_MAX      10
 #define SENSE_BUBBLE   50
-
-#define PI 3.141592653589
-#define SIN(x) sin(x * PI / 180)
-#define COS(x) cos(x * PI / 180)
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -37,6 +36,8 @@ int walker_steps[DEPTH_MAX][2] = { { 0 } };
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
 int setup_window ( const char* title, int x_pos, int y_pos, int width, int height );
+void set_render_draw_color ( RGB color = { 0, 0, 0 } );
+void set_render_draw_colors ( RGB background = { 255, 255, 255 }, RGB foreground = { 0, 0, 0 } );
 void generate_colors ( int start, int end );
 void exit ( const char * message );
 void draw ( );
@@ -57,39 +58,20 @@ enum DIRECTION
 
 struct WALKER
 {
-    POINT origin     = { 0, 0 };
-    POINT point      = { 0, 0 };
-
-    ROTATION rotation;
+    COORDINATE origin = { 0, 0 };
     
-    int point_length = 35;
-    int radius       = 0;
-    
-    time_t time_seed;
+    int radius = 0;
     
     // Constructors ......................................................... //
     
-    WALKER ( POINT origin )
+    WALKER ( COORDINATE origin )
     {
         this->origin = origin;
     }
     
-    WALKER ( POINT origin, int radius )
+    WALKER ( COORDINATE origin, int radius )
     {
         this->origin = origin;
-        this->radius = radius;
-    }
-    
-    WALKER ( POINT origin, POINT point )
-    {
-        this->origin = origin;
-        this->point  = point;
-    }
-    
-    WALKER ( POINT origin, POINT point, int radius )
-    {
-        this->origin = origin;
-        this->point  = point;
         this->radius = radius;
     }
     
@@ -126,60 +108,15 @@ struct WALKER
         if ( this->origin.y >= WINDOW_HEIGHT )  this->origin.y--;               // bottom
     }
 
-    bool isInsideCircle ( POINT circle )
+    bool isInsideCircle ( COORDINATE circle )
     {
         return ( ( circle.x - this->origin.x ) * ( circle.x - this->origin.x ) +
                  ( circle.y - this->origin.y ) * ( circle.y - this->origin.y ) <= ( this->radius * this->radius ) ) ? true : false;
     }
-
-    double convertToRadian ( int degree )
-    {
-        return ( degree * PI / 180 );
-    }
-
-    int convertToDegree ( float radian )
-    {
-        return ( radian * 180 ) / PI;
-    }
     
-    int isClockwise ( int distance )
+    COORDINATE rotate ( int degree )
     {
-//        if (degree == 0) std::cout << "Zero"; else (num > 0) ? std::cout << "Positive": std::cout << "Negative";
-        
-        return ( distance == 0 ) ? 0 : ( distance > 0 ) ? 1 : -1;
-    }
-    
-    int get_rotation_distance ( int origin, int destination )
-    {
-        int result = destination % 360 - origin % 360;       // Use a modulo to handle angles that go around the circle multiple times.
-
-        if ( result >   180 ) result -= 360;
-        if ( result <= -180 ) result += 360;
-        
-    //    result = ( result <= -180 ) ? 360 : -360;
-        
-        return result;
-    }
-    
-    POINT rotate ( int degree )
-    {
-        POINT point    = { this->origin.x + this->point_length, this->origin.y };
-        
-        double radians = convertToRadian ( degree );
-        
-        double sine    = sin ( radians );
-        double cosine  = cos ( radians );
-
-        point.x       -= this->origin.x;                                        // translate point back to origin
-        point.y       -= this->origin.y;
-
-        double x_new  = point.x * cosine - point.y * sine;                      // rotate point
-        double y_new  = point.x * sine   - point.y * cosine;
-        
-        point.x       = x_new + this->origin.x;                                 // translate point back
-        point.y       = y_new + this->origin.y;
-        
-        return point;
+        return DEGREE().rotate ( this->origin, degree );
     }
 };
 
@@ -187,9 +124,9 @@ struct WALKER
 
 int main ( int argc, char * arg[] )
 {
-    setup_window ( "Walker", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT );
+    setup_window ( WINDOW_TITLE, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT );
     
-    srand ( (unsigned) time (0) );      // seed randomizer
+    srand ( (unsigned) time (0) );                          // seed randomizer
     
     draw ( );
     
@@ -210,25 +147,25 @@ int main ( int argc, char * arg[] )
 /// @param      y_pos               Window's y position
 /// @param      width               Window's width
 /// @param      height              Window's height
-int setup_window ( const char* title, int x_pos, int y_pos, int width, int height )
+int setup_window ( const char * title, int x_pos, int y_pos, int width, int height )
 {
     if ( SDL_Init (SDL_INIT_EVERYTHING) != 0 ) {  SDL_Log ( "ERROR SDL_Init" );  return -1;  }
     
     window = SDL_CreateWindow (
-        title,                          // window title
-        x_pos,                          // x position, centered
-        y_pos,                          // y position, centered
-        width,                          // width, in pixels
-        height,                         // height, in pixels
-        SDL_WINDOW_OPENGL               // flags
+        title,                      // window title
+        x_pos,                      // x position, centered
+        y_pos,                      // y position, centered
+        width,                      // width, in pixels
+        height,                     // height, in pixels
+        SDL_WINDOW_OPENGL           // flags
     );
     
     if ( !window ) {  SDL_Log ( "Window could not be created! SDL_Error: %s\n", SDL_GetError () );  return -1; }
 
     renderer = SDL_CreateRenderer (
-        window,                         // window when rendering
-        -1,                             // index of the rendering driver
-        SDL_RENDERER_SOFTWARE           // rendering flags
+        window,                     // window when rendering
+        -1,                         // index of the rendering driver
+        SDL_RENDERER_SOFTWARE       // rendering flags
     );
     
     if ( !renderer ) {  SDL_Log ( "Failed to load renderer! SDL_Error: %s\n", SDL_GetError () );  return -1; }
@@ -237,26 +174,39 @@ int setup_window ( const char* title, int x_pos, int y_pos, int width, int heigh
 }
 
 /// Sets background and foreground of the renderer
-/// @param      background              RGB values for background
-/// @param      foreground              RGB values for foreground
-void set_render_draw_colors ( RGB background = { 255, 255, 255 }, RGB foreground = { 0, 0, 0 } )
+/// @param      color               RGB values for foreground
+void set_render_draw_color ( RGB color )
 {
-    SDL_SetRenderDrawColor (    // background color
-        renderer,               // rendering context
-        background.red,         // red value
-        background.green,       // green value
-        background.blue,        // blue value
-        SDL_ALPHA_OPAQUE        // alpha value
+    SDL_SetRenderDrawColor (        // background color
+        renderer,                   // rendering context
+        color.red,                  // red value
+        color.green,                // green value
+        color.blue,                 // blue value
+        SDL_ALPHA_OPAQUE            // alpha value
+    );
+}
+
+/// Sets background and foreground of the renderer
+/// @param      background          RGB values for background
+/// @param      foreground          RGB values for foreground
+void set_render_draw_colors ( RGB background, RGB foreground )
+{
+    SDL_SetRenderDrawColor (        // background color
+        renderer,                   // rendering context
+        background.red,             // red value
+        background.green,           // green value
+        background.blue,            // blue value
+        SDL_ALPHA_OPAQUE            // alpha value
     );
 
     SDL_RenderClear ( renderer );
     
-    SDL_SetRenderDrawColor (    // background color
-        renderer,               // rendering context
-        foreground.red,         // red value
-        foreground.green,       // green value
-        foreground.blue,        // blue value
-        SDL_ALPHA_OPAQUE        // alpha value
+    SDL_SetRenderDrawColor (        // background color
+        renderer,                   // rendering context
+        foreground.red,             // red value
+        foreground.green,           // green value
+        foreground.blue,            // blue value
+        SDL_ALPHA_OPAQUE            // alpha value
     );
 }
 
@@ -265,8 +215,8 @@ void set_render_draw_colors ( RGB background = { 255, 255, 255 }, RGB foreground
 /// @param      end                 Highest number, preferable white... RGB values
 void generate_colors ( int start, int end )
 {
-    if ( DEPTH_MAX > 255 || end > 255 )
-        exit ( "Maximum values for 'DEPTH_MAX' and 'end' variables are 255!" );
+    end   = std::clamp ( end,   0, 255 );
+    start = std::clamp ( start, 0, 255 );
     
     int difference = end / DEPTH_MAX;
     
@@ -293,40 +243,45 @@ void draw ( )
 
     WALKER walker;
     
-    walker = { POINT { WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 } };
+    walker = { COORDINATE { WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 } };
 
     generate_colors ( 0, 255 );
 
     /* - - - - - - - - - - - - - - - - - Init - - - - - - - - - - - - - - - - - */
     
-    int degree = 0;
-    
-//    walker.rotation.set ( degree, generate_random ( 0, 360 ) );
-    
-    walker.rotation.set ( degree, 90 );
+    DEGREE rotate = { 0, 90 };
     
     while ( run_loop )                                                          // DRAW
     {
         set_render_draw_colors ( );
         
-        SDL_RenderDrawPoint ( renderer, walker.origin.x, walker.origin.y );                     // Draw: entity dot
+        SDL_RenderDrawPoint ( renderer, walker.origin.x, walker.origin.y );     // Draw: entity dot
 
-        POINT point = walker.rotate ( degree );                                                 // Create: pivote point & rotate per degree
+        COORDINATE rotate_coordinate  = walker.rotate ( rotate.a );             // Create: pivot point & rotate for starting degree
 
-        SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, point.x, point.y );    // Draw: sightline with acquired orientation
+        COORDINATE rotate_destination = walker.rotate ( rotate.b );             // Create: pivot point & rotate for ending degree
 
-        SDL_RenderPresent ( renderer );                                                         // Update: renderer... polls for ~500 ms
-
-        SDL_Delay ( 100 );
-
-        degree++;
-
-        degree = ( degree > 359 ) ? 0 : degree;
+        SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, rotate_coordinate.x, rotate_coordinate.y );      // Draw: current sightline
         
-        printf ( "\n] > Degree\n > walker.rotation.origin: %d\n > walker.rotation.destination: %d\n > degree: %d\n", walker.rotation.origin, walker.rotation.destination, degree );
+        SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, rotate_destination.x, rotate_destination.y );    // Draw: destination sightline
+        
+        SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500 ms
 
-        if ( degree == walker.rotation.destination )
-            walker.rotation.set( walker.rotation.destination, generate_random ( 0, 360 ) );
+        SDL_Delay ( 50 );
+        
+        if ( rotate.clockwise )
+        {
+            rotate.a++;
+            rotate.a = ( rotate.a == 360 ) ? 0 : rotate.a;
+        }
+        else
+        {
+            rotate.a--;
+            rotate.a = ( rotate.a == 0 ) ? 360 : rotate.a;
+        }
+        
+        if ( rotate.a == rotate.b )
+            rotate = DEGREE ( rotate.b, generate_random ( 0, 360 ) );
         
         while ( SDL_PollEvent ( &sdl_event )  )
         {

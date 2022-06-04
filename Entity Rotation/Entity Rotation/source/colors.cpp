@@ -12,8 +12,8 @@
 double range_old = RANGE_OLD_MAX - RANGE_OLD_MIN;
 double range_new = RANGE_NEW_MAX - RANGE_NEW_MIN;
 
-int i     = 0;                          // iterates the next color
-int calls = 0;                          // tracks amount of times 'get_color_value()' is called to identify when to shift 'i'
+int i     = 0;                      // iterates the next color
+int calls = 0;                      // tracks amount of times 'get_color_value()' is called to identify when to shift 'i'
 
 int get_color_value ( int phase )
 {

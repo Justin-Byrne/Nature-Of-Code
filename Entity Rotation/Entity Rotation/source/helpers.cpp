@@ -13,8 +13,8 @@
 #pragma mark - RANDOM NUMBER
 
 /// Generates a random number in the range passed
-/// @param          lower           Lower bounds value
-/// @param          upper           Upper bounds value
+/// @param      lower               Lower bounds value
+/// @param      upper               Upper bounds value
 int generate_random ( int lower, int upper )
 {
     return ( rand () % (upper - lower + 1) ) + lower;
@@ -23,10 +23,10 @@ int generate_random ( int lower, int upper )
 #pragma mark - ARRAY
 
 /// Shifts an array by the supplied value(s)
-/// @param          array                   Array to shift
-/// @param          SIZE_1D                 Size of array: 1 dimensional
-/// @param          shift_left              Shift left: true | false
-/// @param          positions_to_shift      Amount of positions to shift
+/// @param      array               Array to shift
+/// @param      SIZE_1D             Size of array: 1 dimensional
+/// @param      shift_left          Shift left: true | false
+/// @param      positions_to_shift  Amount of positions to shift
 void array_shift ( int * array, int SIZE_1D, bool shift_left, int positions_to_shift )
 {
     int i = 0;
@@ -62,11 +62,11 @@ void array_shift ( int * array, int SIZE_1D, bool shift_left, int positions_to_s
 }
 
 /// Shifts an array by the supplied value(s)
-/// @param          array                   Array to shift
-/// @param          SIZE_1D                 Size of array: first dimension
-/// @param          SIZE_2D                 Size of array: second dimension
-/// @param          shift_left              Shift left: true | false
-/// @param          positions_to_shift      Amount of positions to shift
+/// @param      array               Array to shift
+/// @param      SIZE_1D             Size of array: first dimension
+/// @param      SIZE_2D             Size of array: second dimension
+/// @param      shift_left          Shift left: true | false
+/// @param      positions_to_shift  Amount of positions to shift
 void array_shift ( int array[][2], int SIZE_1D, int SIZE_2D, bool shift_left, int positions_to_shift )
 {
     int i = 0, j = 0;

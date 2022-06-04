@@ -10,6 +10,8 @@
 #include <stdlib.h>
 #include <math.h>
 
+#include <algorithm>
+
 #include "include/colors.hpp"
 #include "include/helpers.hpp"
 
@@ -202,7 +204,7 @@ int main ( int argc, char * arg[] )
 /// @param      y_pos               Window's y position
 /// @param      width               Window's width
 /// @param      height              Window's height
-int setup_window ( const char* title, int x_pos, int y_pos, int width, int height )
+int setup_window ( const char * title, int x_pos, int y_pos, int width, int height )
 {
     if ( SDL_Init (SDL_INIT_EVERYTHING) != 0 ) {  SDL_Log ( "ERROR SDL_Init" );  return -1;  }
     
@@ -233,8 +235,8 @@ int setup_window ( const char* title, int x_pos, int y_pos, int width, int heigh
 /// @param      end                 Highest number, preferable white... RGB values
 void generate_colors ( int start, int end )
 {
-    if ( DEPTH_MAX > 255 || end > 255 )
-        exit ( "Maximum values for 'DEPTH_MAX' and 'end' variables are 255!" );
+    end   = std::clamp ( end,   0, 255 );
+    start = std::clamp ( start, 0, 255 );
     
     int difference = end / DEPTH_MAX;
     

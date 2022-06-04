@@ -10,6 +10,108 @@
 #ifndef structs_hpp
 #define structs_hpp
 
+#define PI 3.141592653589
+#define SIN(x) sin(x * PI / 180)
+#define COS(x) cos(x * PI / 180)
+
+struct COORDINATE
+{
+    int x, y;
+    
+    COORDINATE ( int x, int y )
+    {
+        this->x = x;
+        this->y = y;
+    }
+    
+    // Constructors (Generic) ... //
+    
+    COORDINATE ( ) { }
+    
+    ~COORDINATE ( ) { }
+};
+
+struct DEGREE
+{
+    int MIN = 0;
+    int MAX = 360;
+    
+    int a, b, distance;
+    
+    bool clockwise;
+    
+    DEGREE ( int degree )
+    {
+        this->a = std::clamp ( degree, MIN, MAX );
+    }
+    
+    DEGREE ( int A, int B )
+    {
+        this->a = std::clamp ( A, MIN, MAX );
+        this->b = std::clamp ( B, MIN, MAX );
+        
+        set_distance_n_direction ( );
+    }
+    
+    // Constructors (Generic) ... //
+    
+    DEGREE ( ) { }
+    
+    ~DEGREE ( ) { }
+    
+    // Functions ............................................................ //
+    
+    void set_distance_n_direction ( )
+    {
+        int distance  = this->b % MAX - this->a % MAX;
+        
+            distance += ( distance > 180 )
+                            ? ( - MAX )
+                            : ( distance <= -180 )
+                                ? MAX
+                                : distance;
+        
+        this->distance  = distance;
+        
+        this->clockwise = ( distance == MIN )
+                            ? generate_random ( MIN, MAX )
+                            : ( distance > MIN )
+                                ? true
+                                : false;
+    }
+    
+    double convertToRadian ( int degree )
+    {
+        return ( degree * PI / 180 );
+    }
+
+    int convertToDegree ( float radian )
+    {
+        return ( radian * 180 ) / PI;
+    }
+  
+    COORDINATE rotate ( COORDINATE &origin, int &degree, int point_length = 35 )
+    {
+        COORDINATE coordinate = { origin.x + point_length, origin.y };
+
+        double radians        = convertToRadian ( degree );
+
+        double sine           = sin ( radians );
+        double cosine         = cos ( radians );
+
+        coordinate.x         -= origin.x;                                       // translate point back to origin
+        coordinate.y         -= origin.y;
+
+        double x_new          = coordinate.x * cosine - coordinate.y * sine;    // rotate point
+        double y_new          = coordinate.x * sine   - coordinate.y * cosine;
+
+        coordinate.x          = x_new + origin.x;                               // translate point back
+        coordinate.y          = y_new + origin.y;
+
+        return coordinate;
+    }
+};
+
 struct RGB
 {
     int red, green, blue;
@@ -26,51 +128,6 @@ struct RGB
     RGB ( ) { }
     
     ~RGB ( ) { }
-};
-
-struct POINT
-{
-    int x, y;
-    
-    POINT ( int x, int y )
-    {
-        this->x = x;
-        this->y = y;
-    }
-    
-    // Constructors (Generic) ... //
-    
-    POINT ( ) { }
-    
-    ~POINT ( ) { }
-};
-
-struct ROTATION
-{
-    int origin, destination;
-    
-    ROTATION ( int origin, int destination )
-    {
-        this->origin      = origin;
-        this->destination = destination;
-    }
-    
-    // Constructors (Generic) ... //
-    
-    ROTATION ( ) { }
-    
-    ~ROTATION ( ) { }
-    
-    // Functions ............................................................ //
-    
-    /// Sets (both) the origin and destination values for the Rotation struct
-    /// @param          origin                  Origin of the rotation; starting point
-    /// @param          destination          Destination of the rotation; ending point
-    void set ( int origin, int destination )
-    {
-        this->origin      = std::clamp ( origin,      0, 360 );
-        this->destination = std::clamp ( destination, 0, 360 );
-    }
 };
 
 #endif /* structs_hpp */
