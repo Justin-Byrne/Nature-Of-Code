@@ -1,8 +1,8 @@
 //
 //  main.cpp
-//  Walker 2.0
+//  Walker 3.0
 //
-//  Created by Justin Byrne on 5/16/22.
+//  Created by Justin Byrne on 6/4/22.
 //
 
 #include <SDL2/SDL.h>
@@ -16,7 +16,7 @@
 #include "include/helpers.hpp"
 #include "include/colors.hpp"
 
-#define WINDOW_TITLE  "Walker 2.0"
+#define WINDOW_TITLE  "Walker 3.0"
 #define WINDOW_WIDTH  500
 #define WINDOW_HEIGHT 500
 #define WALKER_MAX    100
@@ -36,7 +36,7 @@ int walker_steps[WALKER_MAX][DEPTH_MAX][2] = { { 0 } };
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
-int  setup_window           ( const char * title, int x_pos, int y_pos, int width, int height );
+int setup_window            ( const char * title, int x_pos, int y_pos, int width, int height );
 void set_render_draw_color  ( RGB color = { 0, 0, 0 } );
 void set_render_draw_colors ( RGB background = { 255, 255, 255 }, RGB foreground = { 0, 0, 0 } );
 void generate_colors        ( int start, int end );
@@ -127,7 +127,7 @@ int main ( int argc, char * arg[] )
 {
     setup_window ( WINDOW_TITLE, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT );
     
-    srand ( (unsigned) time (0) );      // seed randomizer
+    srand ( (unsigned) time (0) );                          // seed randomizer
     
     draw ( );
     
@@ -153,20 +153,20 @@ int setup_window ( const char * title, int x_pos, int y_pos, int width, int heig
     if ( SDL_Init (SDL_INIT_EVERYTHING) != 0 ) {  SDL_Log ( "ERROR SDL_Init" );  return -1;  }
     
     window = SDL_CreateWindow (
-        title,                          // window title
-        x_pos,                          // x position, centered
-        y_pos,                          // y position, centered
-        width,                          // width, in pixels
-        height,                         // height, in pixels
-        SDL_WINDOW_OPENGL               // flags
+        title,                      // window title
+        x_pos,                      // x position, centered
+        y_pos,                      // y position, centered
+        width,                      // width, in pixels
+        height,                     // height, in pixels
+        SDL_WINDOW_OPENGL           // flags
     );
     
     if ( !window ) {  SDL_Log ( "Window could not be created! SDL_Error: %s\n", SDL_GetError () );  return -1; }
 
     renderer = SDL_CreateRenderer (
-        window,                         // window when rendering
-        -1,                             // index of the rendering driver
-        SDL_RENDERER_SOFTWARE           // rendering flags
+        window,                     // window when rendering
+        -1,                         // index of the rendering driver
+        SDL_RENDERER_SOFTWARE       // rendering flags
     );
     
     if ( !renderer ) {  SDL_Log ( "Failed to load renderer! SDL_Error: %s\n", SDL_GetError () );  return -1; }
@@ -235,6 +235,7 @@ void exit ( const char * message )
     printf ( "[EXIT] By program !\n%s\n", message );
 }
 
+/// Initiate poll events
 /// Initiate poll events
 void draw ( )
 {
@@ -319,3 +320,4 @@ void draw ( )
         }
     }
 }
+
