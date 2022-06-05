@@ -258,11 +258,9 @@ void draw ( )
         SDL_RenderDrawPoint ( renderer, walker.origin.x, walker.origin.y );     // Draw: entity dot
 
         COORDINATE rotate_coordinate  = walker.rotate ( rotate.a );             // Create: pivot point & rotate for starting degree
-
         COORDINATE rotate_destination = walker.rotate ( rotate.b );             // Create: pivot point & rotate for ending degree
 
         SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, rotate_coordinate.x, rotate_coordinate.y );      // Draw: current sightline
-        
         SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, rotate_destination.x, rotate_destination.y );    // Draw: destination sightline
         
         SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500 ms

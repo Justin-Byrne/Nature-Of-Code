@@ -12,6 +12,8 @@
 
 #include <algorithm>
 
+#include <string>
+
 #include "include/structs.hpp"
 #include "include/helpers.hpp"
 #include "include/colors.hpp"
@@ -19,7 +21,7 @@
 #define WINDOW_TITLE  "Walker 3.0"
 #define WINDOW_WIDTH  500
 #define WINDOW_HEIGHT 500
-#define WALKER_MAX    100
+#define WALKER_MAX     20
 #define DEPTH_MAX      10
 #define SENSE_BUBBLE   50
 
@@ -236,7 +238,6 @@ void exit ( const char * message )
 }
 
 /// Initiate poll events
-/// Initiate poll events
 void draw ( )
 {
     /* - - - - - - - - - - - - - - - - - Init - - - - - - - - - - - - - - - - - */
@@ -249,22 +250,22 @@ void draw ( )
         walker[i] = { COORDINATE { generate_random ( 0, WINDOW_WIDTH ), generate_random ( 0, WINDOW_HEIGHT ) }, SENSE_BUBBLE };
 
     generate_colors ( 0, 255 );
+    
+    DEGREE degree[WALKER_MAX];
+    
+    for ( i = 0; i < WALKER_MAX; i++ )                                          // Init: degree for rotation
+        degree[i] = { generate_random ( 0, 360 ), generate_random ( 0, 360 ) };
 
     /* - - - - - - - - - - - - - - - - - Init - - - - - - - - - - - - - - - - - */
     
     while ( run_loop )                                                          // DRAW
     {
-        SDL_SetRenderDrawColor (    // background color
-            renderer,               // rendering context
-            255,                    // red value
-            255,                    // green value
-            255,                    // blue value
-            SDL_ALPHA_OPAQUE        // alpha value
-        );
+        set_render_draw_color ( RGB ( 255, 255, 255 ) );
 
         SDL_RenderClear ( renderer );
         
-        for ( i = 0; i < WALKER_MAX; i++ )                                      // Store: key 'walker' values within walker_steps
+        // Store: key 'walker' values within walker_steps
+        for ( i = 0; i < WALKER_MAX; i++ )
         {
             walker_steps[i][0][0] = walker[i].origin.x;
             walker_steps[i][0][1] = walker[i].origin.y;
@@ -279,13 +280,8 @@ void draw ( )
 
                 SDL_RenderDrawPoint  ( renderer, walker_steps[i][j][0], walker_steps[i][j][1] );
 
-                SDL_SetRenderDrawColor (    // foreground color
-                    renderer,               // rendering context
-                    colors[j][0],           // red value
-                    colors[j][1],           // green value
-                    colors[j][2],           // blue value
-                    SDL_ALPHA_OPAQUE        // alpha value
-                );
+//                set_render_draw_color ( RGB ( colors[j][0], colors[j][1], colors[j][2] ) );
+                set_render_draw_color ( RGB ( 0, 0, 0 ) );
             }
             
             for ( int j = i + 1; j < WALKER_MAX; j++ )                          // Draw: sense bubble if triggered
@@ -299,17 +295,50 @@ void draw ( )
                     
                     SDL_RenderDrawLine ( renderer, walker[i].origin.x, walker[i].origin.y, walker[j].origin.x, walker[j].origin.y );
                 }
+            
+            // - - - - - - - - - - - - - - - - - - - - - - ROTATION - - - - - - - - - - - - - - - - - - - - - - - - - //
+            
+            // ROTATION
+            COORDINATE rotate_coordinate  = walker[i].rotate ( degree[i].a );   // Create: pivot point & rotate for starting degree
+//            COORDINATE rotate_destination = walker[i].rotate ( rotate[i].b );   // Create: pivot point & rotate for ending degree
+            
+            SDL_RenderDrawLine ( renderer, walker[i].origin.x, walker[i].origin.y, rotate_coordinate.x,  rotate_coordinate.y  );    // Draw: current sightline
+//            SDL_RenderDrawLine ( renderer, walker[i].origin.x, walker[i].origin.y, rotate_destination.x, rotate_destination.y );    // Draw: destination sightline
+            
+            if ( degree[i].clockwise )
+            {
+                degree[i].a++;
+                degree[i].a = ( degree[i].a == 360 ) ? 0 : degree[i].a;
+            }
+            else
+            {
+                degree[i].a--;
+                degree[i].a = ( degree[i].a == 0 ) ? 360 : degree[i].a;
+            }
+            
+//            std::string OUTPUT = std::string() +
+//                "] OUTPUT \n\n" +
+//                "\t i: \t\t%d\n" +
+//                "\t rotate.a: \t%d\n" +
+//                "\t rotate.b: \t%d\n\n";
+//
+//            printf ( OUTPUT.c_str(), i, rotate[i].a, rotate[i].b );
+            
+            if ( degree[i].a == degree[i].b )
+                degree[i] = DEGREE ( degree[i].b, generate_random ( 0, 360 ) );
+            
+            // - - - - - - - - - - - - - - - - - - - - - - MOVE - - - - - - - - - - - - - - - - - - - - - - - - - - - //
         }
         
         SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500 ms
         
-        SDL_Delay ( 50 );
+        SDL_Delay ( 10 );
         
         for ( i = 0; i < WALKER_MAX; i++ )                                      // Array shift all 'walker_steps'
             array_shift ( walker_steps[i], DEPTH_MAX, 2, false, 1 );
         
-        for ( i = 0; i < WALKER_MAX; i++ )                                      // Init: next 'walker' step
-            walker[i].next_step ( generate_random ( 0, 7 ) );
+//        for ( i = 0; i < WALKER_MAX; i++ )                                      // Init: next 'walker' step
+//            walker[i].next_step ( generate_random ( 0, 7 ) );
 
         while ( SDL_PollEvent ( &sdl_event )  )
         {
