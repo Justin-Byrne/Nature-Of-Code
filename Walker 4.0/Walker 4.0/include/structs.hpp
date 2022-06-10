@@ -1,9 +1,8 @@
-//
-//  structs.hpp
-//  Walker 3.0
-//
-//  Created by Justin Byrne on 6/4/22.
-//
+// @File: 		structs.hpp
+// @Project: 	Walker 4.0
+// @Author:		Justin Byrne
+// @Date:		Created 6/10/22 at 8:37 AM
+// @Copyright:	Copyright (c) 2022 Byrne-Systems
 
 #ifndef structs_hpp
 #define structs_hpp

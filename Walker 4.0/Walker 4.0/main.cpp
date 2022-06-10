@@ -1,8 +1,8 @@
-// @File:       main.cpp
-// @Project:    Walker 3.0
-// @Author:     Justin Don Byrne
-// @Date:       Created 6/4/22 at 10:29 AM
-// @Copyright:  Copyright (c) 2022 Byrne-Systems
+// @File: 		main.cpp
+// @Project: 	Walker 4.0
+// @Author:		Justin Byrne
+// @Date:		Created 6/10/22 at 8:34 AM
+// @Copyright:	Copyright (c) 2022 Byrne-Systems
 
 #include <SDL2/SDL.h>
 #include <stdio.h>
@@ -17,7 +17,7 @@
 
 #define DEBUG 1
 
-#define WINDOW_TITLE  "Walker 3.0"
+#define WINDOW_TITLE  "Walker 4.0"
 #define WINDOW_WIDTH  1000
 #define WINDOW_HEIGHT 1000
 #define WALKER_MAX     500
