@@ -329,7 +329,7 @@ void draw ( )
         
         SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500 ms
         
-        SDL_Delay ( 10 );
+        SDL_Delay ( 25 );
 
         while ( SDL_PollEvent ( &sdl_event )  )
         {
