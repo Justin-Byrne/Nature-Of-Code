@@ -1,7 +1,7 @@
 // @File: 		main.cpp
-// @Project: 	Walker 4.0
+// @Project: 	Entity Rotation 3.0
 // @Author:		Justin Byrne
-// @Date:		Created 6/10/22 at 8:34 AM
+// @Date:		Created 6/12/22 at 9:20 AM
 // @Copyright:	Copyright (c) 2022 Byrne-Systems
 
 #include <SDL2/SDL.h>
@@ -11,18 +11,19 @@
 
 #include <algorithm>
 
+#include <string>       // TODO: DELETE THIS WHEN DONE !!!
+
 #include "include/structs.hpp"
 #include "include/helpers.hpp"
 #include "include/colors.hpp"
 
-#define DEBUG 1
+#define DEBUG 0
 
-#define WINDOW_TITLE  "Walker 4.0"
-#define WINDOW_WIDTH  1000
-#define WINDOW_HEIGHT 1000
-#define WALKER_MAX     500
-#define DEPTH_MAX       10
-#define SENSE_BUBBLE    15
+#define WINDOW_TITLE  "Entity Rotation 3.0"
+#define WINDOW_WIDTH  100
+#define WINDOW_HEIGHT 100
+#define DEPTH_MAX      10
+#define SENSE_BUBBLE   50
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -30,17 +31,16 @@ SDL_Window   * window   = NULL;
 SDL_Renderer * renderer = NULL;
 
 bool run_loop = true;
-bool debug    = false;
 
-RGB colors[DEPTH_MAX] = { { 0, 0, 0 } };
+int colors[DEPTH_MAX][3] = { { 0 } };
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
-int setup_window            ( const char * title, int x_pos, int y_pos, int width, int height );
+int  setup_window           ( const char * title, int x_pos, int y_pos, int width, int height );
 void set_render_draw_color  ( RGB color = { 0, 0, 0 } );
 void set_render_draw_colors ( RGB background = { 255, 255, 255 }, RGB foreground = { 0, 0, 0 } );
-void exit                   ( const char * message );
 void generate_colors        ( int start, int end );
+void exit                   ( const char * message );
 void draw                   ( );
 
 #pragma mark - DATA STRUCTURES
@@ -54,14 +54,13 @@ enum STATE
 
 struct WALKER
 {
-    COORDINATE origin = { -1, -1 };
-    COORDINATE steps[DEPTH_MAX];
+    COORDINATE origin = { 0, 0 };
     
     DEGREE degree;
     
     int state         = SILENT;
     int radius        = 0;
-    int walk_distance = 0;
+    int walk = 0;
     
     // Constructors ......................................................... //
     
@@ -76,7 +75,7 @@ struct WALKER
         this->radius = radius;
     }
     
-    // Constructors (Generic) ....... //
+    // Constructors (Generic) ... //
     
     WALKER  ( ) { };
 
@@ -100,19 +99,6 @@ struct WALKER
         return DEGREE().rotate ( this->origin, degree, step_length );
     }
     
-    // > .. Iterators ............... //
-    
-    void next_step ( int step_amount = 1 )
-    {
-        cache_steps ( );
-        
-        this->origin = DEGREE().rotate ( this->origin, this->degree.a, step_amount );
-        
-        this->walk_distance--;
-        
-        check_boundary ( );
-    }
-    
     // > .. Validators .............. //
     
     void check_boundary ( )
@@ -127,16 +113,6 @@ struct WALKER
     {
         return ( ( bubble.x - this->origin.x ) * ( bubble.x - this->origin.x ) +
                  ( bubble.y - this->origin.y ) * ( bubble.y - this->origin.y ) <= ( this->radius * this->radius ) ) ? true : false;
-    }
-    
-    // > .. Misc .................... //
-    
-    void cache_steps ( )
-    {
-        for ( int i = DEPTH_MAX - 1; i > 0; i-- )
-            this->steps[i] = this->steps[i - 1];
-        
-        this->steps[0] = this->origin;
     }
 };
 
@@ -230,6 +206,21 @@ void set_render_draw_colors ( RGB background, RGB foreground )
     );
 }
 
+/// Generates a series of gray colors
+/// @param      start               Lowest number; preferable black... RGB values
+/// @param      end                 Highest number, preferable white... RGB values
+void generate_colors ( int start, int end )
+{
+    end   = std::clamp ( end,   0, 255 );
+    start = std::clamp ( start, 0, 255 );
+    
+    int difference = end / DEPTH_MAX;
+    
+    for ( i = 0; i < DEPTH_MAX; i++ )
+        for ( int j = 0; j < 3; j++ )
+            colors[i][j] = { i * difference };
+}
+
 /// Exits program
 /// @param      message             Message to be left after deactivating program
 void exit ( const char * message )
@@ -239,20 +230,6 @@ void exit ( const char * message )
     printf ( "[EXIT] By program !\n%s\n", message );
 }
 
-/// Generates a series of gray colors
-/// @param      highest_color                 Highest number, preferable white... RGB values
-void generate_colors ( int highest_color )
-{
-    highest_color  = std::clamp ( highest_color, 0, 255 );
-    
-    int difference = highest_color / DEPTH_MAX;
-    
-    for ( i = 0; i < DEPTH_MAX; i++ )
-            colors[i] = { ( i * difference ), ( i * difference ), ( i * difference ) };
-}
-
-#pragma mark - DRAW
-
 /// Initiate poll events
 void draw ( )
 {
@@ -260,85 +237,44 @@ void draw ( )
     
     SDL_Event sdl_event;
 
-    WALKER walker[WALKER_MAX];
+    WALKER walker;
+    
+    walker = { COORDINATE { WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 } };
 
-    generate_colors ( 255 );
-    
-    int padding = 50;
-    
-    for ( i = 0; i < WALKER_MAX; i++ )
-    {
-        walker[i]        = { COORDINATE { generate_random ( padding, WINDOW_WIDTH - padding ), generate_random ( padding, WINDOW_HEIGHT - padding ) }, SENSE_BUBBLE };
-        walker[i].degree = { generate_random ( 0, 360 ), generate_random ( 0, 360 ) };
-    }
+    generate_colors ( 0, 255 );
 
     /* - - - - - - - - - - - - - - - - - Init - - - - - - - - - - - - - - - - - */
     
+    walker.degree = { generate_random(0, 360), generate_random(0, 360) };
+    
     while ( run_loop )                                                          // DRAW
     {
-        COORDINATE rotate_coordinate, rotate_destination;
+        #if DEBUG
+        std::string OUTPUT = std::string() + "\n[OUTPUT]\n" + "walker.degree.a: \t\t\t%d\n" + "walker.degree.b: \t\t\t%d\n" + "walker.degree.distance: \t%d\n" + "walker.degree.clockwise: \t%s\n" + "walker.degree.step: \t\t%d\n";
+        printf ( OUTPUT.c_str ( ), walker.degree.a, walker.degree.b, walker.degree.distance, ( walker.degree.clockwise ) ? "true" : "false", walker.degree.step );
+        #endif
         
         set_render_draw_colors ( );
         
-        for ( i = 0; i < WALKER_MAX; i++ )
-        {
-            set_render_draw_color ( RGB ( 0, 0, 0 ) );
-            SDL_RenderDrawPoint   ( renderer, walker[i].origin.x, walker[i].origin.y );
-            
-            #if DEBUG
-            set_render_draw_color ( RGB ( 225, 225, 225 ) );
-            SDL_RenderDrawCircle  ( renderer, walker[i].origin.x, walker[i].origin.y, SENSE_BUBBLE );
-            #endif
-            
-            switch ( walker[i].state )
-            {
-                case SILENT:
-                case ROTATE:
-                    
-                    rotate_coordinate  = walker[i].rotate ( walker[i].degree.a, 10 );
-                    rotate_destination = walker[i].rotate ( walker[i].degree.b, 10 );
-                    
-                    #if DEBUG
-                    set_render_draw_color ( RGB ( 100, 100, 100 ) );
-                    SDL_RenderDrawLine    ( renderer, walker[i].origin.x, walker[i].origin.y, rotate_coordinate.x, rotate_coordinate.y );      // Draw: current sightline
-                    set_render_draw_color ( RGB (  50,  50,  50 ) );
-                    SDL_RenderDrawLine    ( renderer, walker[i].origin.x, walker[i].origin.y, rotate_destination.x, rotate_destination.y );    // Draw: destination sightline
-                    #endif
-                    
-                    ( walker[i].degree.clockwise ) ? walker[i].degree.advance ( ) : walker[i].degree.regress ( );
-                    
-                    if ( walker[i].degree.distance == 0 )
-                    {
-                        walker[i].state         = MOVING;
-                        walker[i].walk_distance = generate_random ( 1, 30 );
-                    }
-                    
-                    break;
-                    
-                case MOVING:
-                    
-                    walker[i].next_step ( 5 );
-                    
-                    for ( int j = 0; j < DEPTH_MAX; j++ )
-                    {
-                        SDL_RenderDrawPoint   ( renderer, walker[i].steps[j].x, walker[i].steps[j].y );
-                        set_render_draw_color ( colors[j] );
-                    }
+        SDL_RenderDrawPoint ( renderer, walker.origin.x, walker.origin.y );     // Draw: entity dot
 
-                    if ( walker[i].walk_distance == 0 )
-                    {
-                        walker[i].state  = SILENT;
-                        walker[i].degree = { walker[i].degree.b, generate_random ( 0, 360 ) };
-                    }
-                    
-                    break;
-            }
-        }
+        COORDINATE rotate_coordinate  = walker.rotate ( walker.degree.a );      // Create: pivot point & rotate for starting degree
+        COORDINATE rotate_destination = walker.rotate ( walker.degree.b );      // Create: pivot point & rotate for ending degree
+
+        SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, rotate_coordinate.x, rotate_coordinate.y );      // Draw: current sightline
+        SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, rotate_destination.x, rotate_destination.y );    // Draw: destination sightline
         
         SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500 ms
-        
-        SDL_Delay ( 25 );
 
+        SDL_Delay ( 100 );
+        
+        ( walker.degree.clockwise )
+            ? walker.degree.advance ( )
+            : walker.degree.regress ( );
+        
+        if ( walker.degree.distance == 0 )
+            walker.degree = { walker.degree.b, generate_random ( 0, 360 ) };
+        
         while ( SDL_PollEvent ( &sdl_event )  )
         {
             if ( sdl_event.type == SDL_QUIT )

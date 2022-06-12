@@ -1,7 +1,7 @@
 // @File: 		structs.hpp
-// @Project: 	Walker 4.0
+// @Project: 	Entity Rotation 3.0
 // @Author:		Justin Byrne
-// @Date:		Created 6/10/22 at 8:37 AM
+// @Date:		Created 6/12/22 at 9:24 AM
 // @Copyright:	Copyright (c) 2022 Byrne-Systems
 
 #ifndef structs_hpp
@@ -53,7 +53,7 @@ struct COORDINATE
     
     // Constructors (Generic) ... //
     
-    COORDINATE  ( ) { }
+    COORDINATE ( ) { }
     
     ~COORDINATE ( ) { }
 };
@@ -75,7 +75,7 @@ struct DEGREE
         set_distance  ( );
     }
     
-    // Constructors (Generic) ... //
+    // Constructors (Generic) ....... //
     
     DEGREE  ( ) { }
     
@@ -83,7 +83,7 @@ struct DEGREE
     
     // Functions ............................................................ //
     
-    // > .. Setters .................................... //
+    // > .. Setters ................. //
     
     void set_step ( )
     {
@@ -120,11 +120,11 @@ struct DEGREE
                                 : false;
     }
     
-    // > .. Getters .................................... //
+    // > .. Getters ................. //
     
-    COORDINATE rotate ( COORDINATE &origin, int &degree, int step = 0 )
+    COORDINATE rotate ( COORDINATE &origin, int &degree, int point_length = 35 )
     {
-        COORDINATE coordinate = { origin.x + step, origin.y };
+        COORDINATE coordinate = { origin.x + point_length, origin.y };
 
         double radians        = convert_to_radian ( degree );
 
@@ -148,7 +148,7 @@ struct DEGREE
         return hash [ degree_distance ];
     }
     
-    // > .. Iterators .................................. //
+    // > .. Iterators ............... //
     
     void advance ( )    // right || counter clockwise
     {
@@ -181,7 +181,7 @@ struct DEGREE
         this->distance = this->distance - this->step;
     }
     
-    // > .. Conversions ................................ //
+    // > .. Conversions ............. //
     
     double convert_to_radian ( int degree )
     {
@@ -193,7 +193,7 @@ struct DEGREE
         return ( radian * 180 ) / PI;
     }
     
-    // > .. Validators ................................. //
+    // > .. Validators .............. //
     
     void validate_step_v_distance ( )
     {
@@ -214,7 +214,7 @@ struct RGB
     
     // Constructors (Generic) ... //
     
-    RGB  ( ) { }
+    RGB ( ) { }
     
     ~RGB ( ) { }
 };
