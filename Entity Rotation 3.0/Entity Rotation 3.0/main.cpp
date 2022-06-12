@@ -17,7 +17,7 @@
 #include "include/helpers.hpp"
 #include "include/colors.hpp"
 
-#define DEBUG 0
+#define DEBUG         0
 
 #define WINDOW_TITLE  "Entity Rotation 3.0"
 #define WINDOW_WIDTH  100
@@ -32,7 +32,7 @@ SDL_Renderer * renderer = NULL;
 
 bool run_loop = true;
 
-int colors[DEPTH_MAX][3] = { { 0 } };
+RGB colors[DEPTH_MAX] = { { 0, 0, 0 } };
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
@@ -52,15 +52,55 @@ enum STATE
     MOVING,     // 2
 };
 
+struct COUNT
+{
+    int lower_right = 0;
+    int lower_left  = 0;
+    int upper_left  = 0;
+    int upper_right = 0;
+};
+
+struct WINDOW_QUADRANTS
+{
+    COUNT counts;
+    
+    // DEFINE QUANDRANT MATRIX
+    int center_horizontal = WINDOW_WIDTH / 2;
+    int center_vertical   = WINDOW_HEIGHT / 2;
+    
+    void check_quandrant ( int x, int y )
+    {
+        // KEY
+        // lower_left  = false, true
+        // lower_right = false, false
+        // upper_left  = true,  true
+        // upper_right = true,  false
+
+        bool top  = false;      // Defualt: bottom
+        bool left = false;      // Default: right
+        
+        if ( x < center_horizontal ) left = true;
+        if ( y < center_vertical   ) top = true;
+        
+        if ( top == false && left == true  ) counts.lower_left += 1;
+        if ( top == false && left == false ) counts.lower_right += 1;
+        if ( top == true  && left == true  ) counts.upper_left += 1;
+        if ( top == true  && left == false ) counts.upper_right += 1;
+    }
+};
+
 struct WALKER
 {
     COORDINATE origin = { 0, 0 };
     
+    WINDOW_QUADRANTS win_quandrants;
+    
     DEGREE degree;
     
-    int state         = SILENT;
-    int radius        = 0;
-    int walk = 0;
+    int steps[DEPTH_MAX];
+    int state  = SILENT;
+    int radius = 0;
+    int walk   = 0;
     
     // Constructors ......................................................... //
     
@@ -113,6 +153,16 @@ struct WALKER
     {
         return ( ( bubble.x - this->origin.x ) * ( bubble.x - this->origin.x ) +
                  ( bubble.y - this->origin.y ) * ( bubble.y - this->origin.y ) <= ( this->radius * this->radius ) ) ? true : false;
+    }
+    
+    // > .. Misc .................... //
+        
+    void cache_steps ( )
+    {
+        for ( int i = DEPTH_MAX - 1; i > 0; i-- )
+            this->steps[i] = this->steps[i - 1];
+        
+        this->steps[0] = this->degree.b;
     }
 };
 
@@ -207,18 +257,15 @@ void set_render_draw_colors ( RGB background, RGB foreground )
 }
 
 /// Generates a series of gray colors
-/// @param      start               Lowest number; preferable black... RGB values
-/// @param      end                 Highest number, preferable white... RGB values
-void generate_colors ( int start, int end )
+/// @param      highest_color                 Highest number, preferable white... RGB values
+void generate_colors ( int highest_color )
 {
-    end   = std::clamp ( end,   0, 255 );
-    start = std::clamp ( start, 0, 255 );
+    highest_color  = std::clamp ( highest_color, 0, 255 );
     
-    int difference = end / DEPTH_MAX;
+    int difference = highest_color / DEPTH_MAX;
     
     for ( i = 0; i < DEPTH_MAX; i++ )
-        for ( int j = 0; j < 3; j++ )
-            colors[i][j] = { i * difference };
+            colors[i] = { ( i * difference ), ( i * difference ), ( i * difference ) };
 }
 
 /// Exits program
@@ -241,11 +288,12 @@ void draw ( )
     
     walker = { COORDINATE { WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 } };
 
-    generate_colors ( 0, 255 );
+    generate_colors ( 255 );
 
     /* - - - - - - - - - - - - - - - - - Init - - - - - - - - - - - - - - - - - */
     
     walker.degree = { generate_random(0, 360), generate_random(0, 360) };
+    walker.cache_steps ( );
     
     while ( run_loop )                                                          // DRAW
     {
@@ -258,22 +306,36 @@ void draw ( )
         
         SDL_RenderDrawPoint ( renderer, walker.origin.x, walker.origin.y );     // Draw: entity dot
 
-        COORDINATE rotate_coordinate  = walker.rotate ( walker.degree.a );      // Create: pivot point & rotate for starting degree
         COORDINATE rotate_destination = walker.rotate ( walker.degree.b );      // Create: pivot point & rotate for ending degree
 
-        SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, rotate_coordinate.x, rotate_coordinate.y );      // Draw: current sightline
+        walker.win_quandrants.check_quandrant ( rotate_destination.x, rotate_destination.y );
+        
+        std::string QUANDRANTS = std::string() +
+            "\nCounts:\n\n"     +
+            "lower_right: %d\n" +
+            "lower_left: %d\n"  +
+            "upper_left: %d\n"  +
+            "upper_right: %d\n";
+        
+        printf ( QUANDRANTS.c_str ( ), walker.win_quandrants.counts.lower_right, walker.win_quandrants.counts.lower_left, walker.win_quandrants.counts.upper_left, walker.win_quandrants.counts.upper_right );
+        
         SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, rotate_destination.x, rotate_destination.y );    // Draw: destination sightline
+        
+        for ( int i = 0; i < DEPTH_MAX; i++ )
+        {
+            set_render_draw_color ( colors[i] );
+
+            COORDINATE step_rotation = walker.rotate ( walker.steps[i] );
+            
+            SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, step_rotation.x, step_rotation.y );
+        }
         
         SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500 ms
 
-        SDL_Delay ( 100 );
+//        SDL_Delay ( 100 );
         
-        ( walker.degree.clockwise )
-            ? walker.degree.advance ( )
-            : walker.degree.regress ( );
-        
-        if ( walker.degree.distance == 0 )
-            walker.degree = { walker.degree.b, generate_random ( 0, 360 ) };
+        walker.degree = { walker.degree.b, generate_random ( 0, 360 ) };
+        walker.cache_steps ( );
         
         while ( SDL_PollEvent ( &sdl_event )  )
         {

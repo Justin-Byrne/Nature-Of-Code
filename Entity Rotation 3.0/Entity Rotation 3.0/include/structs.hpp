@@ -122,7 +122,7 @@ struct DEGREE
     
     // > .. Getters ................. //
     
-    COORDINATE rotate ( COORDINATE &origin, int &degree, int point_length = 35 )
+    COORDINATE rotate ( COORDINATE &origin, int &degree, int point_length = 2 )
     {
         COORDINATE coordinate = { origin.x + point_length, origin.y };
 
