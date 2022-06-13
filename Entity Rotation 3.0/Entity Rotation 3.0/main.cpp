@@ -64,7 +64,6 @@ struct WINDOW_QUADRANTS
 {
     COUNT counts;
     
-    // DEFINE QUANDRANT MATRIX
     int center_horizontal = WINDOW_WIDTH / 2;
     int center_vertical   = WINDOW_HEIGHT / 2;
     
@@ -76,15 +75,15 @@ struct WINDOW_QUADRANTS
         // upper_left  = true,  true
         // upper_right = true,  false
 
-        bool top  = false;      // Defualt: bottom
-        bool left = false;      // Default: right
+        bool top  = false;
+        bool left = false;
         
         if ( x < center_horizontal ) left = true;
-        if ( y < center_vertical   ) top = true;
+        if ( y < center_vertical   ) top  = true;
         
-        if ( top == false && left == true  ) counts.lower_left += 1;
+        if ( top == false && left == true  ) counts.lower_left  += 1;
         if ( top == false && left == false ) counts.lower_right += 1;
-        if ( top == true  && left == true  ) counts.upper_left += 1;
+        if ( top == true  && left == true  ) counts.upper_left  += 1;
         if ( top == true  && left == false ) counts.upper_right += 1;
     }
 };
@@ -93,7 +92,7 @@ struct WALKER
 {
     COORDINATE origin = { 0, 0 };
     
-    WINDOW_QUADRANTS win_quandrants;
+    WINDOW_QUADRANTS quadrants;
     
     DEGREE degree;
     
@@ -293,7 +292,7 @@ void draw ( )
     /* - - - - - - - - - - - - - - - - - Init - - - - - - - - - - - - - - - - - */
     
     walker.degree = { generate_random(0, 360), generate_random(0, 360) };
-    walker.cache_steps ( );
+//    walker.cache_steps ( );
     
     while ( run_loop )                                                          // DRAW
     {
@@ -306,36 +305,33 @@ void draw ( )
         
         SDL_RenderDrawPoint ( renderer, walker.origin.x, walker.origin.y );     // Draw: entity dot
 
-        COORDINATE rotate_destination = walker.rotate ( walker.degree.b );      // Create: pivot point & rotate for ending degree
-
-        walker.win_quandrants.check_quandrant ( rotate_destination.x, rotate_destination.y );
+        int random_number = generate_random ( 1, 30 );
         
-        std::string QUANDRANTS = std::string() +
-            "\nCounts:\n\n"     +
-            "lower_right: %d\n" +
-            "lower_left: %d\n"  +
-            "upper_left: %d\n"  +
-            "upper_right: %d\n";
-        
-        printf ( QUANDRANTS.c_str ( ), walker.win_quandrants.counts.lower_right, walker.win_quandrants.counts.lower_left, walker.win_quandrants.counts.upper_left, walker.win_quandrants.counts.upper_right );
+        COORDINATE rotate_destination = walker.rotate ( walker.degree.b, random_number );      // Create: pivot point & rotate for ending degree
         
         SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, rotate_destination.x, rotate_destination.y );    // Draw: destination sightline
         
-        for ( int i = 0; i < DEPTH_MAX; i++ )
-        {
-            set_render_draw_color ( colors[i] );
-
-            COORDINATE step_rotation = walker.rotate ( walker.steps[i] );
-            
-            SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, step_rotation.x, step_rotation.y );
-        }
+        #if DEBUG
+        walker.quadrants.check_quandrant ( rotate_destination.x, rotate_destination.y );
+        std::string QUANDRANTS = std::string() + "\nQuandrant Counts:\n\n" + "lower_right: \t%d\n" + "lower_left: \t%d\n" + "> upper_left: \t%d\n" + "upper_right: \t%d\n";
+        printf ( QUANDRANTS.c_str ( ), walker.quadrants.counts.lower_right, walker.quadrants.counts.lower_left, walker.quadrants.counts.upper_left, walker.quadrants.counts.upper_right );
+        #endif
+        
+//        for ( int i = 0; i < DEPTH_MAX; i++ )
+//        {
+//            set_render_draw_color ( colors[i] );
+//
+//            COORDINATE step_rotation = walker.rotate ( walker.steps[i], 2 );
+//
+//            SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, step_rotation.x, step_rotation.y );
+//        }
         
         SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500 ms
 
 //        SDL_Delay ( 100 );
         
         walker.degree = { walker.degree.b, generate_random ( 0, 360 ) };
-        walker.cache_steps ( );
+//        walker.cache_steps ( );
         
         while ( SDL_PollEvent ( &sdl_event )  )
         {

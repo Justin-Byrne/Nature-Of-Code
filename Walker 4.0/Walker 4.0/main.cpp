@@ -11,18 +11,20 @@
 
 #include <algorithm>
 
+#include <string>       // TODO: DELETE THIS WHEN DONE !!!
+
 #include "include/structs.hpp"
 #include "include/helpers.hpp"
 #include "include/colors.hpp"
 
-#define DEBUG 1
+#define DEBUG                    1
 
 #define WINDOW_TITLE  "Walker 4.0"
-#define WINDOW_WIDTH  1000
-#define WINDOW_HEIGHT 1000
-#define WALKER_MAX     500
-#define DEPTH_MAX       10
-#define SENSE_BUBBLE    15
+#define WINDOW_WIDTH          1000
+#define WINDOW_HEIGHT         1000
+#define WALKER_MAX             500
+#define DEPTH_MAX               10
+#define SENSE_BUBBLE            15
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -30,7 +32,6 @@ SDL_Window   * window   = NULL;
 SDL_Renderer * renderer = NULL;
 
 bool run_loop = true;
-bool debug    = false;
 
 RGB colors[DEPTH_MAX] = { { 0, 0, 0 } };
 
@@ -51,6 +52,38 @@ enum STATE
     ROTATE,     // 1
     MOVING,     // 2
 };
+
+struct COUNT
+{
+    int lower_right = 0;
+    int lower_left  = 0;
+    int upper_left  = 0;
+    int upper_right = 0;
+};
+
+struct WINDOW_QUADRANTS
+{
+    COUNT counts;
+    
+    int center_horizontal = WINDOW_WIDTH  / 2;
+    int center_vertical   = WINDOW_HEIGHT / 2;
+    
+    void check_quandrant ( int x, int y )
+    {
+        bool top  = false;
+        bool left = false;
+        
+        if ( x < center_horizontal ) left = true;
+        if ( y < center_vertical   ) top  = true;
+        
+        if ( top == false && left == true  ) counts.lower_left  += 1;
+        if ( top == false && left == false ) counts.lower_right += 1;
+        if ( top == true  && left == true  ) counts.upper_left  += 1;
+        if ( top == true  && left == false ) counts.upper_right += 1;
+    }
+};
+
+WINDOW_QUADRANTS window_quadrants;
 
 struct WALKER
 {
@@ -102,25 +135,28 @@ struct WALKER
     
     // > .. Iterators ............... //
     
-    void next_step ( int step_amount = 1 )
+    void next_step ( int step_size = 3 )
     {
         cache_steps ( );
         
-        this->origin = DEGREE().rotate ( this->origin, this->degree.a, step_amount );
+        this->origin = DEGREE().rotate ( this->origin, this->degree.a, step_size );
         
         this->walk_distance--;
         
         check_boundary ( );
+        
+        if ( this->walk_distance == 0 ) window_quadrants.check_quandrant ( this->origin.x, this->origin.y );
     }
     
     // > .. Validators .............. //
     
     void check_boundary ( )
     {
-        if ( this->origin.x <= 0 )              this->origin.x++;               // right
-        if ( this->origin.y <= 0 )              this->origin.y++;               // top
-        if ( this->origin.x >= WINDOW_WIDTH  )  this->origin.x--;               // left
-        if ( this->origin.y >= WINDOW_HEIGHT )  this->origin.y--;               // bottom
+        this->origin.x = ( this->origin.x <= 0 ) ? WINDOW_WIDTH  - 1 : this->origin.x;  // right
+        this->origin.x = ( this->origin.x >= WINDOW_WIDTH  ) ? 1     : this->origin.x;  // left
+        
+        this->origin.y = ( this->origin.y <= 0 ) ? 1                             : this->origin.y;  // top
+        this->origin.y = ( this->origin.y >= WINDOW_HEIGHT ) ? WINDOW_HEIGHT - 1 : this->origin.y;  // bottom
     }
 
     bool is_inside_bubble ( COORDINATE bubble )
@@ -290,17 +326,22 @@ void draw ( )
             SDL_RenderDrawCircle  ( renderer, walker[i].origin.x, walker[i].origin.y, SENSE_BUBBLE );
             #endif
             
+            #if DEBUG
+            std::string QUANDRANTS = std::string() + "\nQuandrant Counts:\n\nlower_right: \t%d\nlower_left: \t%d\n> upper_left: \t%d\nupper_right: \t%d\n";
+            printf ( QUANDRANTS.c_str ( ), window_quadrants.counts.lower_right, window_quadrants.counts.lower_left, window_quadrants.counts.upper_left, window_quadrants.counts.upper_right );
+            #endif
+            
             switch ( walker[i].state )
             {
                 case SILENT:
                 case ROTATE:
                     
-                    rotate_coordinate  = walker[i].rotate ( walker[i].degree.a, 10 );
-                    rotate_destination = walker[i].rotate ( walker[i].degree.b, 10 );
-                    
                     #if DEBUG
+                    rotate_coordinate     = walker[i].rotate ( walker[i].degree.a, 20 );
                     set_render_draw_color ( RGB ( 100, 100, 100 ) );
                     SDL_RenderDrawLine    ( renderer, walker[i].origin.x, walker[i].origin.y, rotate_coordinate.x, rotate_coordinate.y );      // Draw: current sightline
+
+                    rotate_destination    = walker[i].rotate ( walker[i].degree.b, 20 );
                     set_render_draw_color ( RGB (  50,  50,  50 ) );
                     SDL_RenderDrawLine    ( renderer, walker[i].origin.x, walker[i].origin.y, rotate_destination.x, rotate_destination.y );    // Draw: destination sightline
                     #endif
@@ -310,14 +351,19 @@ void draw ( )
                     if ( walker[i].degree.distance == 0 )
                     {
                         walker[i].state         = MOVING;
-                        walker[i].walk_distance = generate_random ( 1, 30 );
+                        walker[i].walk_distance = generate_random ( 5, 10 );
                     }
                     
                     break;
                     
                 case MOVING:
                     
-                    walker[i].next_step ( 5 );
+//                    SDL_Delay( 500 );
+                    
+                    walker[i].next_step ( 10 );
+                    
+//                    set_render_draw_color ( RGB ( 100, 100, 100 ) );
+//                    SDL_RenderDrawLine    ( renderer, walker[i].origin.x, walker[i].origin.y, rotate_destination.x, rotate_destination.y );    // Draw: destination sightline
                     
                     for ( int j = 0; j < DEPTH_MAX; j++ )
                     {
@@ -337,7 +383,7 @@ void draw ( )
         
         SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500 ms
         
-        SDL_Delay ( 25 );
+//        SDL_Delay ( 25 );
 
         while ( SDL_PollEvent ( &sdl_event )  )
         {
