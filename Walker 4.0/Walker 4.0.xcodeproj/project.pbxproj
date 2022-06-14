@@ -10,7 +10,6 @@
 		F05DE32528539C0000D9C9E7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F05DE32428539C0000D9C9E7 /* main.cpp */; };
 		F05DE32D28539C1D00D9C9E7 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F05DE32C28539C1D00D9C9E7 /* libSDL2-2.0.0.dylib */; };
 		F05DE32E28539C1D00D9C9E7 /* libSDL2-2.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = F05DE32C28539C1D00D9C9E7 /* libSDL2-2.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		F05DE33428539C7F00D9C9E7 /* colors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F05DE33228539C7F00D9C9E7 /* colors.cpp */; };
 		F05DE33728539C8B00D9C9E7 /* helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F05DE33528539C8B00D9C9E7 /* helpers.cpp */; };
 /* End PBXBuildFile section */
 
@@ -41,8 +40,6 @@
 		F05DE32128539C0000D9C9E7 /* Walker 4.0 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Walker 4.0"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05DE32428539C0000D9C9E7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		F05DE32C28539C1D00D9C9E7 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../usr/local/Cellar/sdl2/2.0.22/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
-		F05DE33228539C7F00D9C9E7 /* colors.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = colors.cpp; sourceTree = "<group>"; };
-		F05DE33328539C7F00D9C9E7 /* colors.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = colors.hpp; sourceTree = "<group>"; };
 		F05DE33528539C8B00D9C9E7 /* helpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = helpers.cpp; sourceTree = "<group>"; };
 		F05DE33628539C8B00D9C9E7 /* helpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = helpers.hpp; sourceTree = "<group>"; };
 		F05DE33928539CA700D9C9E7 /* structs.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = structs.hpp; sourceTree = "<group>"; };
@@ -98,7 +95,6 @@
 		F05DE33028539C6B00D9C9E7 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				F05DE33228539C7F00D9C9E7 /* colors.cpp */,
 				F05DE33528539C8B00D9C9E7 /* helpers.cpp */,
 			);
 			path = source;
@@ -107,7 +103,6 @@
 		F05DE33128539C7200D9C9E7 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				F05DE33328539C7F00D9C9E7 /* colors.hpp */,
 				F05DE33628539C8B00D9C9E7 /* helpers.hpp */,
 				F05DE33928539CA700D9C9E7 /* structs.hpp */,
 			);
@@ -174,7 +169,6 @@
 			files = (
 				F05DE32528539C0000D9C9E7 /* main.cpp in Sources */,
 				F05DE33728539C8B00D9C9E7 /* helpers.cpp in Sources */,
-				F05DE33428539C7F00D9C9E7 /* colors.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

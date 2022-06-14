@@ -9,7 +9,7 @@
 #include <SDL2/SDL.h>
 #include <stdlib.h>
 
-#pragma mark - RANDOM NUMBER
+#pragma mark - GENERICS
 
 /// Generates a random number in the range passed
 /// @param      lower               Lower bounds value

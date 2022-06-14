@@ -11,20 +11,18 @@
 
 #include <algorithm>
 
-#include <string>       // TODO: DELETE THIS WHEN DONE !!!
-
 #include "include/structs.hpp"
 #include "include/helpers.hpp"
-#include "include/colors.hpp"
 
 #define DEBUG                    1
 
 #define WINDOW_TITLE  "Walker 4.0"
-#define WINDOW_WIDTH          1000
-#define WINDOW_HEIGHT         1000
-#define WALKER_MAX             500
-#define DEPTH_MAX               10
-#define SENSE_BUBBLE            15
+#define WINDOW_WIDTH           500
+#define WINDOW_HEIGHT          500
+#define WALKER_MAX              50
+#define DEPTH_MAX              100
+#define BODY                    10
+#define SENSE                   30
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -53,41 +51,9 @@ enum STATE
     MOVING,     // 2
 };
 
-struct COUNT
-{
-    int lower_right = 0;
-    int lower_left  = 0;
-    int upper_left  = 0;
-    int upper_right = 0;
-};
-
-struct WINDOW_QUADRANTS
-{
-    COUNT counts;
-    
-    int center_horizontal = WINDOW_WIDTH  / 2;
-    int center_vertical   = WINDOW_HEIGHT / 2;
-    
-    void check_quandrant ( int x, int y )
-    {
-        bool top  = false;
-        bool left = false;
-        
-        if ( x < center_horizontal ) left = true;
-        if ( y < center_vertical   ) top  = true;
-        
-        if ( top == false && left == true  ) counts.lower_left  += 1;
-        if ( top == false && left == false ) counts.lower_right += 1;
-        if ( top == true  && left == true  ) counts.upper_left  += 1;
-        if ( top == true  && left == false ) counts.upper_right += 1;
-    }
-};
-
-WINDOW_QUADRANTS window_quadrants;
-
 struct WALKER
 {
-    COORDINATE origin = { -1, -1 };
+    COORDINATE origin = { 0, 0 };
     COORDINATE steps[DEPTH_MAX];
     
     DEGREE degree;
@@ -97,11 +63,6 @@ struct WALKER
     int walk_distance = 0;
     
     // Constructors ......................................................... //
-    
-    WALKER ( COORDINATE origin )
-    {
-        this->origin = origin;
-    }
     
     WALKER ( COORDINATE origin, int radius )
     {
@@ -144,16 +105,14 @@ struct WALKER
         this->walk_distance--;
         
         check_boundary ( );
-        
-        if ( this->walk_distance == 0 ) window_quadrants.check_quandrant ( this->origin.x, this->origin.y );
     }
     
     // > .. Validators .............. //
     
     void check_boundary ( )
     {
-        this->origin.x = ( this->origin.x <= 0 ) ? WINDOW_WIDTH  - 1 : this->origin.x;  // right
-        this->origin.x = ( this->origin.x >= WINDOW_WIDTH  ) ? 1     : this->origin.x;  // left
+        this->origin.x = ( this->origin.x <= 0 ) ? 1 : this->origin.x;                              // left
+        this->origin.x = ( this->origin.x >= WINDOW_WIDTH  ) ? WINDOW_WIDTH  - 1 : this->origin.x;  // right
         
         this->origin.y = ( this->origin.y <= 0 ) ? 1                             : this->origin.y;  // top
         this->origin.y = ( this->origin.y >= WINDOW_HEIGHT ) ? WINDOW_HEIGHT - 1 : this->origin.y;  // bottom
@@ -283,7 +242,7 @@ void generate_colors ( int highest_color )
     
     int difference = highest_color / DEPTH_MAX;
     
-    for ( i = 0; i < DEPTH_MAX; i++ )
+    for ( int i = 0; i < DEPTH_MAX; i++ )
             colors[i] = { ( i * difference ), ( i * difference ), ( i * difference ) };
 }
 
@@ -302,9 +261,9 @@ void draw ( )
     
     int padding = 50;
     
-    for ( i = 0; i < WALKER_MAX; i++ )
+    for ( int i = 0; i < WALKER_MAX; i++ )
     {
-        walker[i]        = { COORDINATE { generate_random ( padding, WINDOW_WIDTH - padding ), generate_random ( padding, WINDOW_HEIGHT - padding ) }, SENSE_BUBBLE };
+        walker[i]        = { COORDINATE { (double) generate_random ( padding, WINDOW_WIDTH - padding ), (double) generate_random ( padding, WINDOW_HEIGHT - padding ) }, BODY };
         walker[i].degree = { generate_random ( 0, 360 ), generate_random ( 0, 360 ) };
     }
 
@@ -316,19 +275,14 @@ void draw ( )
         
         set_render_draw_colors ( );
         
-        for ( i = 0; i < WALKER_MAX; i++ )
+        for ( int i = 0; i < WALKER_MAX; i++ )
         {
             set_render_draw_color ( RGB ( 0, 0, 0 ) );
             SDL_RenderDrawPoint   ( renderer, walker[i].origin.x, walker[i].origin.y );
             
             #if DEBUG
             set_render_draw_color ( RGB ( 225, 225, 225 ) );
-            SDL_RenderDrawCircle  ( renderer, walker[i].origin.x, walker[i].origin.y, SENSE_BUBBLE );
-            #endif
-            
-            #if DEBUG
-            std::string QUANDRANTS = std::string() + "\nQuandrant Counts:\n\nlower_right: \t%d\nlower_left: \t%d\n> upper_left: \t%d\nupper_right: \t%d\n";
-            printf ( QUANDRANTS.c_str ( ), window_quadrants.counts.lower_right, window_quadrants.counts.lower_left, window_quadrants.counts.upper_left, window_quadrants.counts.upper_right );
+            SDL_RenderDrawCircle  ( renderer, walker[i].origin.x, walker[i].origin.y, BODY );
             #endif
             
             switch ( walker[i].state )
@@ -337,7 +291,7 @@ void draw ( )
                 case ROTATE:
                     
                     #if DEBUG
-                    rotate_coordinate     = walker[i].rotate ( walker[i].degree.a, 20 );
+                    rotate_coordinate     = walker[i].rotate ( walker[i].degree.a, BODY );
                     set_render_draw_color ( RGB ( 100, 100, 100 ) );
                     SDL_RenderDrawLine    ( renderer, walker[i].origin.x, walker[i].origin.y, rotate_coordinate.x, rotate_coordinate.y );      // Draw: current sightline
 
@@ -351,25 +305,14 @@ void draw ( )
                     if ( walker[i].degree.distance == 0 )
                     {
                         walker[i].state         = MOVING;
-                        walker[i].walk_distance = generate_random ( 5, 10 );
+                        walker[i].walk_distance = generate_random ( 10, 30 );
                     }
                     
                     break;
                     
                 case MOVING:
                     
-//                    SDL_Delay( 500 );
-                    
-                    walker[i].next_step ( 10 );
-                    
-//                    set_render_draw_color ( RGB ( 100, 100, 100 ) );
-//                    SDL_RenderDrawLine    ( renderer, walker[i].origin.x, walker[i].origin.y, rotate_destination.x, rotate_destination.y );    // Draw: destination sightline
-                    
-                    for ( int j = 0; j < DEPTH_MAX; j++ )
-                    {
-                        SDL_RenderDrawPoint   ( renderer, walker[i].steps[j].x, walker[i].steps[j].y );
-                        set_render_draw_color ( colors[j] );
-                    }
+                    walker[i].next_step ( 2 );
 
                     if ( walker[i].walk_distance == 0 )
                     {
@@ -379,11 +322,17 @@ void draw ( )
                     
                     break;
             }
+            
+            for ( int j = 0; j < DEPTH_MAX; j++ )                               // Draw trailing steps
+            {
+                set_render_draw_color ( colors[j] );
+                SDL_RenderDrawPoint   ( renderer, walker[i].steps[j].x, walker[i].steps[j].y );
+            }
         }
         
         SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500 ms
         
-//        SDL_Delay ( 25 );
+        SDL_Delay ( 50 );
 
         while ( SDL_PollEvent ( &sdl_event )  )
         {

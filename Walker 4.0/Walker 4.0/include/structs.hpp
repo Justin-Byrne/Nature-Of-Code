@@ -36,16 +36,11 @@ std::map<int, int> hash =
     { 175, 15 }, { 176, 15 }, { 177, 15 }, { 178, 15 }, { 179, 15 }, { 180, 15 }
 };
 
-int get_step_divisor ( int degree_distance )
-{
-    return hash [ degree_distance ];
-}
-
 struct COORDINATE
 {
-    int x, y;
+    double x, y;
     
-    COORDINATE ( int x, int y )
+    COORDINATE ( double x, double y )
     {
         this->x = x;
         this->y = y;

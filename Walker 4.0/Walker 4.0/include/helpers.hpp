@@ -10,7 +10,7 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 
-#pragma mark - RANDOM NUMBER
+#pragma mark - GENERICS
 
 int generate_random ( int lower, int upper );
 
