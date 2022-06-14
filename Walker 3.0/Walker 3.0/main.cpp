@@ -15,14 +15,14 @@
 #include "include/helpers.hpp"
 #include "include/colors.hpp"
 
-#define DEBUG 1
+#define DEBUG                    1
 
 #define WINDOW_TITLE  "Walker 3.0"
-#define WINDOW_WIDTH  1000
-#define WINDOW_HEIGHT 1000
-#define WALKER_MAX     500
-#define DEPTH_MAX       10
-#define SENSE_BUBBLE    15
+#define WINDOW_WIDTH          500
+#define WINDOW_HEIGHT         500
+#define WALKER_MAX             50
+#define DEPTH_MAX              10
+#define REGION_BODY            15
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -30,7 +30,6 @@ SDL_Window   * window   = NULL;
 SDL_Renderer * renderer = NULL;
 
 bool run_loop = true;
-bool debug    = false;
 
 RGB colors[DEPTH_MAX] = { { 0, 0, 0 } };
 
@@ -64,11 +63,6 @@ struct WALKER
     int step_distance = 0;
     
     // Constructors ......................................................... //
-    
-    WALKER ( COORDINATE origin )
-    {
-        this->origin = origin;
-    }
     
     WALKER ( COORDINATE origin, int radius )
     {
@@ -260,7 +254,7 @@ void draw ( )
     
     for ( i = 0; i < WALKER_MAX; i++ )
     {
-        walker[i]        = { COORDINATE { generate_random ( padding, WINDOW_WIDTH - padding ), generate_random ( padding, WINDOW_HEIGHT - padding ) }, SENSE_BUBBLE };
+        walker[i]        = { COORDINATE { generate_random ( padding, WINDOW_WIDTH - padding ), generate_random ( padding, WINDOW_HEIGHT - padding ) }, REGION_BODY };
         walker[i].degree = { generate_random ( 0, 360 ), generate_random ( 0, 360 ) };
     }
 
@@ -279,7 +273,7 @@ void draw ( )
             
             #if DEBUG
             set_render_draw_color ( RGB ( 225, 225, 225 ) );
-            SDL_RenderDrawCircle  ( renderer, walker[i].origin.x, walker[i].origin.y, SENSE_BUBBLE );
+            SDL_RenderDrawCircle  ( renderer, walker[i].origin.x, walker[i].origin.y, REGION_BODY );
             #endif
             
             switch ( walker[i].state )
@@ -287,12 +281,12 @@ void draw ( )
                 case SILENT:
                 case ROTATE:
                     
-                    rotate_coordinate  = walker[i].rotate ( walker[i].degree.a, 10 );
-                    rotate_destination = walker[i].rotate ( walker[i].degree.b, 10 );
-                    
                     #if DEBUG
+                    rotate_coordinate  = walker[i].rotate ( walker[i].degree.a, 10 );
                     set_render_draw_color ( RGB ( 100, 100, 100 ) );
                     SDL_RenderDrawLine    ( renderer, walker[i].origin.x, walker[i].origin.y, rotate_coordinate.x, rotate_coordinate.y );      // Draw: current sightline
+                    
+                    rotate_destination = walker[i].rotate ( walker[i].degree.b, 10 );
                     set_render_draw_color ( RGB (  50,  50,  50 ) );
                     SDL_RenderDrawLine    ( renderer, walker[i].origin.x, walker[i].origin.y, rotate_destination.x, rotate_destination.y );    // Draw: destination sightline
                     #endif
@@ -302,7 +296,7 @@ void draw ( )
                     if ( walker[i].degree.a == walker[i].degree.b )
                     {
                         walker[i].state         = MOVING;
-                        walker[i].step_distance = generate_random ( 1, 30 );
+                        walker[i].step_distance = generate_random ( 10, 30 );
                     }
                     
                     break;
@@ -310,12 +304,6 @@ void draw ( )
                 case MOVING:
                     
                     walker[i].next_step ( 2 );
-                    
-                    for ( int j = 0; j < DEPTH_MAX; j++ )
-                    {
-                        SDL_RenderDrawPoint   ( renderer, walker[i].steps[j].x, walker[i].steps[j].y );
-                        set_render_draw_color ( colors[j] );
-                    }
                     
                     if ( walker[i].step_distance == 0 )
                     {
@@ -327,9 +315,15 @@ void draw ( )
             }
         }
         
+        for ( int j = 0; j < DEPTH_MAX; j++ )
+        {
+            SDL_RenderDrawPoint   ( renderer, walker[i].steps[j].x, walker[i].steps[j].y );
+            set_render_draw_color ( colors[j] );
+        }
+        
         SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500 ms
         
-        SDL_Delay ( 25 );
+        SDL_Delay ( 50 );
 
         while ( SDL_PollEvent ( &sdl_event )  )
         {

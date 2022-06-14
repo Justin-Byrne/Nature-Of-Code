@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F078F1F9281B11A100664DD6 /* colors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F078F1F7281B11A100664DD6 /* colors.cpp */; };
 		F078F214282055A900664DD6 /* helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F078F212282055A900664DD6 /* helpers.cpp */; };
 		F078F215282073C200664DD6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F06583162819AF68007312F9 /* main.cpp */; };
 		F078F2172821E09500664DD6 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F078F2162821E09500664DD6 /* libSDL2-2.0.0.dylib */; };
@@ -41,8 +40,6 @@
 		F06583132819AF68007312F9 /* Random Walker */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Random Walker"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F06583162819AF68007312F9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		F06583222819DE31007312F9 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../usr/local/Cellar/sdl2/2.0.20/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
-		F078F1F7281B11A100664DD6 /* colors.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = colors.cpp; sourceTree = "<group>"; };
-		F078F1F8281B11A100664DD6 /* colors.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = colors.hpp; sourceTree = "<group>"; };
 		F078F212282055A900664DD6 /* helpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = helpers.cpp; sourceTree = "<group>"; };
 		F078F213282055A900664DD6 /* helpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = helpers.hpp; sourceTree = "<group>"; };
 		F078F2162821E09500664DD6 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../usr/local/Cellar/sdl2/2.0.22/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
@@ -99,7 +96,6 @@
 		F078F1F4281B113300664DD6 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				F078F1F8281B11A100664DD6 /* colors.hpp */,
 				F078F213282055A900664DD6 /* helpers.hpp */,
 			);
 			path = include;
@@ -108,7 +104,6 @@
 		F078F1F5281B115A00664DD6 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				F078F1F7281B11A100664DD6 /* colors.cpp */,
 				F078F212282055A900664DD6 /* helpers.cpp */,
 			);
 			path = source;
@@ -173,7 +168,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F078F214282055A900664DD6 /* helpers.cpp in Sources */,
-				F078F1F9281B11A100664DD6 /* colors.cpp in Sources */,
 				F078F215282073C200664DD6 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

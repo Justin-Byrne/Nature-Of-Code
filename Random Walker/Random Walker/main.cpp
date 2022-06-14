@@ -9,14 +9,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "include/colors.hpp"
 #include "include/helpers.hpp"
 
 #define WINDOW_TITLE  "Random Walker"
-#define WINDOW_WIDTH  500
-#define WINDOW_HEIGHT 500
-#define WALKER_MAX    500
-#define MAX_DEPTH      20
+#define WINDOW_WIDTH              500
+#define WINDOW_HEIGHT             500
+#define WALKER_MAX                500
+#define MAX_DEPTH                  20
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -30,10 +29,10 @@ int walker_steps[WALKER_MAX][MAX_DEPTH][2] = { { 0 } };
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
-int setup_window            ( const char * title, int x_pos, int y_pos, int width, int height );
-void generate_colors        ( int start, int end );
-void exit                   ( const char * message );
-void draw                   ( );
+int  setup_window    ( const char * title, int x_pos, int y_pos, int width, int height );
+void generate_colors ( int start, int end );
+void exit            ( const char * message );
+void draw            ( );
 
 #pragma mark - DATA STRUCTURES
 
@@ -42,15 +41,13 @@ struct WALKER
     int x = 0;
     int y = 0;
     
-    time_t time_seed;
-    
     WALKER ( int x, int y )
     {
         this->x = x;
         this->y = y;
     }
     
-    WALKER ( ) { };
+    WALKER  ( ) { };
     
     ~WALKER ( ) { };
     
@@ -138,7 +135,7 @@ void generate_colors ( int start, int end )
     
     int difference = end / MAX_DEPTH;
     
-    for ( i = 0; i < MAX_DEPTH; i++ )
+    for ( int i = 0; i < MAX_DEPTH; i++ )
         for ( int j = 0; j < 3; j++ )
             colors[i][j] = { i * difference };
 }
@@ -161,7 +158,7 @@ void draw ( )
     
     WALKER walker[WALKER_MAX];
     
-    for ( i = 0; i < WALKER_MAX; i++ )
+    for ( int i = 0; i < WALKER_MAX; i++ )
         walker[i] = { generate_random ( 0, WINDOW_WIDTH ), generate_random ( 0, WINDOW_HEIGHT ) };
     
     generate_colors ( 0, 255 );
@@ -180,13 +177,13 @@ void draw ( )
 
         SDL_RenderClear ( renderer );
         
-        for ( i = 0; i < WALKER_MAX; i++ )                                      // Store: key 'walker' values within walker_steps
+        for ( int i = 0; i < WALKER_MAX; i++ )                                  // Store: key 'walker' values within walker_steps
         {
             walker_steps[i][0][0] = walker[i].x;
             walker_steps[i][0][1] = walker[i].y;
         }
   
-        for ( i = 0; i < WALKER_MAX; i++ )                                      // Draw: walkers
+        for ( int i = 0; i < WALKER_MAX; i++ )                                  // Draw: walkers
         {
             for ( int j = 0; j < MAX_DEPTH; j++ )
             {
@@ -204,10 +201,10 @@ void draw ( )
         
         SDL_RenderPresent ( renderer );                                         // Update: renderer
         
-        for ( i = 0; i < WALKER_MAX; i++ )                                      // Array shift all 'walker_steps'
+        for ( int i = 0; i < WALKER_MAX; i++ )                                  // Array shift all 'walker_steps'
             array_shift ( walker_steps[i], MAX_DEPTH, 2, false, 1 );
         
-        for ( i = 0; i < WALKER_MAX; i++ )                                      // Init: next 'walker' step
+        for ( int i = 0; i < WALKER_MAX; i++ )                                  // Init: next 'walker' step
             walker[i].next_step ( );
         
         SDL_Delay ( 50 );

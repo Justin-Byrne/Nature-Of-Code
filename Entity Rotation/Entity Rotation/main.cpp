@@ -14,13 +14,14 @@
 
 #include "include/structs.hpp"
 #include "include/helpers.hpp"
-#include "include/colors.hpp"
+
+#define DEBUG                         1
 
 #define WINDOW_TITLE  "Entity Rotation"
-#define WINDOW_WIDTH  100
-#define WINDOW_HEIGHT 100
-#define DEPTH_MAX      10
-#define SENSE_BUBBLE   50
+#define WINDOW_WIDTH                100
+#define WINDOW_HEIGHT               100
+#define DEPTH_MAX                    10
+#define SENSE_BUBBLE                 50
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -28,14 +29,13 @@ SDL_Window   * window   = NULL;
 SDL_Renderer * renderer = NULL;
 
 bool run_loop = true;
-bool debug    = false;
 
 int colors[DEPTH_MAX][3]       = { { 0 } };
 int walker_steps[DEPTH_MAX][2] = { { 0 } };
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
-int setup_window            ( const char * title, int x_pos, int y_pos, int width, int height );
+int  setup_window           ( const char * title, int x_pos, int y_pos, int width, int height );
 void set_render_draw_color  ( RGB color = { 0, 0, 0 } );
 void set_render_draw_colors ( RGB background = { 255, 255, 255 }, RGB foreground = { 0, 0, 0 } );
 void generate_colors        ( int start, int end );
@@ -220,7 +220,7 @@ void generate_colors ( int start, int end )
     
     int difference = end / DEPTH_MAX;
     
-    for ( i = 0; i < DEPTH_MAX; i++ )
+    for ( int i = 0; i < DEPTH_MAX; i++ )
         for ( int j = 0; j < 3; j++ )
             colors[i][j] = { i * difference };
 }
@@ -254,7 +254,6 @@ void draw ( )
     while ( run_loop )                                                          // DRAW
     {
         set_render_draw_colors ( );
-        
         SDL_RenderDrawPoint ( renderer, walker.origin.x, walker.origin.y );     // Draw: entity dot
 
         COORDINATE rotate_coordinate  = walker.rotate ( rotate.a );             // Create: pivot point & rotate for starting degree

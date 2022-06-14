@@ -75,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				F078F21D2825C15B00664DD6 /* include */,
-				F078F21E2825C17100664DD6 /* spice */,
 				F078F21F2825C18900664DD6 /* source */,
 				F078F206281C4FA500664DD6 /* main.cpp */,
 			);
@@ -96,13 +95,6 @@
 				F078F2212825C1D400664DD6 /* colors.hpp */,
 			);
 			path = include;
-			sourceTree = "<group>";
-		};
-		F078F21E2825C17100664DD6 /* spice */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = spice;
 			sourceTree = "<group>";
 		};
 		F078F21F2825C18900664DD6 /* source */ = {

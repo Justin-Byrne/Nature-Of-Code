@@ -13,8 +13,8 @@
 #include "include/helpers.hpp"
 
 #define WINDOW_TITLE  "Randomizer"
-#define WINDOW_WIDTH  500
-#define WINDOW_HEIGHT 500
+#define WINDOW_WIDTH          500
+#define WINDOW_HEIGHT         500
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -25,9 +25,9 @@ bool run_loop = true;
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
-int setup_window ( const char * title, int x_pos, int y_pos, int width, int height );
-void exit        ( const char * message );
-void draw        ( );
+int  setup_window ( const char * title, int x_pos, int y_pos, int width, int height );
+void exit         ( const char * message );
+void draw         ( );
 
 #pragma mark - DATA STRUCTURES
 
@@ -132,7 +132,7 @@ void draw ( )
     {
         switch ( LINES_Y )
         {
-            case 0:                     // POINTS_Y
+            case 0:     // POINTS_Y
                 
                 random_y = generate_random ( 0, WINDOW_HEIGHT );
 
@@ -147,13 +147,13 @@ void draw ( )
                 
                 break;
                 
-            case 1:                     // LINES_Y
+            case 1:     // LINES_Y
                 
                 random_y = generate_random ( 0, WINDOW_HEIGHT );
                 
                 SDL_RenderDrawLine ( renderer, last_x, last_y, i, random_y );
                 
-                last_x = i++;           // Assign 'last_x' and iterate 'i' afterwards
+                last_x = i++;                                                   // Assign 'last_x' and iterate 'i' afterwards
                 last_y = random_y;
                 
                 if ( i >= WINDOW_WIDTH )
@@ -161,7 +161,7 @@ void draw ( )
                 
                 break;
                 
-            case 2:                     // POINTS_XY
+            case 2:     // POINTS_XY
                 
                 random_x = generate_random ( 0, WINDOW_WIDTH  );
                 random_y = generate_random ( 0, WINDOW_HEIGHT );
@@ -170,7 +170,7 @@ void draw ( )
                 
                 break;
             
-            case 3:                     // LINES_XY
+            case 3:     // LINES_XY
                 
                 random_x = generate_random ( 0, WINDOW_WIDTH  );
                 random_y = generate_random ( 0, WINDOW_HEIGHT );

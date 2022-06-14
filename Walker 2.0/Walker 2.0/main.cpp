@@ -14,14 +14,15 @@
 
 #include "include/structs.hpp"
 #include "include/helpers.hpp"
-#include "include/colors.hpp"
+
+#define DEBUG                    1
 
 #define WINDOW_TITLE  "Walker 2.0"
-#define WINDOW_WIDTH  500
-#define WINDOW_HEIGHT 500
-#define WALKER_MAX    100
-#define DEPTH_MAX      10
-#define SENSE_BUBBLE   50
+#define WINDOW_WIDTH           500
+#define WINDOW_HEIGHT          500
+#define WALKER_MAX              50
+#define DEPTH_MAX               10
+#define CIRCLE_BODY             10
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -29,7 +30,6 @@ SDL_Window   * window   = NULL;
 SDL_Renderer * renderer = NULL;
 
 bool run_loop = true;
-bool debug    = false;
 
 int colors[DEPTH_MAX][3]                   = { { 0 } };
 int walker_steps[WALKER_MAX][DEPTH_MAX][2] = { { 0 } };
@@ -64,11 +64,6 @@ struct WALKER
     int radius = 0;
     
     // Constructors ......................................................... //
-    
-    WALKER ( COORDINATE origin )
-    {
-        this->origin = origin;
-    }
     
     WALKER ( COORDINATE origin, int radius )
     {
@@ -109,7 +104,7 @@ struct WALKER
         if ( this->origin.y >= WINDOW_HEIGHT )  this->origin.y--;               // bottom
     }
 
-    bool isInsideCircle ( COORDINATE circle )
+    bool is_inside_circle ( COORDINATE circle )
     {
         return ( ( circle.x - this->origin.x ) * ( circle.x - this->origin.x ) +
                  ( circle.y - this->origin.y ) * ( circle.y - this->origin.y ) <= ( this->radius * this->radius ) ) ? true : false;
@@ -221,7 +216,7 @@ void generate_colors ( int start, int end )
     
     int difference = end / DEPTH_MAX;
     
-    for ( i = 0; i < DEPTH_MAX; i++ )
+    for ( int i = 0; i < DEPTH_MAX; i++ )
         for ( int j = 0; j < 3; j++ )
             colors[i][j] = { i * difference };
 }
@@ -244,8 +239,8 @@ void draw ( )
 
     WALKER walker[WALKER_MAX];
 
-    for ( i = 0; i < WALKER_MAX; i++ )
-        walker[i] = { COORDINATE { generate_random ( 0, WINDOW_WIDTH ), generate_random ( 0, WINDOW_HEIGHT ) }, SENSE_BUBBLE };
+    for ( int i = 0; i < WALKER_MAX; i++ )
+        walker[i] = { COORDINATE { generate_random ( 0, WINDOW_WIDTH ), generate_random ( 0, WINDOW_HEIGHT ) }, CIRCLE_BODY };
 
     generate_colors ( 0, 255 );
 
@@ -263,19 +258,20 @@ void draw ( )
 
         SDL_RenderClear ( renderer );
         
-        for ( i = 0; i < WALKER_MAX; i++ )                                      // Store: key 'walker' values within walker_steps
+        for ( int i = 0; i < WALKER_MAX; i++ )                                  // Store: key 'walker' values within walker_steps
         {
             walker_steps[i][0][0] = walker[i].origin.x;
             walker_steps[i][0][1] = walker[i].origin.y;
         }
         
-        for ( i = 0; i < WALKER_MAX; i++ )                                      // Draw: walkers
+        for ( int i = 0; i < WALKER_MAX; i++ )                                  // Draw: walkers
         {
             for ( int j = 0; j < DEPTH_MAX; j++ )                               // Draw: shadows
             {
-                if ( debug )
-                    SDL_RenderDrawCircle ( renderer, walker[i].origin.x, walker[i].origin.y, SENSE_BUBBLE );
-
+                #if DEBUG
+                SDL_RenderDrawCircle ( renderer, walker[i].origin.x, walker[i].origin.y, CIRCLE_BODY );
+                #endif
+                
                 SDL_RenderDrawPoint  ( renderer, walker_steps[i][j][0], walker_steps[i][j][1] );
 
                 SDL_SetRenderDrawColor (    // foreground color
@@ -287,14 +283,13 @@ void draw ( )
                 );
             }
             
-            for ( int j = i + 1; j < WALKER_MAX; j++ )                          // Draw: sense bubble if triggered
-                if ( walker[i].isInsideCircle ( COORDINATE { walker[j].origin.x, walker[j].origin.y } ) )
+            for ( int j = i + 1; j < WALKER_MAX; j++ )                          // Draw: body bubble if triggered
+                if ( walker[i].is_inside_circle ( COORDINATE { walker[j].origin.x, walker[j].origin.y } ) )
                 {
-                    if ( debug )
-                    {
-                        SDL_RenderFillCircle ( renderer, walker[i].origin.x, walker[i].origin.y, SENSE_BUBBLE );
-                        SDL_RenderFillCircle ( renderer, walker[j].origin.x, walker[j].origin.y, SENSE_BUBBLE );
-                    }
+                    #if DEBUG
+                    SDL_RenderFillCircle ( renderer, walker[i].origin.x, walker[i].origin.y, CIRCLE_BODY );
+                    SDL_RenderFillCircle ( renderer, walker[j].origin.x, walker[j].origin.y, CIRCLE_BODY );
+                    #endif
                     
                     SDL_RenderDrawLine ( renderer, walker[i].origin.x, walker[i].origin.y, walker[j].origin.x, walker[j].origin.y );
                 }
@@ -304,10 +299,10 @@ void draw ( )
         
         SDL_Delay ( 50 );
         
-        for ( i = 0; i < WALKER_MAX; i++ )                                      // Array shift all 'walker_steps'
+        for ( int i = 0; i < WALKER_MAX; i++ )                                  // Array shift all 'walker_steps'
             array_shift ( walker_steps[i], DEPTH_MAX, 2, false, 1 );
         
-        for ( i = 0; i < WALKER_MAX; i++ )                                      // Init: next 'walker' step
+        for ( int i = 0; i < WALKER_MAX; i++ )                                  // Init: next 'walker' step
             walker[i].next_step ( generate_random ( 0, 7 ) );
 
         while ( SDL_PollEvent ( &sdl_event )  )

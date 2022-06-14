@@ -11,19 +11,18 @@
 
 #include <algorithm>
 
-#include <string>       // TODO: DELETE THIS WHEN DONE !!!
+#include <string>
 
 #include "include/structs.hpp"
 #include "include/helpers.hpp"
-#include "include/colors.hpp"
 
-#define DEBUG         0
+#define DEBUG                             1
 
 #define WINDOW_TITLE  "Entity Rotation 3.0"
-#define WINDOW_WIDTH  100
-#define WINDOW_HEIGHT 100
-#define DEPTH_MAX      10
-#define SENSE_BUBBLE   50
+#define WINDOW_WIDTH                    100
+#define WINDOW_HEIGHT                   100
+#define DEPTH_MAX                        10
+#define REGION_BODY                      30
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -263,7 +262,7 @@ void generate_colors ( int highest_color )
     
     int difference = highest_color / DEPTH_MAX;
     
-    for ( i = 0; i < DEPTH_MAX; i++ )
+    for ( int i = 0; i < DEPTH_MAX; i++ )
             colors[i] = { ( i * difference ), ( i * difference ), ( i * difference ) };
 }
 
@@ -292,24 +291,28 @@ void draw ( )
     /* - - - - - - - - - - - - - - - - - Init - - - - - - - - - - - - - - - - - */
     
     walker.degree = { generate_random(0, 360), generate_random(0, 360) };
-//    walker.cache_steps ( );
+    
+    COORDINATE rotate_coordinate, rotate_destination;
     
     while ( run_loop )                                                          // DRAW
     {
+        set_render_draw_colors ( );
+        SDL_RenderDrawPoint    ( renderer, walker.origin.x, walker.origin.y );  // Draw: entity dot
+        
         #if DEBUG
         std::string OUTPUT = std::string() + "\n[OUTPUT]\n" + "walker.degree.a: \t\t\t%d\n" + "walker.degree.b: \t\t\t%d\n" + "walker.degree.distance: \t%d\n" + "walker.degree.clockwise: \t%s\n" + "walker.degree.step: \t\t%d\n";
         printf ( OUTPUT.c_str ( ), walker.degree.a, walker.degree.b, walker.degree.distance, ( walker.degree.clockwise ) ? "true" : "false", walker.degree.step );
         #endif
         
-        set_render_draw_colors ( );
-        
-        SDL_RenderDrawPoint ( renderer, walker.origin.x, walker.origin.y );     // Draw: entity dot
+        #if DEBUG
+        rotate_coordinate     = walker.rotate ( walker.degree.a, REGION_BODY );
+        set_render_draw_color ( RGB ( 100, 100, 100 ) );
+        SDL_RenderDrawLine    ( renderer, walker.origin.x, walker.origin.y, rotate_coordinate.x, rotate_coordinate.y );      // Draw: current sightline
 
-        int random_number = generate_random ( 1, 30 );
-        
-        COORDINATE rotate_destination = walker.rotate ( walker.degree.b, random_number );      // Create: pivot point & rotate for ending degree
-        
-        SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, rotate_destination.x, rotate_destination.y );    // Draw: destination sightline
+        rotate_destination    = walker.rotate ( walker.degree.b, REGION_BODY );
+        set_render_draw_color ( RGB (  50,  50,  50 ) );
+        SDL_RenderDrawLine    ( renderer, walker.origin.x, walker.origin.y, rotate_destination.x, rotate_destination.y );       // Draw: destination sightline
+        #endif
         
         #if DEBUG
         walker.quadrants.check_quandrant ( rotate_destination.x, rotate_destination.y );
@@ -317,21 +320,11 @@ void draw ( )
         printf ( QUANDRANTS.c_str ( ), walker.quadrants.counts.lower_right, walker.quadrants.counts.lower_left, walker.quadrants.counts.upper_left, walker.quadrants.counts.upper_right );
         #endif
         
-//        for ( int i = 0; i < DEPTH_MAX; i++ )
-//        {
-//            set_render_draw_color ( colors[i] );
-//
-//            COORDINATE step_rotation = walker.rotate ( walker.steps[i], 2 );
-//
-//            SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, step_rotation.x, step_rotation.y );
-//        }
-        
         SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500 ms
 
-//        SDL_Delay ( 100 );
+        SDL_Delay ( 50 );
         
         walker.degree = { walker.degree.b, generate_random ( 0, 360 ) };
-//        walker.cache_steps ( );
         
         while ( SDL_PollEvent ( &sdl_event )  )
         {

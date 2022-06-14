@@ -11,7 +11,6 @@
 		F05DE37328564A6A00D9C9E7 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F05DE37228564A6A00D9C9E7 /* libSDL2-2.0.0.dylib */; };
 		F05DE37428564A6A00D9C9E7 /* libSDL2-2.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = F05DE37228564A6A00D9C9E7 /* libSDL2-2.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		F05DE37D28564AD700D9C9E7 /* helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F05DE37B28564AD700D9C9E7 /* helpers.cpp */; };
-		F05DE38028564AE300D9C9E7 /* colors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F05DE37E28564AE300D9C9E7 /* colors.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,8 +43,6 @@
 		F05DE37928564AC800D9C9E7 /* structs.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = structs.hpp; sourceTree = "<group>"; };
 		F05DE37B28564AD700D9C9E7 /* helpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = helpers.cpp; sourceTree = "<group>"; };
 		F05DE37C28564AD700D9C9E7 /* helpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = helpers.hpp; sourceTree = "<group>"; };
-		F05DE37E28564AE300D9C9E7 /* colors.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = colors.cpp; sourceTree = "<group>"; };
-		F05DE37F28564AE300D9C9E7 /* colors.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = colors.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +95,6 @@
 		F05DE37628564A9700D9C9E7 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				F05DE37E28564AE300D9C9E7 /* colors.cpp */,
 				F05DE37B28564AD700D9C9E7 /* helpers.cpp */,
 			);
 			path = source;
@@ -107,7 +103,6 @@
 		F05DE37728564AA100D9C9E7 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				F05DE37F28564AE300D9C9E7 /* colors.hpp */,
 				F05DE37C28564AD700D9C9E7 /* helpers.hpp */,
 				F05DE37928564AC800D9C9E7 /* structs.hpp */,
 			);
@@ -172,7 +167,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F05DE38028564AE300D9C9E7 /* colors.cpp in Sources */,
 				F05DE37D28564AD700D9C9E7 /* helpers.cpp in Sources */,
 				F05DE36B285649E700D9C9E7 /* main.cpp in Sources */,
 			);

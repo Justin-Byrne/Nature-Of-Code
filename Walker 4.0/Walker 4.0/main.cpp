@@ -21,8 +21,8 @@
 #define WINDOW_HEIGHT          500
 #define WALKER_MAX              50
 #define DEPTH_MAX              100
-#define BODY                    10
-#define SENSE                   30
+#define REGION_BODY             10
+#define REGION_SENSE            30
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -263,17 +263,17 @@ void draw ( )
     
     for ( int i = 0; i < WALKER_MAX; i++ )
     {
-        walker[i]        = { COORDINATE { (double) generate_random ( padding, WINDOW_WIDTH - padding ), (double) generate_random ( padding, WINDOW_HEIGHT - padding ) }, BODY };
+        walker[i]        = { COORDINATE { (double) generate_random ( padding, WINDOW_WIDTH - padding ), (double) generate_random ( padding, WINDOW_HEIGHT - padding ) }, REGION_BODY };
         walker[i].degree = { generate_random ( 0, 360 ), generate_random ( 0, 360 ) };
     }
 
+    COORDINATE rotate_coordinate, rotate_destination;
+    
     /* - - - - - - - - - - - - - - - - - Init - - - - - - - - - - - - - - - - - */
     
     while ( run_loop )                                                          // DRAW
     {
-        COORDINATE rotate_coordinate, rotate_destination;
-        
-        set_render_draw_colors ( );
+        set_render_draw_colors ( );     // TODO: checke whether can go outside 'while' loop
         
         for ( int i = 0; i < WALKER_MAX; i++ )
         {
@@ -282,7 +282,7 @@ void draw ( )
             
             #if DEBUG
             set_render_draw_color ( RGB ( 225, 225, 225 ) );
-            SDL_RenderDrawCircle  ( renderer, walker[i].origin.x, walker[i].origin.y, BODY );
+            SDL_RenderDrawCircle  ( renderer, walker[i].origin.x, walker[i].origin.y, REGION_BODY );
             #endif
             
             switch ( walker[i].state )
@@ -291,7 +291,7 @@ void draw ( )
                 case ROTATE:
                     
                     #if DEBUG
-                    rotate_coordinate     = walker[i].rotate ( walker[i].degree.a, BODY );
+                    rotate_coordinate     = walker[i].rotate ( walker[i].degree.a, REGION_BODY );
                     set_render_draw_color ( RGB ( 100, 100, 100 ) );
                     SDL_RenderDrawLine    ( renderer, walker[i].origin.x, walker[i].origin.y, rotate_coordinate.x, rotate_coordinate.y );      // Draw: current sightline
 

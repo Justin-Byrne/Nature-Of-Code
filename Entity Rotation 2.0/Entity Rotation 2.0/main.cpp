@@ -11,19 +11,18 @@
 
 #include <algorithm>
 
-#include <string>       // TODO: DELETE THIS WHEN DONE !!!
+#include <string>
 
 #include "include/structs.hpp"
 #include "include/helpers.hpp"
-#include "include/colors.hpp"
 
-#define DEBUG 0
+#define DEBUG                             1
 
 #define WINDOW_TITLE  "Entity Rotation 2.0"
-#define WINDOW_WIDTH  100
-#define WINDOW_HEIGHT 100
-#define DEPTH_MAX      10
-#define SENSE_BUBBLE   50
+#define WINDOW_WIDTH                    100
+#define WINDOW_HEIGHT                   100
+#define DEPTH_MAX                        10
+#define SENSE_BUBBLE                     50
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -58,9 +57,9 @@ struct WALKER
     
     DEGREE degree;
     
-    int state         = SILENT;
-    int radius        = 0;
-    int walk = 0;
+    int state  = SILENT;
+    int radius = 0;
+    int walk   = 0;
     
     // Constructors ......................................................... //
     
@@ -216,7 +215,7 @@ void generate_colors ( int start, int end )
     
     int difference = end / DEPTH_MAX;
     
-    for ( i = 0; i < DEPTH_MAX; i++ )
+    for ( int i = 0; i < DEPTH_MAX; i++ )
         for ( int j = 0; j < 3; j++ )
             colors[i][j] = { i * difference };
 }
@@ -247,26 +246,29 @@ void draw ( )
     
     walker.degree = { generate_random(0, 360), generate_random(0, 360) };
     
+    COORDINATE rotate_coordinate, rotate_destination;
+    
     while ( run_loop )                                                          // DRAW
     {
+        set_render_draw_colors ( );
+        SDL_RenderDrawPoint ( renderer, walker.origin.x, walker.origin.y );     // Draw: entity dot
+        
         #if DEBUG
         std::string OUTPUT = std::string() + "\n[OUTPUT]\n" + "walker.degree.a: \t\t\t%d\n" + "walker.degree.b: \t\t\t%d\n" + "walker.degree.distance: \t%d\n" + "walker.degree.clockwise: \t%s\n" + "walker.degree.step: \t\t%d\n";
         printf ( OUTPUT.c_str ( ), walker.degree.a, walker.degree.b, walker.degree.distance, ( walker.degree.clockwise ) ? "true" : "false", walker.degree.step );
         #endif
         
-        set_render_draw_colors ( );
-        
-        SDL_RenderDrawPoint ( renderer, walker.origin.x, walker.origin.y );     // Draw: entity dot
-
-        COORDINATE rotate_coordinate  = walker.rotate ( walker.degree.a );      // Create: pivot point & rotate for starting degree
-        COORDINATE rotate_destination = walker.rotate ( walker.degree.b );      // Create: pivot point & rotate for ending degree
-
+        #if DEBUG
+        rotate_coordinate  = walker.rotate ( walker.degree.a );                 // Create: pivot point & rotate for starting degree
         SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, rotate_coordinate.x, rotate_coordinate.y );      // Draw: current sightline
+        
+        rotate_destination = walker.rotate ( walker.degree.b );      // Create: pivot point & rotate for ending degree
         SDL_RenderDrawLine ( renderer, walker.origin.x, walker.origin.y, rotate_destination.x, rotate_destination.y );    // Draw: destination sightline
+        #endif
         
         SDL_RenderPresent ( renderer );                                         // Update: renderer... polls for ~500 ms
 
-        SDL_Delay ( 100 );
+        SDL_Delay ( 50 );
         
         ( walker.degree.clockwise )
             ? walker.degree.advance ( )

@@ -12,9 +12,10 @@
 
 #include "include/colors.hpp"
 
-#define WINDOW_WIDTH   464
-#define WINDOW_HEIGHT  464
-#define RECTANGLE_SIZE  16
+#define WINDOW_TITLE  "Color Shifter"
+#define WINDOW_WIDTH              464
+#define WINDOW_HEIGHT             464
+#define RECTANGLE_SIZE             16
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -25,9 +26,9 @@ bool run_loop           = true;
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
-int setup_window ( const char* title, int x_pos, int y_pos, int width, int height );
-void exit ( );
-void poll_events ( );
+int  setup_window ( const char * title, int x_pos, int y_pos, int width, int height );
+void exit         ( const char * message );
+void draw         ( );
 
 #pragma mark - MAIN
 
@@ -35,7 +36,7 @@ int main( int argc, char * arg[] )
 {
     setup_window( "Color Shifter", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT );
     
-    poll_events( );
+    draw( );
     
     /* - - - - - - clean up - - - - - - */
     SDL_DestroyRenderer( renderer );
@@ -48,56 +49,49 @@ int main( int argc, char * arg[] )
 
 #pragma mark - GLOBAL FUNCTIONS
 
-/*!
-    @brief                              Setup window
-    @param          title                                 Window title
-    @param          x_pos                                 Window's x position
-    @param          y_pos                                 Window's y position
-    @param          width                                 Window's width
-    @param          height                               Window's height
- */
-int setup_window( const char* title, int x_pos, int y_pos, int width, int height )
+/// Setup window
+/// @param      title               Window title
+/// @param      x_pos               Window's x position
+/// @param      y_pos               Window's y position
+/// @param      width               Window's width
+/// @param      height              Window's height
+int setup_window ( const char * title, int x_pos, int y_pos, int width, int height )
 {
-    if ( SDL_Init(SDL_INIT_EVERYTHING) != 0 ) {  SDL_Log( "ERROR SDL_Init" );  return -1;  }
+    if ( SDL_Init (SDL_INIT_EVERYTHING) != 0 ) {  SDL_Log ( "ERROR SDL_Init" );  return -1;  }
     
-    window = SDL_CreateWindow(
-        title,                          // window title
-        x_pos,                          // x position, centered
-        y_pos,                          // y position, centered
-        width,                          // width, in pixels
-        height,                         // height, in pixels
-        SDL_WINDOW_OPENGL               // flags
+    window = SDL_CreateWindow (
+        title,                      // window title
+        x_pos,                      // x position, centered
+        y_pos,                      // y position, centered
+        width,                      // width, in pixels
+        height,                     // height, in pixels
+        SDL_WINDOW_OPENGL           // flags
     );
     
-    if ( !window ) {  SDL_Log( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );  return -1; }
+    if ( !window ) {  SDL_Log ( "Window could not be created! SDL_Error: %s\n", SDL_GetError () );  return -1; }
 
-    renderer = SDL_CreateRenderer(
-        window,                         // window when rendering
-        -1,                             // index of the rendering driver
-        SDL_RENDERER_SOFTWARE           // rendering flags
+    renderer = SDL_CreateRenderer (
+        window,                     // window when rendering
+        -1,                         // index of the rendering driver
+        SDL_RENDERER_SOFTWARE       // rendering flags
     );
     
-    if ( !renderer ) {  SDL_Log( "Failed to load renderer! SDL_Error: %s\n", SDL_GetError() );  return -1; }
-
+    if ( !renderer ) {  SDL_Log ( "Failed to load renderer! SDL_Error: %s\n", SDL_GetError () );  return -1; }
+    
     return 0;
 }
 
-/*!
-    @brief                                  Initiates exit
- */
-void exit ( )
+/// Exits program
+/// @param      message             Message to be left after deactivating program
+void exit ( const char * message )
 {
     run_loop = false;
     
-    printf ( "Done !" );
-    
-    SDL_Delay ( 5000 );
+    printf ( "[EXIT] By program !\n%s\n", message );
 }
 
-/*!
-    @brief                              Initiate poll events
- */
-void poll_events( )
+/// Initiate poll events
+void draw( )
 {
     int i = 0;
     
@@ -117,7 +111,7 @@ void poll_events( )
         
         if ( x_coord + y_coord >= screen_dimensions )
         {
-            exit ( );
+            exit ( "Done!" );
             
             continue;
         }
