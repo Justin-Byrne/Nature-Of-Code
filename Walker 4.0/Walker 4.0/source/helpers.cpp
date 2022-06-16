@@ -9,6 +9,27 @@
 #include <SDL2/SDL.h>
 #include <stdlib.h>
 
+#pragma mark - REFERENCES
+
+std::map<int, int> hash =
+{
+    {   1,  1 }, {   2,  1 }, {   3,  1 }, {   4,  1 },
+    {   5,  2 }, {   6,  2 }, {   7,  2 }, {   8,  2 }, {   9,  2 }, {  10,  2 },
+    {  11,  3 }, {  12,  3 }, {  13,  3 }, {  14,  3 }, {  15,  3 }, {  16,  3 },
+    {  17,  4 }, {  18,  4 }, {  19,  4 }, {  20,  4 }, {  21,  4 }, {  22,  4 }, {   23, 4 }, {  24,  4 },
+    {  25,  5 }, {  26,  5 }, {  27,  5 }, {  28,  5 }, {  29,  5 }, {  30,  5 }, {   31, 5 }, {  32,  5 }, {  33,  5 }, {  34,  5 }, {  35,  5 }, {  36,  5 }, {  37,  5 }, {  38,  5 }, {  39,  5 }, {  40,  5 },
+    {  41,  6 }, {  42,  6 }, {  43,  6 }, {  44,  6 }, {  45,  6 }, {  46,  6 }, {   47, 6 }, {  48,  6 }, {  49,  6 }, {  50,  6 }, {  51,  6 }, {  52,  6 }, {  53,  6 }, {  54,  6 },
+    {  55,  7 }, {  56,  7 }, {  57,  7 }, {  58,  7 }, {  59,  7 }, {  60,  7 }, {   61, 7 }, {  62,  7 }, {  63,  7 }, {  64,  7 }, {  65,  7 }, {  66,  7 }, {  67,  7 }, {  68,  7 }, {  69,  7 }, {  70,  7 },
+    {  71,  8 }, {  72,  8 }, {  73,  8 }, {  74,  8 }, {  75,  8 }, {  76,  8 }, {   77, 8 }, {  78,  8 }, {  79,  8 }, {  80,  8 }, {  81,  8 }, {  82,  8 }, {  83,  8 }, {  84,  8 },
+    {  85,  9 }, {  86,  9 }, {  87,  9 }, {  88,  9 }, {  89,  9 }, {  90,  9 }, {   91, 9 }, {  92,  9 }, {  93,  9 }, {  94,  9 }, {  95,  9 }, {  96,  9 }, {  97,  9 }, {  98,  9 }, {  99,  9 }, { 100,  9 },
+    { 101, 10 }, { 102, 10 }, { 103, 10 }, { 104, 10 }, { 105, 10 }, { 106, 10 }, { 107, 10 }, { 108, 10 }, { 109, 10 }, { 110, 10 }, { 111, 10 }, { 112, 10 }, { 113, 10 }, { 114, 10 },
+    { 115, 11 }, { 116, 11 }, { 117, 11 }, { 118, 11 }, { 119, 11 }, { 120, 11 }, { 121, 11 }, { 122, 11 }, { 123, 11 }, { 124, 11 }, { 125, 11 }, { 126, 11 }, { 127, 11 }, { 128, 11 }, { 129, 11 }, { 130, 11 },
+    { 131, 12 }, { 132, 12 }, { 133, 12 }, { 134, 12 }, { 135, 12 }, { 136, 12 }, { 137, 12 }, { 138, 12 }, { 139, 12 }, { 140, 12 }, { 141, 12 }, { 142, 12 }, { 143, 12 }, { 144, 12 },
+    { 145, 13 }, { 146, 13 }, { 147, 13 }, { 148, 13 }, { 149, 13 }, { 150, 13 }, { 151, 13 }, { 152, 13 }, { 153, 13 }, { 154, 13 }, { 155, 13 }, { 156, 13 }, { 157, 13 }, { 158, 13 }, { 159, 13 }, { 160, 13 },
+    { 161, 14 }, { 162, 14 }, { 163, 14 }, { 164, 14 }, { 165, 14 }, { 166, 14 }, { 167, 14 }, { 168, 14 }, { 169, 14 }, { 170, 14 }, { 171, 14 }, { 172, 14 }, { 173, 14 }, { 174, 14 },
+    { 175, 15 }, { 176, 15 }, { 177, 15 }, { 178, 15 }, { 179, 15 }, { 180, 15 }
+};
+
 #pragma mark - GENERICS
 
 /// Generates a random number in the range passed
@@ -114,21 +135,6 @@ void array_shift ( int array[][2], int SIZE_1D, int SIZE_2D, bool shift_left, in
     }
 }
 
-#pragma mark - GEOMETRY
-
-/// Checks whether the point's coordinates passed are within the circle's radius passed
-/// @param      point_x             X coordinate of the point
-/// @param      point_y             Y coordinate of the point
-/// @param      circle_x            X coordinate of the circle
-/// @param      circle_y            Y coordinate of the circle
-/// @param      radius              Radius of the circle
-bool isInsideCircle ( int point_x, int point_y, int circle_x, int circle_y, int radius )
-{
-    int distance = ( point_x - circle_x ) * ( point_x - circle_x ) + ( point_y - circle_y ) * ( point_y - circle_y );
-    
-    return ( distance <= ( radius * radius ) ) ? true : false;
-}
-
 #pragma mark - SDL
 
 /// Draw circle outline
@@ -229,4 +235,23 @@ int SDL_RenderFillCircle ( SDL_Renderer * renderer, int x, int y, int radius )
     }
 
     return status;
+}
+
+/// Draw a dotted line
+/// @param      renderer            SDL_Renderer
+/// @param      origin              Origin coordinate to draw from
+/// @param      destination         Destination coordinate to draw to
+/// @param      segments            Number of segments in dotted line
+int SDL_RenderDottedLine ( SDL_Renderer * renderer, COORDINATE origin, COORDINATE destination, int segments )
+{
+    int line_space = COORDINATE().get_distance_from ( origin, destination ) / segments;
+    int angle      = DEGREE().get_angle ( origin, destination );
+
+    for ( int i = 0; i < segments; i++ )
+    {
+        origin = DEGREE().rotate ( origin, angle, line_space );
+        SDL_RenderDrawPoint ( renderer, origin.x, origin.y );
+    }
+    
+    return 0;
 }
