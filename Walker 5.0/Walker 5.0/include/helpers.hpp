@@ -14,6 +14,8 @@
 
 #pragma mark - GENERICS
 
+int generate_random ( int upper );
+
 int generate_random ( int lower, int upper );
 
 #pragma mark - ARRAY

@@ -32,12 +32,17 @@ std::map<int, int> hash =
 
 #pragma mark - GENERICS
 
+int generate_random ( int upper )
+{
+    return ( rand ( ) % ( upper + 1 ) );
+}
+
 /// Generates a random number in the range passed
 /// @param      lower               Lower bounds value
 /// @param      upper               Upper bounds value
 int generate_random ( int lower, int upper )
 {
-    return ( rand () % (upper - lower + 1) ) + lower;
+    return ( rand ( ) % ( upper - lower + 1 ) ) + lower;
 }
 
 #pragma mark - ARRAY
@@ -137,6 +142,8 @@ void array_shift ( int array[][2], int SIZE_1D, int SIZE_2D, bool shift_left, in
 
 #pragma mark - SDL
 
+// COLOR
+
 /// Sets  foreground of the renderer
 /// @param      color               RGB values for foreground
 void set_render_draw_color ( SDL_Renderer * renderer, RGB color )
@@ -174,7 +181,12 @@ void set_render_draw_colors ( SDL_Renderer * renderer, RGB background, RGB foreg
     );
 }
 
+// DRAW
 
+/// Draws a circle outline
+/// @param      renderer            SDL_Renderer
+/// @param      coord               Coordinates ( x, y ) to draw
+/// @param      radius              Radius of circle
 int SDL_RenderDrawCircle ( SDL_Renderer * renderer, COORDINATE coord, int radius )
 {
     int offsetx = 0;
@@ -220,6 +232,11 @@ int SDL_RenderDrawCircle ( SDL_Renderer * renderer, COORDINATE coord, int radius
     return status;
 }
 
+/// Draws a circle outline
+/// @param      renderer            SDL_Renderer
+/// @param      coord               Coordinates ( x, y ) to draw
+/// @param      radius              Radius of circle
+/// @param      color               Color of circle's outline
 int SDL_RenderDrawCircle ( SDL_Renderer * renderer, COORDINATE coord, int radius, RGB color )
 {
     set_render_draw_color ( renderer, color );
@@ -268,6 +285,10 @@ int SDL_RenderDrawCircle ( SDL_Renderer * renderer, COORDINATE coord, int radius
 }
 
 
+/// Draws a filled in circle
+/// @param      renderer            SDL_Renderer
+/// @param      coord               Coordinates ( x, y ) to draw
+/// @param      radius              Radius of circle
 int SDL_RenderFillCircle ( SDL_Renderer * renderer, COORDINATE coord, int radius )
 {
     int offsetx = 0;
@@ -309,6 +330,11 @@ int SDL_RenderFillCircle ( SDL_Renderer * renderer, COORDINATE coord, int radius
     return status;
 }
 
+/// Draws a filled in circle
+/// @param      renderer            SDL_Renderer
+/// @param      coord               Coordinates ( x, y ) to draw
+/// @param      radius              Radius of circle
+/// @param      color               Color of the circle
 int SDL_RenderFillCircle ( SDL_Renderer * renderer, COORDINATE coord, int radius, RGB color )
 {
     set_render_draw_color ( renderer, color );
@@ -361,27 +387,33 @@ int SDL_RenderFillCircle ( SDL_Renderer * renderer, COORDINATE coord, int radius
 int SDL_RenderDottedLine ( SDL_Renderer * renderer, COORDINATE origin, COORDINATE destination, int segments )
 {
     int line_space = COORDINATE().get_distance_from ( origin, destination ) / segments;
-    int angle      = DEGREE().get_angle ( origin, destination );
+    int angle      = ANGLE().get_angle ( origin, destination );
 
     for ( int i = 0; i < segments; i++ )
     {
-        origin = DEGREE().rotate ( origin, angle, line_space );
+        origin = ANGLE().rotate ( origin, angle, line_space );
         SDL_RenderDrawPoint ( renderer, origin.x, origin.y );
     }
     
     return 0;
 }
 
+/// Draw a dotted line
+/// @param      renderer            SDL_Renderer
+/// @param      origin              Origin coordinate to draw from
+/// @param      destination         Destination coordinate to draw to
+/// @param      segments            Number of segments in dotted line
+/// @param      color               Color of the dotted line
 int SDL_RenderDottedLine ( SDL_Renderer * renderer, COORDINATE origin, COORDINATE destination, int segments, RGB color )
 {
     set_render_draw_color ( renderer, color );
     
     int line_space = COORDINATE().get_distance_from ( origin, destination ) / segments;
-    int angle      = DEGREE().get_angle ( origin, destination );
+    int angle      = ANGLE().get_angle ( origin, destination );
 
     for ( int i = 0; i < segments; i++ )
     {
-        origin = DEGREE().rotate ( origin, angle, line_space );
+        origin = ANGLE().rotate ( origin, angle, line_space );
         SDL_RenderDrawPoint ( renderer, origin.x, origin.y );
     }
     
@@ -389,6 +421,11 @@ int SDL_RenderDottedLine ( SDL_Renderer * renderer, COORDINATE origin, COORDINAT
 }
 
 
+/// Draw a line
+/// @param      renderer            SDL_Renderer
+/// @param      origin              Origin coordinates ( x, y ) of line
+/// @param      destination         Destination coordinates ( x, y ) of line
+/// @param      color               Color of line
 int SDL_RenderDrawLine ( SDL_Renderer * renderer, COORDINATE origin, COORDINATE destination, RGB color )
 {
     set_render_draw_color ( renderer, color );
@@ -397,6 +434,10 @@ int SDL_RenderDrawLine ( SDL_Renderer * renderer, COORDINATE origin, COORDINATE 
 }
 
 
+/// Draw a point
+/// @param      renderer            SDL_Renderer
+/// @param      origin              Origin coordinates ( x, y ) of point
+/// @param      color               Color of point
 int SDL_RenderDrawPoint ( SDL_Renderer * renderer, COORDINATE origin, RGB color )
 {
     set_render_draw_color ( renderer, color );

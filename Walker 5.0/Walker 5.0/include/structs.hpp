@@ -44,7 +44,7 @@ struct COORDINATE
     }
 };
 
-struct DEGREE
+struct ANGLE
 {
     int MIN = 0, MAX = 360;
     
@@ -52,7 +52,7 @@ struct DEGREE
     
     bool clockwise;
     
-    DEGREE ( int A, int B )
+    ANGLE ( int A, int B )
     {
         this->a = std::clamp ( A, MIN, MAX );
         this->b = std::clamp ( B, MIN, MAX );
@@ -63,9 +63,9 @@ struct DEGREE
     
     // Constructors (Generic) ... //
     
-    DEGREE  ( ) { }
+    ANGLE  ( ) { }
     
-    ~DEGREE ( ) { }
+    ~ANGLE ( ) { }
     
     // Functions ............................................................ //
     

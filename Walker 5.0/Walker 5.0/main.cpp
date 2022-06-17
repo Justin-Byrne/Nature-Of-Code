@@ -9,25 +9,35 @@
 #include <stdlib.h>
 #include <math.h>
 
+//#include <unordered_map>
+#include <string>
 #include <algorithm>
 
 #include "include/structs.hpp"
 #include "include/helpers.hpp"
 
+// DEBUG
 #define DEBUG_ROTATE             0
 #define DEBUG_BODY               1
 #define DEBUG_SENSE              0
 #define DEBUG_SIGHTLINE          1
 #define DEBUG_TRAILS             0
 
+#define DEBUG_ATTRIBUTES         0
+
+// PROGRAM
 #define WINDOW_TITLE  "Walker 5.0"
 #define WINDOW_WIDTH           800
 #define WINDOW_HEIGHT          800
 #define WALKER_MAX             100
-#define DEPTH_MAX              100
+#define DEPTH_MAX               25
 #define REGION_BODY             10
 #define REGION_SENSE            70
 #define LINE_SEGMENTS            6
+
+// ATTRIBUTES
+#define MAX_LEVEL              100
+#define MIN_LEVEL               10
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -36,7 +46,7 @@ SDL_Renderer * renderer = NULL;
 
 bool run_loop = true;
 
-RGB colors[DEPTH_MAX] = { { 0, 0, 0 } };
+RGB step_colors[DEPTH_MAX] = { { 0, 0, 0 } };
 
 #pragma mark - GLOBAL FUNCTION DECLARATIONS
 
@@ -54,6 +64,53 @@ enum STATE
     MOVING,     // 2
 };
 
+struct COLORS
+{
+    RGB white          = { 255, 255, 255 };
+    RGB yellow_sun     = { 237, 235,   0 };
+    RGB green_apple    = { 146, 195,   0 };
+    RGB blue_ice       = {  28,  50, 251 };
+    RGB blue_bright    = {   0, 248, 250 };
+    RGB gray_brilliant = {  84,  84,  84 };
+    RGB black          = {   0,   0,   0 };
+};
+
+COLORS colors;
+
+struct ATTRIBUTES
+{
+    int vitality;
+    
+    int health;
+    int walk_speed;
+    int walk_distance;
+    int stamina;
+    int stamina_refactor;
+    
+    // Constructors ......................................................... //
+    
+    ATTRIBUTES ( int vitality )
+    {
+        // SET MASTER ATTRIBUTE
+        vitality = std::clamp ( vitality, MIN_LEVEL, MAX_LEVEL );
+        
+        this->vitality = generate_random ( MIN_LEVEL, vitality );
+        
+        // DISTRIBUTE TO SLAVE ATTRIBUTES
+        this->health           = generate_random ( MIN_LEVEL, this->vitality );
+        this->walk_speed       = generate_random ( MIN_LEVEL, this->vitality );
+        this->walk_distance    = generate_random ( MIN_LEVEL, this->vitality );
+        this->stamina          = generate_random ( MIN_LEVEL, this->vitality );
+        this->stamina_refactor = generate_random ( MIN_LEVEL, this->vitality );
+    }
+    
+    // Constructors (Generic) ....... //
+    
+    ATTRIBUTES  ( ) { };
+    
+    ~ATTRIBUTES ( ) { };
+};
+
 struct WALKER
 {
     int id;
@@ -66,7 +123,9 @@ struct WALKER
     COORDINATE origin = { 0, 0 };
     COORDINATE steps[DEPTH_MAX];
     
-    DEGREE degree;
+    ANGLE angle;
+    
+    ATTRIBUTES attributes = { generate_random ( 100 ) };
     
     // Constructors ......................................................... //
     
@@ -91,14 +150,14 @@ struct WALKER
     {
         this->state = ROTATE;
         
-        return DEGREE().rotate ( this->origin, degree );
+        return ANGLE().rotate ( this->origin, degree );
     }
     
     COORDINATE rotate ( int degree, int step_length )
     {
         this->state = ROTATE;
         
-        return DEGREE().rotate ( this->origin, degree, step_length );
+        return ANGLE().rotate ( this->origin, degree, step_length );
     }
     
     // > .. Iterators ............... //
@@ -107,7 +166,7 @@ struct WALKER
     {
         cache_steps ( );
         
-        this->origin = DEGREE().rotate ( this->origin, this->degree.a, step_size );
+        this->origin = ANGLE().rotate ( this->origin, this->angle.a, step_size );
         
         this->walk_distance--;
         
@@ -119,15 +178,10 @@ struct WALKER
     void check_boundary ( )
     {
         this->origin.x = ( this->origin.x <= 0 ) ? 1 : this->origin.x;                              // left
-        this->origin.x = ( this->origin.x >= WINDOW_WIDTH  ) ? WINDOW_WIDTH  - 1 : this->origin.x;  // right
+        this->origin.y = ( this->origin.y <= 0 ) ? 1 : this->origin.y;                              // top
         
-        this->origin.y = ( this->origin.y <= 0 ) ? 1                             : this->origin.y;  // top
+        this->origin.x = ( this->origin.x >= WINDOW_WIDTH  ) ? WINDOW_WIDTH  - 1 : this->origin.x;  // right
         this->origin.y = ( this->origin.y >= WINDOW_HEIGHT ) ? WINDOW_HEIGHT - 1 : this->origin.y;  // bottom
-    }
-
-    double get_distance ( COORDINATE point_a, COORDINATE point_b )
-    {
-        return std::sqrt ( point_a.x - point_b.x * point_a.x - point_b.x + point_a.y - point_b.y * point_a.y - point_b.y );
     }
     
     bool is_inside_region ( COORDINATE region )
@@ -212,15 +266,22 @@ void exit ( const char * message )
 }
 
 /// Generates a series of gray colors
-/// @param      highest_color                 Highest number, preferable white... RGB values
-void generate_colors ( int highest_color )
+/// @param      top_color                 Highest number, preferable white... RGB values
+void generate_colors ( int top_color, bool invert = false )
 {
-    highest_color  = std::clamp ( highest_color, 0, 255 );
+    const int COLOR_MIN = 84;
+    const int COLOR_MAX = 255;
     
-    int difference = highest_color / DEPTH_MAX;
+    top_color = std::clamp ( top_color, COLOR_MIN, COLOR_MAX );
     
-    for ( int i = 0; i < DEPTH_MAX; i++ )
-            colors[i] = { ( i * difference ), ( i * difference ), ( i * difference ) };
+    int difference = ( invert ) ? ( top_color - COLOR_MIN ) / DEPTH_MAX : top_color / DEPTH_MAX;
+    
+    if ( invert )
+        for ( int i = DEPTH_MAX - 1; i > -1; i-- )
+            step_colors[i] = { top_color - ( i * difference ), top_color - ( i * difference ), top_color - ( i * difference ) };
+    else
+        for ( int i = 0; i < DEPTH_MAX; i++ )
+            step_colors[i] = { ( ( i + 1 ) * difference ), ( ( i + 1 ) * difference ), ( ( i + 1 ) * difference ) };
 }
 
 #pragma mark - DRAW
@@ -234,14 +295,14 @@ void draw ( )
 
     WALKER walker[WALKER_MAX];
 
-    generate_colors ( 255 );
+    generate_colors ( 255, true );
     
     int padding = 50;
     
     for ( int i = 0; i < WALKER_MAX; i++ )
     {
-        walker[i]        = { COORDINATE { (double) generate_random ( padding, WINDOW_WIDTH - padding ), (double) generate_random ( padding, WINDOW_HEIGHT - padding ) }, REGION_SENSE };
-        walker[i].degree = { generate_random ( 0, 360 ), generate_random ( 0, 360 ) };
+        walker[i]       = { COORDINATE { (double) generate_random ( padding, WINDOW_WIDTH - padding ), (double) generate_random ( padding, WINDOW_HEIGHT - padding ) }, REGION_SENSE };
+        walker[i].angle = { generate_random ( 0, 360 ), generate_random ( 0, 360 ) };
     }
 
     COORDINATE rotate_origin, rotate_destination;
@@ -250,18 +311,18 @@ void draw ( )
     
     while ( run_loop )                                                          // DRAW
     {
-        set_render_draw_colors ( renderer );     // TODO: checke whether can go outside 'while' loop
+        set_render_draw_colors ( renderer, colors.gray_brilliant, colors.white );
         
         for ( int i = 0; i < WALKER_MAX; i++ )
         {
-            SDL_RenderDrawPoint (renderer, walker[i].origin, RGB ( 0, 0, 0 ) );
+            SDL_RenderDrawPoint (renderer, walker[i].origin, colors.white );
             
             #if DEBUG_BODY
-            SDL_RenderDrawCircle ( renderer, walker[i].origin, REGION_BODY, RGB ( 200, 200, 200 ) );
+            SDL_RenderDrawCircle ( renderer, walker[i].origin, REGION_BODY, colors.blue_ice );
             #endif
             
             #if DEBUG_SENSE
-            SDL_RenderDrawCircle ( renderer, walker[i].origin, REGION_SENSE, RGB ( 240, 240, 240 ) );
+            SDL_RenderDrawCircle ( renderer, walker[i].origin, REGION_SENSE, colors.blue_bright );
             #endif
             
             switch ( walker[i].state )
@@ -270,16 +331,16 @@ void draw ( )
                 case ROTATE:
                     
                     #if DEBUG_ROTATE
-                    rotate_origin      = walker[i].rotate ( walker[i].degree.a, REGION_BODY );
-                    SDL_RenderDrawLine ( renderer, walker[i].origin, rotate_origin, RGB ( 100, 100, 100 ) );
+                    rotate_origin      = walker[i].rotate ( walker[i].angle.a, REGION_BODY );
+                    SDL_RenderDrawLine ( renderer, walker[i].origin, rotate_origin, colors.yellow_sun );
 
-                    rotate_destination = walker[i].rotate ( walker[i].degree.b, REGION_BODY );
-                    SDL_RenderDrawLine ( renderer, walker[i].origin, rotate_destination, RGB (  50,  50,  50 ) );
+                    rotate_destination = walker[i].rotate ( walker[i].angle.b, REGION_BODY );
+                    SDL_RenderDrawLine ( renderer, walker[i].origin, rotate_destination, colors.black );
                     #endif
                     
-                    ( walker[i].degree.clockwise ) ? walker[i].degree.advance ( ) : walker[i].degree.regress ( );
+                    ( walker[i].angle.clockwise ) ? walker[i].angle.advance ( ) : walker[i].angle.regress ( );
                     
-                    if ( walker[i].degree.distance == 0 )
+                    if ( walker[i].angle.distance == 0 )
                     {
                         walker[i].state         = MOVING;
                         walker[i].walk_distance = generate_random ( 1, 30 );
@@ -294,21 +355,21 @@ void draw ( )
                     if ( walker[i].walk_distance == 0 )
                     {
                         walker[i].state  = SILENT;
-                        walker[i].degree = { walker[i].degree.b, generate_random ( 0, 360 ) };
+                        walker[i].angle = { walker[i].angle.b, generate_random ( 0, 360 ) };
                     }
                     
                     break;
             }
             
             #if DEBUG_SIGHTLINE
-            for ( int j = i + 1; j < WALKER_MAX; j++ )                          // Draw connecting sightline to nearby entity
-                if ( walker[i].is_inside_region( COORDINATE { walker[j].origin.x, walker[j].origin.y } ) )
-                    SDL_RenderDottedLine ( renderer, walker[i].origin, walker[j].origin, LINE_SEGMENTS, RGB ( 225, 0, 1 ) );
+            for ( int j = i + 1; j < WALKER_MAX; j++ )
+                if ( walker[i].is_inside_region ( COORDINATE { walker[j].origin.x, walker[j].origin.y } ) )
+                    SDL_RenderDottedLine ( renderer, walker[i].origin, walker[j].origin, LINE_SEGMENTS, colors.yellow_sun );
             #endif
             
             #if DEBUG_TRAILS
-            for ( int j = 0; j < DEPTH_MAX; j++ )                               // Draw trailing steps
-                SDL_RenderDrawPoint ( renderer, walker[i].steps[j], colors[j] );
+            for ( int j = 0; j < DEPTH_MAX; j++ )
+                SDL_RenderDrawPoint ( renderer, walker[i].steps[j], step_colors[j] );
             #endif
         }
         
@@ -316,6 +377,35 @@ void draw ( )
         
         SDL_Delay ( 50 );
 
+        #if DEBUG_ATTRIBUTES
+        std::string OUTPUT;
+
+        for ( int i = 0; i < WALKER_MAX; i++ )
+        {
+            OUTPUT = std::string() +
+                "[ OUTPUT ]\n\n" +
+                    "\twalker[%d].id: \t\t\t\t >> %d <<\n"            +
+                    "\tattributes.vitality: \t\t\t%d\n"      +
+                    "\tattributes.health: \t\t\t\t%d\n"      +
+                    "\tattributes.walk_speed: \t\t\t%d\n"    +
+                    "\tattributes.walk_distance: \t\t%d\n"   +
+                    "\tattributes.stamina: \t\t\t%d\n"       +
+                    "\tattributes.stamina_refactor: \t%d\n\n";
+
+            printf (
+                    OUTPUT.c_str ( ),
+                    i,
+                    walker[i].id,
+                    walker[i].attributes.vitality,
+                    walker[i].attributes.health,
+                    walker[i].attributes.walk_speed,
+                    walker[i].attributes.walk_distance,
+                    walker[i].attributes.stamina,
+                    walker[i].attributes.stamina_refactor
+            );
+        }
+        #endif
+        
         while ( SDL_PollEvent ( &sdl_event )  )
         {
             if ( sdl_event.type == SDL_QUIT )
