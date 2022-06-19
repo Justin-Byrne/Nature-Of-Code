@@ -9,9 +9,9 @@
 #include <stdlib.h>
 #include <math.h>
 
-//#include <unordered_map>
-#include <string>
+#include <string>       // TODO: Omit this !
 #include <algorithm>
+#include <random>
 
 #include "include/structs.hpp"
 #include "include/helpers.hpp"
@@ -102,6 +102,8 @@ struct ATTRIBUTES
         this->walk_distance    = generate_random ( MIN_LEVEL, this->vitality );
         this->stamina          = generate_random ( MIN_LEVEL, this->vitality );
         this->stamina_refactor = generate_random ( MIN_LEVEL, this->vitality );
+        
+        normal_distribution ( 0.5, 0.2, 1000 );
     }
     
     // Constructors (Generic) ....... //
@@ -109,6 +111,25 @@ struct ATTRIBUTES
     ATTRIBUTES  ( ) { };
     
     ~ATTRIBUTES ( ) { };
+    
+    // Functions ............................................................ //
+    
+    void normal_distribution ( double mean, double deviation, int samples )
+    {
+        std::random_device rd { };
+        std::mt19937 gen { rd ( ) };
+         
+        // values near the mean are the most likely
+        // standard deviation affects the dispersion of generated values from the mean
+        std::normal_distribution<> d { mean, deviation };
+        std::map<int, int> hist { };
+            
+        for ( int n = 0; n < samples; n++ )
+            hist [ std::round ( d ( gen ) ) ]++;
+
+//        for ( auto p : hist )
+//            printf ( "p.first: %d\n %d\n", p.first, ( p.second / 200 ) );
+    }
 };
 
 struct WALKER
@@ -209,7 +230,7 @@ int main ( int argc, char * arg[] )
 {
     setup_window ( WINDOW_TITLE, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT );
     
-    srand ( (unsigned) time (0) );                          // seed randomizer
+    srand ( (unsigned) time (0) );                                              // seed randomizer
     
     draw ( );
     
@@ -378,31 +399,10 @@ void draw ( )
         SDL_Delay ( 50 );
 
         #if DEBUG_ATTRIBUTES
-        std::string OUTPUT;
-
         for ( int i = 0; i < WALKER_MAX; i++ )
         {
-            OUTPUT = std::string() +
-                "[ OUTPUT ]\n\n" +
-                    "\twalker[%d].id: \t\t\t\t >> %d <<\n"            +
-                    "\tattributes.vitality: \t\t\t%d\n"      +
-                    "\tattributes.health: \t\t\t\t%d\n"      +
-                    "\tattributes.walk_speed: \t\t\t%d\n"    +
-                    "\tattributes.walk_distance: \t\t%d\n"   +
-                    "\tattributes.stamina: \t\t\t%d\n"       +
-                    "\tattributes.stamina_refactor: \t%d\n\n";
-
-            printf (
-                    OUTPUT.c_str ( ),
-                    i,
-                    walker[i].id,
-                    walker[i].attributes.vitality,
-                    walker[i].attributes.health,
-                    walker[i].attributes.walk_speed,
-                    walker[i].attributes.walk_distance,
-                    walker[i].attributes.stamina,
-                    walker[i].attributes.stamina_refactor
-            );
+            std::string OUTPUT = std::string() + "[ OUTPUT ]\n\n" + "\twalker[%d].id: \t\t\t\t >> %d <<\n" + "\tattributes.vitality: \t\t\t%d\n" + "\tattributes.health: \t\t\t\t%d\n" + "\tattributes.walk_speed: \t\t\t%d\n" + "\tattributes.walk_distance: \t\t%d\n" + "\tattributes.stamina: \t\t\t%d\n" + "\tattributes.stamina_refactor: \t%d\n\n";
+            printf ( OUTPUT.c_str ( ), i, walker[i].id, walker[i].attributes.vitality, walker[i].attributes.health, walker[i].attributes.walk_speed, walker[i].attributes.walk_distance, walker[i].attributes.stamina, walker[i].attributes.stamina_refactor );
         }
         #endif
         
