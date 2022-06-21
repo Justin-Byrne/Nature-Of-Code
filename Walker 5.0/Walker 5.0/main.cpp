@@ -23,7 +23,7 @@
 #define DEBUG_SIGHTLINE          1
 #define DEBUG_TRAILS             0
 
-#define DEBUG_ATTRIBUTES         0
+#define PRINT_ATTRIBUTES         0
 
 // PROGRAM
 #define WINDOW_TITLE  "Walker 5.0"
@@ -37,7 +37,7 @@
 
 // ATTRIBUTES
 #define MAX_LEVEL              100
-#define MIN_LEVEL               10
+#define MIN_LEVEL                0
 
 #pragma mark - GLOBAL VARIABLE DECLARATIONS
 
@@ -87,48 +87,43 @@ struct ATTRIBUTES
     int stamina;
     int stamina_refactor;
     
-    // Constructors ......................................................... //
+    // Constructors (Generic) ............................................... //
     
-    ATTRIBUTES ( int vitality )
+    ATTRIBUTES ( )
     {
         // SET MASTER ATTRIBUTE
-        vitality = std::clamp ( vitality, MIN_LEVEL, MAX_LEVEL );
-        
-        this->vitality = generate_random ( MIN_LEVEL, vitality );
+        this->vitality = get_distributed_value ( 50, 20 );
         
         // DISTRIBUTE TO SLAVE ATTRIBUTES
-        this->health           = generate_random ( MIN_LEVEL, this->vitality );
-        this->walk_speed       = generate_random ( MIN_LEVEL, this->vitality );
-        this->walk_distance    = generate_random ( MIN_LEVEL, this->vitality );
-        this->stamina          = generate_random ( MIN_LEVEL, this->vitality );
-        this->stamina_refactor = generate_random ( MIN_LEVEL, this->vitality );
+        int mean               = this->vitality * 0.5;
+        int standard_deviation = this->vitality * 0.2;
         
-        normal_distribution ( 0.5, 0.2, 1000 );
+        this->health           = get_distributed_value ( mean, standard_deviation );
+        this->walk_speed       = get_distributed_value ( mean, standard_deviation );
+        this->walk_distance    = get_distributed_value ( mean, standard_deviation );
+        this->stamina          = get_distributed_value ( mean, standard_deviation );
+        this->stamina_refactor = get_distributed_value ( mean, standard_deviation );
     }
-    
-    // Constructors (Generic) ....... //
-    
-    ATTRIBUTES  ( ) { };
     
     ~ATTRIBUTES ( ) { };
     
     // Functions ............................................................ //
     
-    void normal_distribution ( double mean, double deviation, int samples )
+    // > .. Getters ................. //
+    
+    int get_distributed_value ( int mean, int standard_deviation )
     {
-        std::random_device rd { };
-        std::mt19937 gen { rd ( ) };
-         
-        // values near the mean are the most likely
-        // standard deviation affects the dispersion of generated values from the mean
-        std::normal_distribution<> d { mean, deviation };
-        std::map<int, int> hist { };
-            
-        for ( int n = 0; n < samples; n++ )
-            hist [ std::round ( d ( gen ) ) ]++;
-
-//        for ( auto p : hist )
-//            printf ( "p.first: %d\n %d\n", p.first, ( p.second / 200 ) );
+        int result = 0;
+        
+        std::random_device               random_device;
+        std::default_random_engine       random_engine ( random_device ( ) );
+        std::normal_distribution<double> distribution  ( mean, standard_deviation );
+        
+        do
+            result = (int) std::round ( distribution ( random_engine ) );
+        while ( ( result < 1 ) );
+        
+        return result;
     }
 };
 
@@ -139,14 +134,14 @@ struct WALKER
     
     int state         = SILENT;
     int radius        = 0;
-    int walk_distance = 0;
+    int walk_distance = 0;      // << TODO: Link to Attributes !!!
     
     COORDINATE origin = { 0, 0 };
     COORDINATE steps[DEPTH_MAX];
     
     ANGLE angle;
     
-    ATTRIBUTES attributes = { generate_random ( 100 ) };
+    ATTRIBUTES attributes;
     
     // Constructors ......................................................... //
     
@@ -239,7 +234,7 @@ int main ( int argc, char * arg[] )
     SDL_DestroyWindow ( window );
     SDL_Quit ( );
     /* - - - - - - clean up - - - - - - */
-
+    
     return 0;
 }
 
@@ -398,12 +393,9 @@ void draw ( )
         
         SDL_Delay ( 50 );
 
-        #if DEBUG_ATTRIBUTES
+        #if PRINT_ATTRIBUTES
         for ( int i = 0; i < WALKER_MAX; i++ )
-        {
-            std::string OUTPUT = std::string() + "[ OUTPUT ]\n\n" + "\twalker[%d].id: \t\t\t\t >> %d <<\n" + "\tattributes.vitality: \t\t\t%d\n" + "\tattributes.health: \t\t\t\t%d\n" + "\tattributes.walk_speed: \t\t\t%d\n" + "\tattributes.walk_distance: \t\t%d\n" + "\tattributes.stamina: \t\t\t%d\n" + "\tattributes.stamina_refactor: \t%d\n\n";
-            printf ( OUTPUT.c_str ( ), i, walker[i].id, walker[i].attributes.vitality, walker[i].attributes.health, walker[i].attributes.walk_speed, walker[i].attributes.walk_distance, walker[i].attributes.stamina, walker[i].attributes.stamina_refactor );
-        }
+            printf ( "[ attributes ]\n\n\twalker[%d].id: \t\t\t\t >> %d <<\n\tattributes.vitality: \t\t   [%d]\n\tattributes.health: \t\t\t\t%d\n\tattributes.walk_speed: \t\t\t%d\n\tattributes.walk_distance: \t\t%d\n\tattributes.stamina: \t\t\t%d\n\tattributes.stamina_refactor: \t%d\n\n", i, walker[i].id, walker[i].attributes.vitality, walker[i].attributes.health, walker[i].attributes.walk_speed, walker[i].attributes.walk_distance, walker[i].attributes.stamina, walker[i].attributes.stamina_refactor );
         #endif
         
         while ( SDL_PollEvent ( &sdl_event )  )

@@ -17,7 +17,7 @@ int calls = 0;                          // tracks amount of times 'get_color_val
 
 int get_color_value ( int phase )
 {
-    double sin_value = sin( ( FREQUENCY * i + phase ) * AMPLITUDE + CENTER );
+    double sin_value = sin ( ( FREQUENCY * i + phase ) * AMPLITUDE + CENTER );
     double new_value = ( ( ( sin_value - RANGE_OLD_MIN ) * range_new ) / range_old ) + RANGE_NEW_MIN;
     
     switch ( calls )
@@ -26,7 +26,7 @@ int get_color_value ( int phase )
         default:  calls++;         break;
     }
     
-    return int ( (int) round( new_value ) );
+    return int ( (int) round ( new_value ) );
 }
 
 int * get_color_values ( )
